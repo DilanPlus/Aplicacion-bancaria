@@ -16,7 +16,7 @@ public class EcEduEpnPrograII2022AAplicacionBancaria {
     public static void main(String[] args) {
         // TODO code application logic here
         if (true) {
-            System.out.println("verdadero"+"prueba");       
+            System.out.println("verdadero"+"prueba ");       
         }
     }
     
