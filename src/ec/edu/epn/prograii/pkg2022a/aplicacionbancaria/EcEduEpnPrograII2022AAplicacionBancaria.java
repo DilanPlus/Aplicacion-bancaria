@@ -19,5 +19,5 @@ public class EcEduEpnPrograII2022AAplicacionBancaria {
             System.out.println("verdadero");       
         }
     }
-    
+    //si vale xd
 }
