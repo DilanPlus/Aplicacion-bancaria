@@ -4,18 +4,41 @@
  */
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.Timer;
+
 /**
  *
  * @author DilanPlus
  */
 public class VentanaTranferencia extends javax.swing.JFrame {
-    VentanaDetalle hola=new VentanaDetalle();
+    public Timer tiempo;
     
-    /**
-     * Creates new form VentanaTranferencia
-     */
     public VentanaTranferencia() {
         initComponents();
+        mostrarCuenta();
+        this.setLocation(500, 150);
+        /*tiempo = new Timer(1, null);
+        tiempo.start();
+        tiempo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Metodo para obtener informacion de una variable publica y estatica
+                //En este caso le cambie el origen de la variable nCuenta
+                lblCuenta.setText(String.valueOf(EcEduEpnPrograII2022AAplicacionBancaria.nCuenta));
+        
+                //Metodo para obtener inforacion de el label publico y estatica
+                //jLabel1.setText(VentanaDetalle.lblCuenta.getText());
+        
+                //Tambien lo podemos usar para enviar informacion
+                //VentanaDetalle.lblCuenta.setText(this.lblCuenta.getText());
+            }
+        });*/
     }
 
     /**
@@ -27,41 +50,128 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        lblSaldo = new javax.swing.JLabel();
+        btnTransferenciaN = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        lblCuenta = new javax.swing.JLabel();
+        btnTransferenciaI = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuInicio = new javax.swing.JMenu();
+        menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setText("Nº");
+
+        lblSaldo.setText("000000");
+
+        btnTransferenciaN.setText("Transferencia Nacional");
+        btnTransferenciaN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnTransferenciaNActionPerformed(evt);
             }
         });
+
+        jLabel6.setText("Saldo");
+
+        lblCuenta.setText("000000");
+
+        btnTransferenciaI.setText("Transferencia Internacional");
+        btnTransferenciaI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTransferenciaIActionPerformed(evt);
+            }
+        });
+
+        menuInicio.setText("Inicio");
+        jMenuBar1.add(menuInicio);
+
+        menuVolver.setText("Volver");
+        menuVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuVolverMouseClicked(evt);
+            }
+        });
+        menuVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuVolverActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuVolver);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(169, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(156, 156, 156))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCuenta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSaldo)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnTransferenciaI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTransferenciaN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jButton1)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lblCuenta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lblSaldo))
+                .addGap(23, 23, 23)
+                .addComponent(btnTransferenciaN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnTransferenciaI, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnTransferenciaNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaNActionPerformed
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnTransferenciaNActionPerformed
 
+    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
+        VentanaDetalle abrir= new VentanaDetalle();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuVolverActionPerformed
+
+    private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
+        VentanaDetalle abrir= new VentanaDetalle();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuVolverMouseClicked
+
+    private void btnTransferenciaIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTransferenciaIActionPerformed
+
+    public void mostrarCuenta(){
+    lblCuenta.setText(String.valueOf(EcEduEpnPrograII2022AAplicacionBancaria.nCuenta));
+    lblSaldo.setText(String.valueOf(Math.round(EcEduEpnPrograII2022AAplicacionBancaria.nSaldo*100d)/100d));  
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -98,6 +208,14 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnTransferenciaI;
+    private javax.swing.JButton btnTransferenciaN;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lblCuenta;
+    private javax.swing.JLabel lblSaldo;
+    private javax.swing.JMenu menuInicio;
+    private javax.swing.JMenu menuVolver;
     // End of variables declaration//GEN-END:variables
 }

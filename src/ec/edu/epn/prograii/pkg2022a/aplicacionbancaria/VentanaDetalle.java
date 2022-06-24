@@ -5,9 +5,12 @@
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 /**
  *
@@ -15,14 +18,13 @@ import javax.swing.JLabel;
  */
 public class VentanaDetalle extends javax.swing.JFrame {
     Tiempo time= new Tiempo();
-    int numeroCuenta;
+    public Timer tiempo;
     
     public VentanaDetalle() {
         initComponents();
         mostrarTiempo();
-        numCuenta();
-        numSaldo();
-        this.setLocationRelativeTo(this);
+        mostrarCuenta();
+        this.setLocation(500, 150);
         SetImageLabel(lblPersona, "src\\ec\\edu\\epn\\prograii\\pkg2022a\\aplicacionbancaria\\imagenes\\iconPersona.jpg");
     }
     
@@ -44,8 +46,8 @@ public class VentanaDetalle extends javax.swing.JFrame {
         btnTransferir = new javax.swing.JButton();
         btnCredito = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        menuInicio = new javax.swing.JMenu();
+        menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,11 +90,23 @@ public class VentanaDetalle extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.setName(""); // NOI18N
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuInicio.setText("Inicio");
+        menuInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInicioActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuInicio);
+
+        menuVolver.setText("Volver");
+        menuVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuVolverActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuVolver);
 
         setJMenuBar(jMenuBar1);
 
@@ -117,11 +131,7 @@ public class VentanaDetalle extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSaldo)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jLabel6))))
+                                .addComponent(lblSaldo))
                             .addComponent(lblFecha))
                         .addGap(17, 17, 17)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -134,10 +144,13 @@ public class VentanaDetalle extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(81, 81, 81))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(119, 119, 119))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(103, 103, 103))))
+                        .addGap(106, 106, 106))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,10 +190,37 @@ public class VentanaDetalle extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreditoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-        
-        
+        VentanaTranferencia abrir = new VentanaTranferencia();
+        abrir.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnTransferirActionPerformed
 
+    private void menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuInicioActionPerformed
+
+    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuVolverActionPerformed
+
+    private void SetImageLabel(JLabel labelName, String root){
+        ImageIcon image=new ImageIcon(root);
+        Icon icon = new ImageIcon(
+                image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT)
+        );
+        labelName.setIcon(icon);
+        this.repaint();
+    }
+    
+    public void mostrarTiempo(){
+    lblFecha.setText(time.fechaCompleta);
+    }
+    
+    public void mostrarCuenta(){
+    lblCuenta.setText(String.valueOf(EcEduEpnPrograII2022AAplicacionBancaria.nCuenta));
+    lblSaldo.setText(String.valueOf(Math.round(EcEduEpnPrograII2022AAplicacionBancaria.nSaldo*100d)/100d));  
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -215,30 +255,6 @@ public class VentanaDetalle extends javax.swing.JFrame {
             }
         });
     }
-    
-    private void SetImageLabel(JLabel labelName, String root){
-        ImageIcon image=new ImageIcon(root);
-        Icon icon = new ImageIcon(
-                image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT)
-        );
-        labelName.setIcon(icon);
-        this.repaint();
-    }
-    
-    public void mostrarTiempo(){
-    lblFecha.setText(time.fechaCompleta);
-    }
-    
-    public void numCuenta(){
-    int nCuenta=1+(int)(Math.random()*999999);
-    lblCuenta.setText(String.valueOf(nCuenta));
-    }
-    
-    public void numSaldo(){
-    double nSaldo=(Math.random()*999999);
-    lblSaldo.setText(String.valueOf(Math.round(nSaldo*100d)/100d));
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCredito;
@@ -249,12 +265,12 @@ public class VentanaDetalle extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel lblCuenta;
+    public static javax.swing.JLabel lblCuenta;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblPersona;
     private javax.swing.JLabel lblSaldo;
+    private javax.swing.JMenu menuInicio;
+    private javax.swing.JMenu menuVolver;
     // End of variables declaration//GEN-END:variables
 }
