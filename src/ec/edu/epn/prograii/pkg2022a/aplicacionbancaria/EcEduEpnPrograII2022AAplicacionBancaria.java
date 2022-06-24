@@ -22,5 +22,6 @@ public static double nSaldo;
         VentanaDetalle abrir = new VentanaDetalle();
         abrir.setVisible(true);
         
+        
     }
 }
