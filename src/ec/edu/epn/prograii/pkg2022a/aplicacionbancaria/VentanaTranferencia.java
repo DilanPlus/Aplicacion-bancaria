@@ -34,7 +34,6 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         rbtnDestino.setVisible(false);
         btnTransferir.setVisible(false);
         lblTipo.setVisible(false);
-      
         
         /*tiempo = new Timer(1, null);
         tiempo.start();
