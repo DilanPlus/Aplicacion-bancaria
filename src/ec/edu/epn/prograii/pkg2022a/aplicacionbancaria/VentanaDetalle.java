@@ -26,6 +26,7 @@ public class VentanaDetalle extends javax.swing.JFrame {
         mostrarCuenta();
         this.setLocation(500, 150);
         SetImageLabel(lblPersona, "src\\ec\\edu\\epn\\prograii\\pkg2022a\\aplicacionbancaria\\imagenes\\iconPersona.jpg");
+        
     }
     
     
