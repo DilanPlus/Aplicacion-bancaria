@@ -21,5 +21,6 @@ public static double nSaldo;
         nSaldo=(Math.random()*999999);
         VentanaDetalle abrir = new VentanaDetalle();
         abrir.setVisible(true);
+        
     }
 }
