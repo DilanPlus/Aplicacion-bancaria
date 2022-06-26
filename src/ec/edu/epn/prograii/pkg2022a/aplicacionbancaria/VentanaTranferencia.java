@@ -23,6 +23,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         initComponents();
         mostrarCuenta();
         this.setLocation(500, 150);
+        
         /*tiempo = new Timer(1, null);
         tiempo.start();
         tiempo.addActionListener(new ActionListener() {
