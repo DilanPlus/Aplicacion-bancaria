@@ -6,7 +6,7 @@ package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
 /**
  *
- * @author Elizabeth
+ * @author PC
  */
 public class VentanaExitosa extends javax.swing.JFrame {
 
@@ -28,75 +28,34 @@ public class VentanaExitosa extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnAcept = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        txtMontoTrans = new javax.swing.JTextField();
+        Saldocredito = new javax.swing.JTextField();
+        Saldocuenta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtNomRec = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtNcuenRec = new javax.swing.JTextField();
-        txtCorreoRec = new javax.swing.JTextField();
-        txtBancRec = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("¡¡¡TRANSFERENCIA EXITOSA!!!");
+        jLabel1.setText("Pago de crédito exitoso");
 
-        jLabel2.setText("Datos de la transferencia: ");
+        jLabel2.setText("Saldo restante crédito:");
+        jLabel2.setToolTipText("");
 
-        btnAcept.setText("ACEPTAR");
-        btnAcept.addActionListener(new java.awt.event.ActionListener() {
+        Saldocuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptActionPerformed(evt);
+                SaldocuentaActionPerformed(evt);
             }
         });
 
-        btnSalir.setText("SALIR");
-        btnSalir.setToolTipText("");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setText("Saldo total:");
+        jLabel3.setToolTipText("");
+
+        jButton1.setText("Volver al inico");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-
-        txtMontoTrans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMontoTransActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Monto Transferido:");
-
-        txtNomRec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomRecActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Nombre del beneficiario:");
-
-        jLabel5.setText("N° de cuenta del beneficiario:");
-
-        jLabel6.setText("Correo:");
-
-        jLabel7.setText("Banco Destino:");
-
-        txtNcuenRec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNcuenRecActionPerformed(evt);
-            }
-        });
-
-        txtCorreoRec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoRecActionPerformed(evt);
-            }
-        });
-
-        txtBancRec.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,102 +64,51 @@ public class VentanaExitosa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(btnSalir))
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
+                        .addGap(93, 93, 93)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(42, 42, 42)
-                                .addComponent(txtNomRec, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel7))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCorreoRec)
-                                    .addComponent(txtNcuenRec)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtMontoTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtBancRec))))))
-                .addContainerGap(162, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Saldocredito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Saldocuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(83, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAcept)
-                .addGap(116, 116, 116))
+                .addComponent(jButton1)
+                .addGap(134, 134, 134))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNomRec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtNcuenRec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtCorreoRec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txtBancRec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtMontoTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAcept)
-                    .addComponent(btnSalir))
-                .addGap(94, 94, 94))
+                    .addComponent(jLabel2)
+                    .addComponent(Saldocredito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(Saldocuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(48, 48, 48))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
+    private void SaldocuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaldocuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAceptActionPerformed
+    }//GEN-LAST:event_SaldocuentaActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void txtMontoTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoTransActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMontoTransActionPerformed
-
-    private void txtNomRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomRecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomRecActionPerformed
-
-    private void txtNcuenRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNcuenRecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNcuenRecActionPerformed
-
-    private void txtCorreoRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoRecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoRecActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,19 +146,11 @@ public class VentanaExitosa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAcept;
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JTextField Saldocredito;
+    private javax.swing.JTextField Saldocuenta;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    public static javax.swing.JTextField txtBancRec;
-    public static javax.swing.JTextField txtCorreoRec;
-    public static javax.swing.JTextField txtMontoTrans;
-    public static javax.swing.JTextField txtNcuenRec;
-    public static javax.swing.JTextField txtNomRec;
     // End of variables declaration//GEN-END:variables
 }
