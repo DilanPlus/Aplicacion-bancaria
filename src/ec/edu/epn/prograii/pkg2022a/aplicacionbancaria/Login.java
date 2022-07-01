@@ -1,6 +1,7 @@
 
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
+
 import java.awt.Color;
 
 public class Login extends javax.swing.JFrame {
@@ -48,6 +49,11 @@ public class Login extends javax.swing.JFrame {
         txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtUsuarioMousePressed(evt);
+            }
+        });
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
             }
         });
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 134, 248, 30));
@@ -142,10 +148,14 @@ public class Login extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Su contraseña debe tener como minimo 6 digitos");
             // mensaje de que su contraseña debe tener como minimo 6 digitos
         }else{
+            if(txtUsuario.getText().equals("Ingresar su usuario")){
+                javax.swing.JOptionPane.showMessageDialog(this, "Ingrese un usuario valido");
+            }else{
             Home v2=new Home();
             v2.setVisible(true);
             
             this.dispose();
+            }
         }
         
     }//GEN-LAST:event_btnIngresarActionPerformed
@@ -154,6 +164,10 @@ public class Login extends javax.swing.JFrame {
         
         javax.swing.JOptionPane.showMessageDialog(this, "DEBE CREARSE PRIMERO UNA CUENTA CRACK");
     }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     
     public static void main(String args[]) {
