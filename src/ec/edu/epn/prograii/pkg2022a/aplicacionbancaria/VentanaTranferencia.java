@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import Atxy2k.CustomTextField.RestrictedTextField;
 
 /**
  *
@@ -26,14 +27,20 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         mostrarCuenta();
         this.setLocation(500, 150);
         gbtnDestino.add(rbtnDestino);
+        
         btnTransferenciaN.setBackground(Color.LIGHT_GRAY);
         btnTransferenciaI.setBackground(Color.LIGHT_GRAY);
+        
         lblMonto.setVisible(false);
         lblDestino.setVisible(false);
         txtMonto.setVisible(false);
         rbtnDestino.setVisible(false);
         btnTransferir.setVisible(false);
         lblTipo.setVisible(false);
+        
+        RestrictedTextField restricted = new RestrictedTextField(txtMonto);
+        restricted.setLimit(999999);
+        restricted.setOnlyNums(true);
         
         /*tiempo = new Timer(1, null);
         tiempo.start();
