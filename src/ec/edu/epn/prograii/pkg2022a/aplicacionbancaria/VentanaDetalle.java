@@ -18,13 +18,18 @@ import javax.swing.Timer;
  * @author DilanPlus
  */
 public class VentanaDetalle extends javax.swing.JFrame {
+    String usuario;
+    int cuenta;
+    float saldo;
+    
     Tiempo time= new Tiempo();
  
     
     public VentanaDetalle() {
         initComponents();
         mostrarTiempo();
-        mostrarCuenta();
+        
+        
         this.setLocation(500, 150);
         SetImageLabel(lblPersona, "src\\ec\\edu\\epn\\prograii\\pkg2022a\\aplicacionbancaria\\imagenes\\iconPersona.jpg");
         
@@ -74,7 +79,7 @@ public class VentanaDetalle extends javax.swing.JFrame {
         jLabel6.setText("SALDO DISPONIBLE");
 
         lblSaldo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblSaldo.setText("000000,00");
+        lblSaldo.setText("000,00");
 
         btnTransferir.setText("TRANSFERIR");
         btnTransferir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -128,36 +133,33 @@ public class VentanaDetalle extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(81, 81, 81))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(119, 119, 119))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(106, 106, 106))))
+                        .addGap(106, 106, 106))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSaldo)
+                            .addComponent(jLabel6))
+                        .addGap(105, 105, 105))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNombre)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblFecha)
-                                .addGap(125, 125, 125)))
+                        .addComponent(lblPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombre)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCuenta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(lblSaldo)))
+                        .addComponent(lblFecha)
+                        .addGap(125, 125, 125)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCuenta)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -198,8 +200,9 @@ public class VentanaDetalle extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreditoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-        VentanaTranferencia abrir = new VentanaTranferencia();
-        abrir.setVisible(true);
+        VentanaTranferencia transferencia = new VentanaTranferencia();
+        transferencia.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        transferencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnTransferirActionPerformed
 
@@ -230,10 +233,14 @@ public class VentanaDetalle extends javax.swing.JFrame {
     lblFecha.setText(time.fechaCompleta);
     }
     
-    public  void mostrarCuenta(){
-    lblNombre.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
-    lblCuenta.setText(String.valueOf(usua1.getnCuentaCorriente()));
-    lblSaldo.setText((" $ ")+String.valueOf(usua1.getSaldoCorriente()));  
+    public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
+    this.usuario=usuario;
+    this.cuenta=cuenta;
+    this.saldo=saldo;
+    
+    lblNombre.setText(String.valueOf(usuario));
+    lblCuenta.setText(String.valueOf(cuenta));
+    lblSaldo.setText((" $ ")+String.valueOf(saldo));  
    
     }
     

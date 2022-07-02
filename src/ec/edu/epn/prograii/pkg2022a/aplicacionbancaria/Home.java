@@ -9,7 +9,7 @@ public class Home extends javax.swing.JFrame {
        
     public Home() {
         initComponents();
-        
+        mostrarTiempo();
         
         this.setLocation(500, 150);
         
@@ -24,7 +24,7 @@ public class Home extends javax.swing.JFrame {
         txtnCuentaCredito.setText(String.valueOf(usua1.getnCuentaCredito()));
         
         /* Se asignas nombres aleatorios */
-        lblFecha.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
+        txtNombreUsuario.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
     }
 
     
@@ -38,18 +38,18 @@ public class Home extends javax.swing.JFrame {
         labelCuentaCorriente = new javax.swing.JLabel();
         txtnCuentaCorriente = new javax.swing.JTextField();
         txtSaldoCorriente = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblCuentaCorriente = new javax.swing.JLabel();
         lblFecha = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        fondoPantalla3 = new javax.swing.JPanel();
         labelCuentaAhorro = new javax.swing.JLabel();
         txtnCuentaAhorro = new javax.swing.JTextField();
         txtSaldoAhorro = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        lblCuentaAhorro = new javax.swing.JLabel();
+        fondoPantalla4 = new javax.swing.JPanel();
         labelCredito = new javax.swing.JLabel();
         txtSaldoCredito = new javax.swing.JTextField();
         txtnCuentaCredito = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblCuentaCredito = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -100,8 +100,13 @@ public class Home extends javax.swing.JFrame {
         });
         fondoPantalla2.add(txtSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 139, 34));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
-        fondoPantalla2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+        lblCuentaCorriente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
+        lblCuentaCorriente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCuentaCorrienteMouseClicked(evt);
+            }
+        });
+        fondoPantalla2.add(lblCuentaCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
         fondoPantalla1.add(fondoPantalla2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 440, 90));
 
@@ -117,18 +122,23 @@ public class Home extends javax.swing.JFrame {
         });
         fondoPantalla1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        fondoPantalla3.setBackground(new java.awt.Color(153, 153, 255));
+        fondoPantalla3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fondoPantalla3MouseClicked(evt);
+            }
+        });
+        fondoPantalla3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelCuentaAhorro.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         labelCuentaAhorro.setText("Cuenta Ahorro");
-        jPanel1.add(labelCuentaAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        fondoPantalla3.add(labelCuentaAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         txtnCuentaAhorro.setEditable(false);
         txtnCuentaAhorro.setBackground(new java.awt.Color(153, 153, 255));
         txtnCuentaAhorro.setFont(new java.awt.Font("Segoe UI", 2, 19)); // NOI18N
         txtnCuentaAhorro.setBorder(null);
-        jPanel1.add(txtnCuentaAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 160, 32));
+        fondoPantalla3.add(txtnCuentaAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 160, 32));
 
         txtSaldoAhorro.setEditable(false);
         txtSaldoAhorro.setBackground(new java.awt.Color(204, 204, 255));
@@ -139,36 +149,51 @@ public class Home extends javax.swing.JFrame {
                 txtSaldoAhorroActionPerformed(evt);
             }
         });
-        jPanel1.add(txtSaldoAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 140, 34));
+        fondoPantalla3.add(txtSaldoAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 140, 34));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+        lblCuentaAhorro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
+        lblCuentaAhorro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCuentaAhorroMouseClicked(evt);
+            }
+        });
+        fondoPantalla3.add(lblCuentaAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
-        fondoPantalla1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 440, 90));
+        fondoPantalla1.add(fondoPantalla3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 440, 90));
 
-        jPanel2.setBackground(new java.awt.Color(102, 255, 204));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        fondoPantalla4.setBackground(new java.awt.Color(102, 255, 204));
+        fondoPantalla4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fondoPantalla4MouseClicked(evt);
+            }
+        });
+        fondoPantalla4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelCredito.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         labelCredito.setText("Cuenta Crédito");
-        jPanel2.add(labelCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        fondoPantalla4.add(labelCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         txtSaldoCredito.setEditable(false);
         txtSaldoCredito.setBackground(new java.awt.Color(204, 255, 204));
         txtSaldoCredito.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
         txtSaldoCredito.setBorder(null);
-        jPanel2.add(txtSaldoCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 141, 40));
+        fondoPantalla4.add(txtSaldoCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 141, 40));
 
         txtnCuentaCredito.setEditable(false);
         txtnCuentaCredito.setBackground(new java.awt.Color(102, 255, 204));
         txtnCuentaCredito.setFont(new java.awt.Font("Segoe UI", 2, 19)); // NOI18N
         txtnCuentaCredito.setBorder(null);
-        jPanel2.add(txtnCuentaCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 150, 30));
+        fondoPantalla4.add(txtnCuentaCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 150, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+        lblCuentaCredito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
+        lblCuentaCredito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCuentaCreditoMouseClicked(evt);
+            }
+        });
+        fondoPantalla4.add(lblCuentaCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
-        fondoPantalla1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 440, 100));
+        fondoPantalla1.add(fondoPantalla4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 440, 100));
 
         jPanel3.setBackground(new java.awt.Color(255, 51, 51));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -232,7 +257,15 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSaldoCorrienteActionPerformed
 
     private void fondoPantalla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla2MouseClicked
+        String usuario;
+        int cuenta;
+        float saldo;
+        cuenta=usua1.getnCuentaCorriente();
+        saldo=usua1.getSaldoCorriente();
+        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_fondoPantalla2MouseClicked
@@ -260,6 +293,76 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblfechaTextActionPerformed
 
+    private void lblCuentaCorrienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaCorrienteMouseClicked
+        String usuario;
+        int cuenta;
+        float saldo;
+        cuenta=usua1.getnCuentaCorriente();
+        saldo=usua1.getSaldoCorriente();
+        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
+        VentanaDetalle detalle= new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblCuentaCorrienteMouseClicked
+
+    private void fondoPantalla3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla3MouseClicked
+        String usuario;
+        int cuenta;
+        float saldo;
+        cuenta=usua1.getnCuentaAhorro();
+        saldo=usua1.getSaldoAhorro();
+        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
+        VentanaDetalle detalle= new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_fondoPantalla3MouseClicked
+
+    private void lblCuentaAhorroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaAhorroMouseClicked
+        String usuario;
+        int cuenta;
+        float saldo;
+        cuenta=usua1.getnCuentaAhorro();
+        saldo=usua1.getSaldoAhorro();
+        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
+        VentanaDetalle detalle= new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblCuentaAhorroMouseClicked
+
+    private void fondoPantalla4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla4MouseClicked
+        String usuario;
+        int cuenta;
+        float saldo;
+        cuenta=usua1.getnCuentaCredito();
+        saldo=usua1.getSaldoCredito();
+        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
+        VentanaDetalle detalle= new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_fondoPantalla4MouseClicked
+
+    private void lblCuentaCreditoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaCreditoMouseClicked
+        String usuario;
+        int cuenta;
+        float saldo;
+        cuenta=usua1.getnCuentaCredito();
+        saldo=usua1.getSaldoCredito();
+        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
+        VentanaDetalle detalle= new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblCuentaCreditoMouseClicked
+
    
     public static void main(String args[]) {
        
@@ -267,8 +370,6 @@ public class Home extends javax.swing.JFrame {
             public void run() {
                 
                 new Home().setVisible(true);
-                
-                
             }
            
         });
@@ -278,18 +379,18 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel fondoPantalla1;
     private javax.swing.JPanel fondoPantalla2;
+    private javax.swing.JPanel fondoPantalla3;
+    private javax.swing.JPanel fondoPantalla4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelCredito;
     private javax.swing.JLabel labelCuentaAhorro;
     private javax.swing.JLabel labelCuentaCorriente;
+    private javax.swing.JLabel lblCuentaAhorro;
+    private javax.swing.JLabel lblCuentaCorriente;
+    private javax.swing.JLabel lblCuentaCredito;
     public static javax.swing.JTextField lblFecha;
     public static javax.swing.JTextField lblfechaText;
     public static javax.swing.JTextField txtNombreUsuario;

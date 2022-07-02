@@ -11,7 +11,9 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocation(500, 150);
-        
+        usua1.aleatorioSaldo();
+        usua1.aleatorioNCuenta();
+        usua1.aleatorioNombresYApellidos();
     }
 
     @SuppressWarnings("unchecked")
@@ -162,20 +164,20 @@ public class Login extends javax.swing.JFrame {
         }
         
         /* Se asignan los un saldo aleatorio a las cuentas*/
-        usua1.aleatorioSaldo();
-        Home.txtSaldoCorriente.setText((" $ ")+String.valueOf(usua1.getSaldoCorriente()));
-        Home.txtSaldoAhorro.setText((" $ ")+String.valueOf(usua1.getSaldoAhorro()));
-        Home.txtSaldoCredito.setText((" $ ")+String.valueOf(usua1.getSaldoCredito()));
+        //usua1.aleatorioSaldo();
+        //Home.txtSaldoCorriente.setText((" $ ")+String.valueOf(usua1.getSaldoCorriente()));
+        //Home.txtSaldoAhorro.setText((" $ ")+String.valueOf(usua1.getSaldoAhorro()));
+        //Home.txtSaldoCredito.setText((" $ ")+String.valueOf(usua1.getSaldoCredito()));
         
         /*Se asignas numeros aleatorios a los numeros de cuenta*/
-        usua1.aleatorioNCuenta();
-        Home.txtnCuentaCorriente.setText(String.valueOf(usua1.getnCuentaCorriente()));
-        Home.txtnCuentaAhorro.setText(String.valueOf(usua1.getnCuentaAhorro()));
-        Home.txtnCuentaCredito.setText(String.valueOf(usua1.getnCuentaCredito()));
+        //usua1.aleatorioNCuenta();
+        //Home.txtnCuentaCorriente.setText(String.valueOf(usua1.getnCuentaCorriente()));
+        //Home.txtnCuentaAhorro.setText(String.valueOf(usua1.getnCuentaAhorro()));
+        //Home.txtnCuentaCredito.setText(String.valueOf(usua1.getnCuentaCredito()));
         
         /* Se asignas nombres aleatorios */
-        usua1.aleatorioNombresYApellidos();
-        Home.lblFecha.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
+        //usua1.aleatorioNombresYApellidos();
+        //Home.txtNombreUsuario.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
         
     }//GEN-LAST:event_btnIngresarActionPerformed
 

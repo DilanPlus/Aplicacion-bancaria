@@ -20,11 +20,14 @@ import Atxy2k.CustomTextField.RestrictedTextField;
  * @author DilanPlus
  */
 public class VentanaTranferencia extends javax.swing.JFrame {
+    String usuario;
+    int cuenta;
+    float saldo;
     public Timer tiempo;
     
     public VentanaTranferencia() {
         initComponents();
-        mostrarCuenta();
+        
         this.setLocation(500, 150);
         gbtnDestino.add(rbtnDestino);
         
@@ -83,6 +86,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         rbtnDestino = new javax.swing.JRadioButton();
         btnTransferir = new javax.swing.JButton();
         lblTipo = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
@@ -137,6 +141,8 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lblTipo.setText("TIPO DE TRANSFERENCIA");
 
+        lblNombre.setText("Nombre");
+
         menuInicio.setText("Inicio");
         jMenuBar1.add(menuInicio);
 
@@ -168,15 +174,18 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblCuenta))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lblSaldo))))
+                                        .addComponent(lblSaldo))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblNombre)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lblCuenta))))))
                             .addComponent(btnTransferenciaN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnTransferenciaI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtMonto)
@@ -202,15 +211,19 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(lblCuenta))
-                        .addGap(15, 15, 15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(lblSaldo)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                            .addComponent(lblSaldo))
+                        .addGap(8, 8, 8)))
                 .addComponent(btnTransferenciaN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnTransferenciaI, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,8 +265,9 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_menuVolverActionPerformed
 
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
-        VentanaDetalle abrir= new VentanaDetalle();
-        abrir.setVisible(true);
+        VentanaDetalle detalle= new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuVolverMouseClicked
 
@@ -294,9 +308,15 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnTransferirActionPerformed
 
-    public  void mostrarCuenta(){
-    //lblCuenta.setText(String.valueOf(EcEduEpnPrograII2022AAplicacionBancaria.nCuenta));
-    //lblSaldo.setText(String.valueOf(Math.round(EcEduEpnPrograII2022AAplicacionBancaria.nSaldo*100d)/100d));  
+    public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
+    this.usuario=usuario;
+    this.cuenta=cuenta;
+    this.saldo=saldo;
+    
+    lblNombre.setText(String.valueOf(usuario));
+    lblCuenta.setText(String.valueOf(cuenta));
+    lblSaldo.setText((" $ ")+String.valueOf(saldo));  
+   
     }
     
     /**
@@ -346,6 +366,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     private javax.swing.JLabel lblCuenta;
     private javax.swing.JLabel lblDestino;
     private javax.swing.JLabel lblMonto;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JMenu menuInicio;
