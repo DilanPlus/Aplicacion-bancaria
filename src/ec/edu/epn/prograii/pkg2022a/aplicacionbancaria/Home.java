@@ -1,30 +1,30 @@
 
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
-import Clases.Datos;/*importa el paquete y la clase Datos */
+
+import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
 
 
 public class Home extends javax.swing.JFrame {
-    
+    Tiempo time= new Tiempo();
        
     public Home() {
         initComponents();
-        Datos usua1=new Datos();
+        
+        
+        this.setLocation(500, 150);
         
         /* Se asignan los un saldo aleatorio a las cuentas*/
-        usua1.aleatorioSaldo();
         txtSaldoCorriente.setText((" $ ")+String.valueOf(usua1.getSaldoCorriente()));
         txtSaldoAhorro.setText((" $ ")+String.valueOf(usua1.getSaldoAhorro()));
         txtSaldoCredito.setText((" $ ")+String.valueOf(usua1.getSaldoCredito()));
         
         /*Se asignas numeros aleatorios a los numeros de cuenta*/
-        usua1.aleatorioNCuenta();
         txtnCuentaCorriente.setText(String.valueOf(usua1.getnCuentaCorriente()));
         txtnCuentaAhorro.setText(String.valueOf(usua1.getnCuentaAhorro()));
         txtnCuentaCredito.setText(String.valueOf(usua1.getnCuentaCredito()));
-        /* Se asignas nombres aleatorios */
-        usua1.aleatorioNombresYApellidos();
-        txtNombreUsuario.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
         
+        /* Se asignas nombres aleatorios */
+        lblFecha.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
     }
 
     
@@ -32,13 +32,14 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         fondoPantalla1 = new javax.swing.JPanel();
         fondoPantalla2 = new javax.swing.JPanel();
         labelCuentaCorriente = new javax.swing.JLabel();
         txtnCuentaCorriente = new javax.swing.JTextField();
         txtSaldoCorriente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtNombreUsuario = new javax.swing.JTextField();
+        lblFecha = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         labelCuentaAhorro = new javax.swing.JLabel();
         txtnCuentaAhorro = new javax.swing.JTextField();
@@ -52,6 +53,10 @@ public class Home extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        txtNombreUsuario = new javax.swing.JTextField();
+        lblfechaText = new javax.swing.JTextField();
+
+        jLabel6.setText("jLabel6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -100,17 +105,17 @@ public class Home extends javax.swing.JFrame {
 
         fondoPantalla1.add(fondoPantalla2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 440, 90));
 
-        txtNombreUsuario.setEditable(false);
-        txtNombreUsuario.setBackground(new java.awt.Color(255, 255, 153));
-        txtNombreUsuario.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        txtNombreUsuario.setText("JUAN CARLOS");
-        txtNombreUsuario.setBorder(null);
-        txtNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+        lblFecha.setEditable(false);
+        lblFecha.setBackground(new java.awt.Color(255, 255, 153));
+        lblFecha.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        lblFecha.setText("00/00/0000");
+        lblFecha.setBorder(null);
+        lblFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreUsuarioActionPerformed(evt);
+                lblFechaActionPerformed(evt);
             }
         });
-        fondoPantalla1.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+        fondoPantalla1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -183,6 +188,30 @@ public class Home extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imgdelUsuario.png"))); // NOI18N
         fondoPantalla1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
+        txtNombreUsuario.setEditable(false);
+        txtNombreUsuario.setBackground(new java.awt.Color(255, 255, 153));
+        txtNombreUsuario.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        txtNombreUsuario.setText("JUAN CARLOS");
+        txtNombreUsuario.setBorder(null);
+        txtNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreUsuarioActionPerformed(evt);
+            }
+        });
+        fondoPantalla1.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
+
+        lblfechaText.setEditable(false);
+        lblfechaText.setBackground(new java.awt.Color(255, 255, 153));
+        lblfechaText.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        lblfechaText.setText("Ultima Sesion:");
+        lblfechaText.setBorder(null);
+        lblfechaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblfechaTextActionPerformed(evt);
+            }
+        });
+        fondoPantalla1.add(lblfechaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
+
         getContentPane().add(fondoPantalla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 470));
 
         pack();
@@ -190,9 +219,9 @@ public class Home extends javax.swing.JFrame {
 
    
     
-    private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
+    private void lblFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblFechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreUsuarioActionPerformed
+    }//GEN-LAST:event_lblFechaActionPerformed
 
     private void txtnCuentaCorrienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnCuentaCorrienteActionPerformed
         
@@ -203,20 +232,33 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSaldoCorrienteActionPerformed
 
     private void fondoPantalla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla2MouseClicked
-        
+        VentanaDetalle detalle= new VentanaDetalle();
+        detalle.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_fondoPantalla2MouseClicked
 
     private void txtSaldoAhorroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaldoAhorroActionPerformed
         
-        
     }//GEN-LAST:event_txtSaldoAhorroActionPerformed
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-        Login v1=new Login();
-        v1.setVisible(true);
-            
-        this.dispose();
+        Login login=new Login();
+        login.setVisible(true);
+        this.setVisible(false);
+       
     }//GEN-LAST:event_jPanel3MouseClicked
+
+    public  void mostrarTiempo(){
+    lblFecha.setText(time.fechaCompleta);
+    }
+    
+    private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreUsuarioActionPerformed
+
+    private void lblfechaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblfechaTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblfechaTextActionPerformed
 
    
     public static void main(String args[]) {
@@ -241,19 +283,22 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelCredito;
     private javax.swing.JLabel labelCuentaAhorro;
     private javax.swing.JLabel labelCuentaCorriente;
-    private javax.swing.JTextField txtNombreUsuario;
-    private javax.swing.JTextField txtSaldoAhorro;
-    private javax.swing.JTextField txtSaldoCorriente;
-    private javax.swing.JTextField txtSaldoCredito;
-    private javax.swing.JTextField txtnCuentaAhorro;
-    private javax.swing.JTextField txtnCuentaCorriente;
-    private javax.swing.JTextField txtnCuentaCredito;
+    public static javax.swing.JTextField lblFecha;
+    public static javax.swing.JTextField lblfechaText;
+    public static javax.swing.JTextField txtNombreUsuario;
+    public static javax.swing.JTextField txtSaldoAhorro;
+    public static javax.swing.JTextField txtSaldoCorriente;
+    public static javax.swing.JTextField txtSaldoCredito;
+    public static javax.swing.JTextField txtnCuentaAhorro;
+    public static javax.swing.JTextField txtnCuentaCorriente;
+    public static javax.swing.JTextField txtnCuentaCredito;
     // End of variables declaration//GEN-END:variables
 
 }

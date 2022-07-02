@@ -31,7 +31,6 @@ public class Datos {
        String[] apellidosList={"Andrade","Cevallos","Yaqui","Monserati","Rumak","Colon","Pay","Perez","Quiñonez","Urbina"};
        this.nombreUsuario= nombresList[0+(int)(Math.random()*9)];
        this.apellidoUsuario= apellidosList[0+(int)(Math.random()*9)];
-        
     }
     
     /* GET*/
@@ -61,9 +60,4 @@ public class Datos {
     public String getApellidoUsuario() {
         return apellidoUsuario;
     }
-    
-    
-    
-    
-    
 }

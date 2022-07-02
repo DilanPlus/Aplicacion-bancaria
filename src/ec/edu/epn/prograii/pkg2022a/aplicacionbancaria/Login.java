@@ -2,12 +2,16 @@
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
 
+import Clases.Datos;/*importa el paquete y la clase Datos */
 import java.awt.Color;
 
 public class Login extends javax.swing.JFrame {
-
+    public static Datos usua1=new Datos();
+    
     public Login() {
         initComponents();
+        this.setLocation(500, 150);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -151,12 +155,27 @@ public class Login extends javax.swing.JFrame {
             if(txtUsuario.getText().equals("Ingresar su usuario")){
                 javax.swing.JOptionPane.showMessageDialog(this, "Ingrese un usuario valido");
             }else{
-            Home v2=new Home();
-            v2.setVisible(true);
-            
-            this.dispose();
+            Home home=new Home();
+            home.setVisible(true);
+            this.setVisible(false);
             }
         }
+        
+        /* Se asignan los un saldo aleatorio a las cuentas*/
+        usua1.aleatorioSaldo();
+        Home.txtSaldoCorriente.setText((" $ ")+String.valueOf(usua1.getSaldoCorriente()));
+        Home.txtSaldoAhorro.setText((" $ ")+String.valueOf(usua1.getSaldoAhorro()));
+        Home.txtSaldoCredito.setText((" $ ")+String.valueOf(usua1.getSaldoCredito()));
+        
+        /*Se asignas numeros aleatorios a los numeros de cuenta*/
+        usua1.aleatorioNCuenta();
+        Home.txtnCuentaCorriente.setText(String.valueOf(usua1.getnCuentaCorriente()));
+        Home.txtnCuentaAhorro.setText(String.valueOf(usua1.getnCuentaAhorro()));
+        Home.txtnCuentaCredito.setText(String.valueOf(usua1.getnCuentaCredito()));
+        
+        /* Se asignas nombres aleatorios */
+        usua1.aleatorioNombresYApellidos();
+        Home.lblFecha.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
         
     }//GEN-LAST:event_btnIngresarActionPerformed
 
