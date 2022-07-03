@@ -209,7 +209,10 @@ public class VentanaDetalle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditoActionPerformed
-        // TODO add your handling code here:
+        VentanaCredito credito = new VentanaCredito();
+        credito.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        credito.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCreditoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
