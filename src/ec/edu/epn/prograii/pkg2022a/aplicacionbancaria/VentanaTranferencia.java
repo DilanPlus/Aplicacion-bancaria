@@ -302,10 +302,29 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 JOptionPane.showInternalMessageDialog(null, "Seleccione la opcion en nuevo destinatario");
             }
         }else{
-            VentanaDetalle abrir = new VentanaDetalle();
-            abrir.setVisible(true);
-            this.dispose();
+            String type=lblTipo.getText();
+            if (type.equals("TRANSFERENCIA NACIONAL")) {
+                int tipo=0;
+                String transferencia="Transferencia Nacional - Cuenta Destino";
+                VentanaDatosTransferencia ventanadatosTransferencia= new VentanaDatosTransferencia();
+                ventanadatosTransferencia.mostrarCuentaCompleta(usuario,transferencia ,tipo,cuenta, saldo,(Float.parseFloat(txtMonto.getText())));
+                ventanadatosTransferencia.setVisible(true);
+                this.dispose();
+                
+            }else if (type.equals("TRANSFERENCIA INTERNACIONAL")) {
+                int tipo=1;
+                String transferencia="Transferencia Internacional - Cuenta Destino";
+                VentanaDatosTransferencia ventanadatosTransferencia= new VentanaDatosTransferencia();
+                ventanadatosTransferencia.mostrarCuentaCompleta(usuario,transferencia ,tipo,cuenta, saldo,(Float.parseFloat(txtMonto.getText())));
+                ventanadatosTransferencia.setVisible(true);
+                this.dispose();
+            }
+            
+            // abrir = new VentanaDetalle();
+            //abrir.setVisible(true);
+            //this.dispose();
         }
+        
     }//GEN-LAST:event_btnTransferirActionPerformed
 
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
