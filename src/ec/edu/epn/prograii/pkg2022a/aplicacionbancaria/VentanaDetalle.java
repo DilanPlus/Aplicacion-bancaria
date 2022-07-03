@@ -241,8 +241,8 @@ public class VentanaDetalle extends javax.swing.JFrame {
     lblNombre.setText(String.valueOf(usuario));
     lblCuenta.setText(String.valueOf(cuenta));
     lblSaldo.setText((" $ ")+String.valueOf(saldo));  
-   
     }
+    
     
     /**
      * @param args the command line arguments
