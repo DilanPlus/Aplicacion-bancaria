@@ -100,6 +100,11 @@ public class VentanaDetalle extends javax.swing.JFrame {
         jMenuBar1.setName(""); // NOI18N
 
         menuInicio.setText("Inicio");
+        menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuInicioMouseClicked(evt);
+            }
+        });
         menuInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuInicioActionPerformed(evt);
@@ -219,6 +224,12 @@ public class VentanaDetalle extends javax.swing.JFrame {
         home.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuVolverMouseClicked
+
+    private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
+        Home home= new Home();
+        home.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuInicioMouseClicked
 
     private void SetImageLabel(JLabel labelName, String root){
         ImageIcon image=new ImageIcon(root);

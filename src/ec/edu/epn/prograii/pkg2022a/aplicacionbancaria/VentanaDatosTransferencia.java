@@ -21,6 +21,9 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
      */
     public VentanaDatosTransferencia() {
         initComponents();
+        this.setLocation(450, 0);
+        txtMonto.setEditable(false);
+        txtMonto.setText(String.valueOf(monto));
         RestrictedTextField restricted = new RestrictedTextField(txtCuenta);
         restricted.setLimit(15);
         restricted.setOnlyNums(true);
@@ -31,7 +34,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         telf.setOnlyNums(true);
         RestrictedTextField sobre = new RestrictedTextField(txtSobrenombre);
         sobre.setOnlyText(true);
-        txtMonto.setText(String.valueOf(monto));
+        
     }
 
     /**
@@ -201,6 +204,11 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         lblCuenta.setText("000000");
 
         menuInicio.setText("Inicio");
+        menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuInicioMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuInicio);
 
         menuVolver.setText("Volver");
@@ -385,7 +393,10 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDatoNombreActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        VentanaDetalle detalle = new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
@@ -420,6 +431,13 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
 
     }//GEN-LAST:event_menuVolverActionPerformed
+
+    private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
+        VentanaDetalle detalle = new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuInicioMouseClicked
 
     public void mostrarCuentaCompleta(String usuario, String transferencia, int tipo, int cuenta, float saldo, float monto){
     this.usuario=usuario;

@@ -42,8 +42,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         lblTipo.setVisible(false);
         
         RestrictedTextField restricted = new RestrictedTextField(txtMonto);
-        restricted.setLimit(999999);
-        restricted.setOnlyNums(true);
+        restricted.setLimit(99999);
         
         /*tiempo = new Timer(1, null);
         tiempo.start();
@@ -144,6 +143,11 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         lblNombre.setText("Nombre");
 
         menuInicio.setText("Inicio");
+        menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuInicioMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuInicio);
 
         menuVolver.setText("Volver");
@@ -326,6 +330,13 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnTransferirActionPerformed
+
+    private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
+        VentanaDetalle detalle = new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuInicioMouseClicked
 
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
     this.usuario=usuario;
