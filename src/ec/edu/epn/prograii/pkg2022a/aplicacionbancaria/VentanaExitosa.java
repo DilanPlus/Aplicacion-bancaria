@@ -23,7 +23,6 @@ public class VentanaExitosa extends javax.swing.JFrame {
     int cuenta;
     float saldo;
 
-
     /**
      * Creates new form VentanaExitosa
      */
