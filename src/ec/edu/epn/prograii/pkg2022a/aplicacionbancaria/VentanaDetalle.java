@@ -4,6 +4,7 @@
  */
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
+import Clases.Tiempo;
 import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -148,7 +149,7 @@ public class VentanaDetalle extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(lblCuenta)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()

@@ -1,12 +1,13 @@
 
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
+import Clases.Tiempo;
 import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
 
 
 public class Home extends javax.swing.JFrame {
     public static int tipoCuenta;
-    Tiempo time= new Tiempo();
+    Tiempo time=new Tiempo();
        
     public Home() {
         initComponents();
