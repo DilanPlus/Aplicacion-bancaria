@@ -27,6 +27,7 @@ public class Home extends javax.swing.JFrame {
         
         /* Se asignas nombres aleatorios */
         txtNombreUsuario.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
+        
     }
 
     
