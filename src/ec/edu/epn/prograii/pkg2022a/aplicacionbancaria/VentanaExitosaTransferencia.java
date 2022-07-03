@@ -3,12 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
-
+import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
 /**
  *
  * @author Elizabeth
  */
-public class VentanaExitosa extends javax.swing.JFrame {
+public class VentanaExitosaTransferencia extends javax.swing.JFrame {
     String NombRec;
     String Ncuenta;
     String CorreoRec;
@@ -27,7 +27,7 @@ public class VentanaExitosa extends javax.swing.JFrame {
      * Creates new form VentanaExitosa
      */
     
-    public VentanaExitosa() {
+    public VentanaExitosaTransferencia() {
         initComponents();
         this.setLocation(450, 150);
     }
@@ -85,10 +85,30 @@ public class VentanaExitosa extends javax.swing.JFrame {
     }
      
     public void actualizarSaldoCuenta(){
-        if (tipo==0) {
-            this.saldo=(saldo-(MontoRec));
-        }else if(tipo==1){
-            this.saldo= (float)(saldo-(MontoRec+0.4));
+        if (Home.tipoCuenta==0) {
+            if (tipo==0) {
+                this.saldo=(saldo-(MontoRec));
+                usua1.setSaldoCorriente(this.saldo);
+            }else if(tipo==1){
+                this.saldo= (float)(saldo-(MontoRec+0.4));
+                usua1.setSaldoCorriente(this.saldo);
+            }
+        }else if(Home.tipoCuenta==1){
+            if (tipo==0) {
+                this.saldo=(saldo-(MontoRec));
+                usua1.setSaldoAhorro(this.saldo);
+            }else if(tipo==1){
+                this.saldo= (float)(saldo-(MontoRec+0.4));
+                usua1.setSaldoAhorro(this.saldo);
+            }
+        }else if(Home.tipoCuenta==2){
+            if (tipo==0) {
+                this.saldo=(saldo-(MontoRec));
+                usua1.setSaldoCredito(this.saldo);
+            }else if(tipo==1){
+                this.saldo= (float)(saldo-(MontoRec+0.4));
+                usua1.setSaldoCredito(this.saldo);
+            }
         }
     }
     @SuppressWarnings("unchecked")
@@ -349,20 +369,21 @@ public class VentanaExitosa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaExitosa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaExitosaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaExitosa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaExitosaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaExitosa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaExitosaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaExitosa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaExitosaTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaExitosa().setVisible(true);
+                new VentanaExitosaTransferencia().setVisible(true);
             }
         });
     }

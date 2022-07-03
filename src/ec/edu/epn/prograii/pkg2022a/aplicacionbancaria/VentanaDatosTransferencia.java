@@ -405,7 +405,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
         
-        VentanaExitosa transfExito = new VentanaExitosa();
+        VentanaExitosaTransferencia transfExito = new VentanaExitosaTransferencia();
         transfExito.mostrarCuentaCompleta(usuario, transferencia, tipo, cuenta, saldo);
         transfExito.setNombR(txtDatoNombre.getText());
         transfExito.setNcuenta(txtCuenta.getText());

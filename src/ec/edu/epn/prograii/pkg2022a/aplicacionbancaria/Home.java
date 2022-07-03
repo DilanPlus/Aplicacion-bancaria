@@ -5,6 +5,7 @@ import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
 
 
 public class Home extends javax.swing.JFrame {
+    public static int tipoCuenta;
     Tiempo time= new Tiempo();
        
     public Home() {
@@ -260,6 +261,7 @@ public class Home extends javax.swing.JFrame {
         String usuario;
         int cuenta;
         float saldo;
+        tipoCuenta=0;
         cuenta=usua1.getnCuentaCorriente();
         saldo=usua1.getSaldoCorriente();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
@@ -297,6 +299,7 @@ public class Home extends javax.swing.JFrame {
         String usuario;
         int cuenta;
         float saldo;
+        tipoCuenta=0;
         cuenta=usua1.getnCuentaCorriente();
         saldo=usua1.getSaldoCorriente();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
@@ -311,6 +314,7 @@ public class Home extends javax.swing.JFrame {
         String usuario;
         int cuenta;
         float saldo;
+        tipoCuenta=1;
         cuenta=usua1.getnCuentaAhorro();
         saldo=usua1.getSaldoAhorro();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
@@ -325,6 +329,7 @@ public class Home extends javax.swing.JFrame {
         String usuario;
         int cuenta;
         float saldo;
+        tipoCuenta=1;
         cuenta=usua1.getnCuentaAhorro();
         saldo=usua1.getSaldoAhorro();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
@@ -339,6 +344,7 @@ public class Home extends javax.swing.JFrame {
         String usuario;
         int cuenta;
         float saldo;
+        tipoCuenta=2;
         cuenta=usua1.getnCuentaCredito();
         saldo=usua1.getSaldoCredito();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
@@ -353,6 +359,7 @@ public class Home extends javax.swing.JFrame {
         String usuario;
         int cuenta;
         float saldo;
+        tipoCuenta=2;
         cuenta=usua1.getnCuentaCredito();
         saldo=usua1.getSaldoCredito();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();

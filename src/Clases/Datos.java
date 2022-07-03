@@ -1,7 +1,7 @@
 
 package Clases;
 
-public class Datos {
+public  class Datos {
     private String nombreUsuario;
     private String apellidoUsuario;
     private int nCuentaCorriente;
@@ -60,4 +60,30 @@ public class Datos {
     public String getApellidoUsuario() {
         return apellidoUsuario;
     }
+
+    /* SET*/
+    public void setnCuentaCorriente(int nCuentaCorriente) {
+        this.nCuentaCorriente = nCuentaCorriente;
+    }
+
+    public void setnCuentaAhorro(int nCuentaAhorro) {
+        this.nCuentaAhorro = nCuentaAhorro;
+    }
+
+    public void setnCuentaCredito(int nCuentaCredito) {
+        this.nCuentaCredito = nCuentaCredito;
+    }
+
+    public void setSaldoCorriente(float saldoCorriente) {
+        this.saldoCorriente = saldoCorriente;
+    }
+
+    public void setSaldoAhorro(float saldoAhorro) {
+        this.saldoAhorro = saldoAhorro;
+    }
+
+    public void setSaldoCredito(float saldoCredito) {
+        this.saldoCredito = saldoCredito;
+    }
+    
 }
