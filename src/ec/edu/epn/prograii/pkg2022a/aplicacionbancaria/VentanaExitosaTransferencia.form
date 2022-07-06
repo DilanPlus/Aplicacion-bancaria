@@ -49,7 +49,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel1" min="-2" pref="520" max="-2" attributes="0"/>
@@ -64,20 +64,22 @@
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnSalir" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnAcept" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNcuent" min="-2" pref="257" max="-2" attributes="0"/>
                           <Component id="lblNcomp" min="-2" pref="176" max="-2" attributes="0"/>
                           <Component id="lblCorreoRec" min="-2" pref="327" max="-2" attributes="0"/>
                           <Component id="lblTipCuent" min="-2" max="-2" attributes="0"/>
                           <Component id="txtComision" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblTransferencia" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblBanco" min="-2" pref="262" max="-2" attributes="0"/>
                           <Component id="lblNomRec" min="-2" pref="327" max="-2" attributes="0"/>
                           <Component id="lblMontoTrans" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="btnAcept" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblBanco" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -138,11 +140,8 @@
                   <Component id="txtComision" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnAcept" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="btnSalir" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="btnAcept" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -179,21 +178,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnSalir">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="cc" type="rgb"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="SALIR"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -295,14 +279,6 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblBanco">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="                                                   "/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblTipCuent">
       <Properties>
         <Property name="text" type="java.lang.String" value="                                                         "/>
@@ -328,6 +304,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTransferencia">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblBanco">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel12"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

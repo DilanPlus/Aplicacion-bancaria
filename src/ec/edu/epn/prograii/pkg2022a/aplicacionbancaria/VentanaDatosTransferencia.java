@@ -23,7 +23,6 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         initComponents();
         this.setLocation(450, 0);
         txtMonto.setEditable(false);
-        txtMonto.setText(String.valueOf(monto));
         RestrictedTextField restricted = new RestrictedTextField(txtCuenta);
         restricted.setLimit(15);
         restricted.setOnlyNums(true);
@@ -49,7 +48,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         lblTransferencia = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblBanco1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtCuenta = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -74,13 +73,15 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txtMonto = new javax.swing.JTextField();
         btnTransferir = new javax.swing.JButton();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbBanco = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         lblSaldo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         lblCuenta = new javax.swing.JLabel();
+        lblBanco2 = new javax.swing.JLabel();
+        txtBanco = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
@@ -96,8 +97,8 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         lblTransferencia.setForeground(new java.awt.Color(204, 102, 0));
         lblTransferencia.setText("Transferencia Entre Bancos - Cuenta Destino");
 
-        jLabel2.setForeground(new java.awt.Color(102, 102, 0));
-        jLabel2.setText("Cooperativa//Banco*:");
+        lblBanco1.setForeground(new java.awt.Color(102, 102, 0));
+        lblBanco1.setText("Cooperativa//Banco*:");
 
         jLabel3.setForeground(new java.awt.Color(102, 102, 0));
         jLabel3.setText("N°. Cuenta*:");
@@ -188,7 +189,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una entidad", "Banco Pichincha", "Banco General Ruminahui", "Produbanco", "Banco de Loja", "Banco Guayaquil", "Banco Amazonas", "Banco Bolivariano", "Banco Internacional", "Banco del Austro", "Coop de Ahorro y Credito Occidental", "Banco del Pacifico" }));
+        cmbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una entidad", "Banco Pichincha", "Banco General Ruminahui", "Produbanco", "Banco de Loja", "Banco Guayaquil", "Banco Amazonas", "Banco Bolivariano", "Banco Internacional", "Banco del Austro", "Coop de Ahorro y Credito Occidental", "Banco del Pacifico" }));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         jLabel16.setText("Detalle de tu cuenta");
@@ -202,6 +203,9 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         jLabel18.setText("Saldo");
 
         lblCuenta.setText("000000");
+
+        lblBanco2.setForeground(new java.awt.Color(102, 102, 0));
+        lblBanco2.setText("Cooperativa//Banco*:");
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,73 +237,75 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addGap(64, 64, 64))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblBanco2)
+                    .addComponent(lblBanco1)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(63, 63, 63)
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(147, 147, 147)
                                 .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel11))
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6))
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSobrenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDatoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblSaldo))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNombre)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel17)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblCuenta)))))))
-                .addContainerGap())
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5))
+                                    .addGap(40, 40, 40)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmbBanco, 0, 266, Short.MAX_VALUE)
+                                        .addComponent(txtBanco)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel18)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(lblSaldo))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblNombre)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel17)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(lblCuenta))))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel9)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel11))
+                                        .addComponent(jLabel12)
+                                        .addComponent(jLabel13)
+                                        .addComponent(jLabel14)
+                                        .addComponent(jLabel15)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6))
+                                    .addGap(28, 28, 28)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtSobrenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDatoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,11 +322,18 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                             .addComponent(lblSaldo))))
                 .addGap(18, 18, 18)
                 .addComponent(lblTransferencia)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(lblBanco1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblBanco2)
+                    .addComponent(txtBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -404,20 +417,41 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMontoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-        
-        VentanaExitosaTransferencia transfExito = new VentanaExitosaTransferencia();
-        transfExito.mostrarCuentaCompleta(usuario, transferencia, tipo, cuenta, saldo);
-        transfExito.setNombR(txtDatoNombre.getText());
-        transfExito.setNcuenta(txtCuenta.getText());
-        transfExito.setCorreo(txtCorreo.getText());
-        transfExito.setMonto(monto);
-        int x=(int)(1000000000 * Math.random())+1;
-        String Ncompr=String.valueOf(x);
-        transfExito.setNcomp(Ncompr);
-        transfExito.setBanco(jComboBox3.getSelectedItem().toString());
-        transfExito.setTipCuent(jComboBox1.getSelectedItem().toString());
-        transfExito.setVisible(true);
-        this.dispose();
+        int y=(int)(Math.random()*2);
+        if(y==0){
+        JOptionPane.showInternalMessageDialog(null, "Datos incorrectos\" ¡¡Vuelve a intentarlo!!\"");
+        }else{
+            if(tipo==0){
+            VentanaExitosaTransferencia transfExito = new VentanaExitosaTransferencia();
+            transfExito.setNombR(txtDatoNombre.getText());
+            transfExito.setNcuenta(txtCuenta.getText());
+            transfExito.setCorreo(txtCorreo.getText());
+            transfExito.setMonto(monto);
+            int x=(int)(1000000000 * Math.random())+1;
+            String Ncompr=String.valueOf(x);
+            transfExito.setNcomp(Ncompr);
+            transfExito.setBanco(cmbBanco.getSelectedItem().toString());
+            transfExito.setTipCuent(jComboBox1.getSelectedItem().toString());
+            transfExito.mostrarCuentaCompleta(usuario, transferencia, tipo, cuenta, saldo);
+            transfExito.setVisible(true);
+            this.dispose();    
+            
+            }else if(tipo==1){
+            VentanaExitosaTransferencia transfExito = new VentanaExitosaTransferencia();
+            transfExito.mostrarCuentaCompleta(usuario, transferencia, tipo, cuenta, saldo);
+            transfExito.setNombR(txtDatoNombre.getText());
+            transfExito.setNcuenta(txtCuenta.getText());
+            transfExito.setCorreo(txtCorreo.getText());
+            transfExito.setMonto(monto);
+            int x=(int)(1000000000 * Math.random())+1;
+            String Ncompr=String.valueOf(x);
+            transfExito.setNcomp(Ncompr);
+            transfExito.setBanco(txtBanco.getText());
+            transfExito.setTipCuent(jComboBox1.getSelectedItem().toString());
+            transfExito.setVisible(true);
+            this.dispose();    
+            }
+        }
         
     }//GEN-LAST:event_btnTransferirActionPerformed
 
@@ -452,6 +486,14 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     lblCuenta.setText(String.valueOf(cuenta));
     lblSaldo.setText((" $ ")+String.valueOf(saldo));  
     txtMonto.setText((" $ ")+String.valueOf(monto));  
+    if(tipo==0){
+        lblBanco2.setVisible(false);
+        txtBanco.setVisible(false);
+        }
+        if(tipo==1){
+        lblBanco1.setVisible(false);
+        cmbBanco.setVisible(false);
+        }
     }
     /**
      * @param args the command line arguments
@@ -492,9 +534,9 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnTransferir;
+    private javax.swing.JComboBox<String> cmbBanco;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -504,7 +546,6 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -515,12 +556,15 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblBanco1;
+    private javax.swing.JLabel lblBanco2;
     private javax.swing.JLabel lblCuenta;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblTransferencia;
     private javax.swing.JMenu menuInicio;
     private javax.swing.JMenu menuVolver;
+    private javax.swing.JTextField txtBanco;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtCuenta;
     private javax.swing.JTextField txtDatoNombre;

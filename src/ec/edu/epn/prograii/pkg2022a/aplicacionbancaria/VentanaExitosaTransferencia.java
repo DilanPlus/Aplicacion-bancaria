@@ -77,37 +77,48 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
     this.saldo=saldo;
     
     lblTransferencia.setText(transferencia);
+    
     if (tipo==0) {
+        if (Banco.equals("Banco Pichincha")) {
+            this.tipo=2;
             txtComision.setText(String.valueOf(0.0));
+        }
+            txtComision.setText(String.valueOf(0.5));
         }else if(tipo==1){
-            txtComision.setText(String.valueOf(0.4));
+            txtComision.setText(String.valueOf(2));
         }
     }
      
     public void actualizarSaldoCuenta(){
         if (Home.tipoCuenta==0) {
             if (tipo==0) {
-                this.saldo=(saldo-(MontoRec));
+                this.saldo= (float)(saldo-(MontoRec+0.5));
                 usua1.setSaldoCorriente(this.saldo);
             }else if(tipo==1){
-                this.saldo= (float)(saldo-(MontoRec+0.4));
+                this.saldo= (float)(saldo-(MontoRec+2));
                 usua1.setSaldoCorriente(this.saldo);
+            }else if(tipo==2){
+                this.saldo= (float)(saldo-(MontoRec+0));
             }
         }else if(Home.tipoCuenta==1){
             if (tipo==0) {
-                this.saldo=(saldo-(MontoRec));
-                usua1.setSaldoAhorro(this.saldo);
+                this.saldo= (float)(saldo-(MontoRec+0.5));
+                usua1.setSaldoCorriente(this.saldo);
             }else if(tipo==1){
-                this.saldo= (float)(saldo-(MontoRec+0.4));
-                usua1.setSaldoAhorro(this.saldo);
+                this.saldo= (float)(saldo-(MontoRec+2));
+                usua1.setSaldoCorriente(this.saldo);
+            }else if(tipo==2){
+                this.saldo= (float)(saldo-(MontoRec+0));
             }
         }else if(Home.tipoCuenta==2){
             if (tipo==0) {
-                this.saldo=(saldo-(MontoRec));
-                usua1.setSaldoCredito(this.saldo);
+                this.saldo= (float)(saldo-(MontoRec+0.5));
+                usua1.setSaldoCorriente(this.saldo);
             }else if(tipo==1){
-                this.saldo= (float)(saldo-(MontoRec+0.4));
-                usua1.setSaldoCredito(this.saldo);
+                this.saldo= (float)(saldo-(MontoRec+2));
+                usua1.setSaldoCorriente(this.saldo);
+            }else if(tipo==2){
+                this.saldo= (float)(saldo-(MontoRec+0));
             }
         }
     }
@@ -119,7 +130,6 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnAcept = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -132,11 +142,11 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
         lblCorreoRec = new javax.swing.JLabel();
         lblMontoTrans = new javax.swing.JLabel();
         lblNcomp = new javax.swing.JLabel();
-        lblBanco = new javax.swing.JLabel();
         lblTipCuent = new javax.swing.JLabel();
         txtComision = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lblTransferencia = new javax.swing.JLabel();
+        lblBanco = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
@@ -156,16 +166,6 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
         btnAcept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptActionPerformed(evt);
-            }
-        });
-
-        btnSalir.setBackground(new java.awt.Color(204, 0, 0));
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("SALIR");
-        btnSalir.setToolTipText("");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
             }
         });
 
@@ -201,14 +201,14 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
 
         lblNcomp.setText("                                       ");
 
-        lblBanco.setText("                                                   ");
-
         lblTipCuent.setText("                                                         ");
 
         txtComision.setText("                                              ");
 
         jLabel10.setForeground(new java.awt.Color(102, 0, 0));
         jLabel10.setText("Comision por transferencia:");
+
+        lblBanco.setText("jLabel12");
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -251,20 +251,21 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel3)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel10)
-                            .addComponent(btnSalir))
+                            .addComponent(jLabel10))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAcept)
                             .addComponent(lblNcuent, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNcomp, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCorreoRec, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTipCuent)
                             .addComponent(txtComision)
                             .addComponent(lblTransferencia)
-                            .addComponent(lblBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNomRec, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMontoTrans))))
+                            .addComponent(lblMontoTrans)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(btnAcept))
+                            .addComponent(lblBanco))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -310,10 +311,8 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(txtComision))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAcept, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                .addComponent(btnAcept, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -326,13 +325,6 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAceptActionPerformed
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        VentanaDetalle detalle = new VentanaDetalle();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        detalle.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
 
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
         VentanaDatosTransferencia transfDatos= new VentanaDatosTransferencia();
@@ -390,7 +382,6 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcept;
-    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -403,7 +394,7 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSpinner jSpinner1;
-    public static javax.swing.JLabel lblBanco;
+    private javax.swing.JLabel lblBanco;
     public static javax.swing.JLabel lblCorreoRec;
     public static javax.swing.JLabel lblMontoTrans;
     public static javax.swing.JLabel lblNcomp;

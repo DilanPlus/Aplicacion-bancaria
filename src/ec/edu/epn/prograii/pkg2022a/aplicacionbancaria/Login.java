@@ -4,6 +4,7 @@ package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
 import Clases.Datos;/*importa el paquete y la clase Datos */
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     public static Datos usua1=new Datos();
@@ -150,19 +151,23 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         int x=txtcontra.getText().length();
+        int y=(int)(Math.random()*2);
+        if(y==0){
+        JOptionPane.showInternalMessageDialog(null, "Usuario o Contraseña incorrecta\" ¡¡Vuelve a intentarlo!!\"");
+        }else{
         if(x<6){
-            javax.swing.JOptionPane.showMessageDialog(this, "Su contraseña debe tener como minimo 6 digitos");
+            javax.swing.JOptionPane.showMessageDialog(null, "Su contraseña debe tener como minimo 6 digitos");
             // mensaje de que su contraseña debe tener como minimo 6 digitos
         }else{
             if(txtUsuario.getText().equals("Ingresar su usuario")){
-                javax.swing.JOptionPane.showMessageDialog(this, "Ingrese un usuario valido");
+                javax.swing.JOptionPane.showMessageDialog(null, "Ingrese un usuario valido");
             }else{
             Home home=new Home();
             home.setVisible(true);
             this.setVisible(false);
             }
         }
-        
+        } 
         /* Se asignan los un saldo aleatorio a las cuentas*/
         //usua1.aleatorioSaldo();
         //Home.txtSaldoCorriente.setText((" $ ")+String.valueOf(usua1.getSaldoCorriente()));
