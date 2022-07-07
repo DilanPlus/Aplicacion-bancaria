@@ -382,7 +382,6 @@ public class Home extends javax.swing.JFrame {
             }
            
         });
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
