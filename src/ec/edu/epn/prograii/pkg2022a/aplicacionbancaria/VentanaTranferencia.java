@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import Atxy2k.CustomTextField.RestrictedTextField;
+import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
 
 /**
  *
@@ -33,6 +34,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         
         btnTransferenciaN.setBackground(Color.LIGHT_GRAY);
         btnTransferenciaI.setBackground(Color.LIGHT_GRAY);
+        btnMismoUsuario.setBackground(Color.LIGHT_GRAY);
         
         lblMonto.setVisible(false);
         lblDestino.setVisible(false);
@@ -86,63 +88,104 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         btnTransferir = new javax.swing.JButton();
         lblTipo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnMismoUsuario = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setText("Nº");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 36, -1, -1));
 
         lblSaldo.setText("000000");
+        getContentPane().add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 59, 90, -1));
 
         btnTransferenciaN.setText("Transferencia Nacional");
+        btnTransferenciaN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTransferenciaN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTransferenciaNActionPerformed(evt);
             }
         });
+        getContentPane().add(btnTransferenciaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 303, 32));
 
         jLabel6.setText("Saldo");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 59, -1, -1));
 
         lblCuenta.setText("000000");
+        getContentPane().add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 36, 90, -1));
 
         btnTransferenciaI.setText("Transferencia Internacional");
+        btnTransferenciaI.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTransferenciaI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTransferenciaIActionPerformed(evt);
             }
         });
+        getContentPane().add(btnTransferenciaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 303, 31));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         jLabel1.setText("Detalle de tu cuenta");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 208, 47));
 
         txtMonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMontoActionPerformed(evt);
             }
         });
+        getContentPane().add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 303, -1));
 
         lblMonto.setText("Monto");
+        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         lblDestino.setText("Cuenta destino");
+        getContentPane().add(lblDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         rbtnDestino.setText("Crear nuevo beneficiario");
+        rbtnDestino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbtnDestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnDestinoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rbtnDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
         btnTransferir.setText("TRANSFERIR");
         btnTransferir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnTransferir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTransferir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTransferirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnTransferir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 124, 48));
 
         lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lblTipo.setText("TIPO DE TRANSFERENCIA");
+        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
         lblNombre.setText("Nombre");
+        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 13, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
+
+        btnMismoUsuario.setText("Transferencia entre tus mismas cuentas");
+        btnMismoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMismoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMismoUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMismoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 300, 30));
 
         menuInicio.setText("Inicio");
+        menuInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuInicioMouseClicked(evt);
@@ -151,6 +194,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         jMenuBar1.add(menuInicio);
 
         menuVolver.setText("Volver");
+        menuVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuVolverMouseClicked(evt);
@@ -164,87 +208,6 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         jMenuBar1.add(menuVolver);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblSaldo))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblNombre)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lblCuenta))))))
-                            .addComponent(btnTransferenciaN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnTransferenciaI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMonto)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDestino)
-                                    .addComponent(rbtnDestino)
-                                    .addComponent(lblMonto))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(lblTipo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(lblCuenta))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(lblSaldo))
-                        .addGap(8, 8, 8)))
-                .addComponent(btnTransferenciaN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnTransferenciaI, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblTipo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblMonto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(lblDestino)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rbtnDestino)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -295,6 +258,9 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMontoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
+        if ((Float.parseFloat(txtMonto.getText()))>usua1.getSaldoCorriente() ) {
+            javax.swing.JOptionPane.showMessageDialog(null, "No tiene los fondos suficientes para la transferencia");
+        }else{
         if(!(rbtnDestino.isSelected())){
             JOptionPane.showInternalMessageDialog(null, "Seleccione la opcion en nuevo destinatario");
             if(txtMonto.getText().isEmpty()){
@@ -323,7 +289,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 ventanadatosTransferencia.setVisible(true);
                 this.dispose();
             }
-            
+        }
             // abrir = new VentanaDetalle();
             //abrir.setVisible(true);
             //this.dispose();
@@ -338,6 +304,16 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
+    private void btnMismoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMismoUsuarioActionPerformed
+        VentanaTransfereMismoUsuario ventanaTransfereMismoUsuario=new VentanaTransfereMismoUsuario();
+        ventanaTransfereMismoUsuario.setVisible(true);
+        this.setVisible(false);             
+    }//GEN-LAST:event_btnMismoUsuarioActionPerformed
+
+    private void rbtnDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDestinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnDestinoActionPerformed
+
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
     this.usuario=usuario;
     this.cuenta=cuenta;
@@ -349,47 +325,15 @@ public class VentanaTranferencia extends javax.swing.JFrame {
    
     }
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaTranferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaTranferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaTranferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaTranferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaTranferencia().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMismoUsuario;
     private javax.swing.JButton btnTransferenciaI;
     private javax.swing.JButton btnTransferenciaN;
     private javax.swing.JButton btnTransferir;
     private javax.swing.ButtonGroup gbtnDestino;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;

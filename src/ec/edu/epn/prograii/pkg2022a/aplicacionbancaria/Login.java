@@ -15,6 +15,7 @@ public class Login extends javax.swing.JFrame {
         usua1.aleatorioSaldo();
         usua1.aleatorioNCuenta();
         usua1.aleatorioNombresYApellidos();
+        labelUsuario.requestFocus();
     }
 
     @SuppressWarnings("unchecked")
@@ -129,7 +130,7 @@ public class Login extends javax.swing.JFrame {
         // accion al ser clic en txtUsuario
         if(txtUsuario.getText().equals("Ingresar su usuario")){
             txtUsuario.setText("");
-            txtUsuario.setForeground(Color.black);            
+            txtUsuario.setForeground(Color.black); 
         }
         if(String.valueOf(txtcontra.getPassword()).isEmpty() ){
             txtcontra.setText("********");
@@ -151,7 +152,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         int x=txtcontra.getText().length();
-        int y=(int)(Math.random()*2);
+        int y=(int)(Math.random()*6);
         if(y==0){
         JOptionPane.showInternalMessageDialog(null, "Usuario o Contraseña incorrecta\" ¡¡Vuelve a intentarlo!!\"");
         }else{

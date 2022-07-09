@@ -70,6 +70,7 @@ public class Home extends javax.swing.JFrame {
         fondoPantalla1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fondoPantalla2.setBackground(new java.awt.Color(255, 153, 153));
+        fondoPantalla2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fondoPantalla2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fondoPantalla2MouseClicked(evt);
@@ -104,6 +105,7 @@ public class Home extends javax.swing.JFrame {
         fondoPantalla2.add(txtSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 139, 34));
 
         lblCuentaCorriente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
+        lblCuentaCorriente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCuentaCorriente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCuentaCorrienteMouseClicked(evt);
@@ -126,6 +128,7 @@ public class Home extends javax.swing.JFrame {
         fondoPantalla1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
 
         fondoPantalla3.setBackground(new java.awt.Color(153, 153, 255));
+        fondoPantalla3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fondoPantalla3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fondoPantalla3MouseClicked(evt);
@@ -155,6 +158,7 @@ public class Home extends javax.swing.JFrame {
         fondoPantalla3.add(txtSaldoAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 140, 34));
 
         lblCuentaAhorro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
+        lblCuentaAhorro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCuentaAhorro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCuentaAhorroMouseClicked(evt);
@@ -165,6 +169,7 @@ public class Home extends javax.swing.JFrame {
         fondoPantalla1.add(fondoPantalla3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 440, 90));
 
         fondoPantalla4.setBackground(new java.awt.Color(102, 255, 204));
+        fondoPantalla4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fondoPantalla4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fondoPantalla4MouseClicked(evt);
@@ -189,6 +194,7 @@ public class Home extends javax.swing.JFrame {
         fondoPantalla4.add(txtnCuentaCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 150, 30));
 
         lblCuentaCredito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha derecha.png"))); // NOI18N
+        lblCuentaCredito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCuentaCredito.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCuentaCreditoMouseClicked(evt);
@@ -372,17 +378,6 @@ public class Home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lblCuentaCreditoMouseClicked
 
-   
-    public static void main(String args[]) {
-       
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                
-                new Home().setVisible(true);
-            }
-           
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel fondoPantalla1;

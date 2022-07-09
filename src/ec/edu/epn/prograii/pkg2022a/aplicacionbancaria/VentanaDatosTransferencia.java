@@ -22,6 +22,8 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     public VentanaDatosTransferencia() {
         initComponents();
         this.setLocation(450, 0);
+        btnTransferir.setEnabled(false);
+
         txtMonto.setEditable(false);
         RestrictedTextField restricted = new RestrictedTextField(txtCuenta);
         restricted.setLimit(15);
@@ -108,8 +110,18 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 txtCuentaActionPerformed(evt);
             }
         });
+        txtCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCuentaKeyReleased(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el tipo", "Cuenta de Ahorros", "Cuenta Corriente" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -126,6 +138,11 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         jLabel6.setText("Tipo de Identificación*:");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el tipo", "Pasaporte", "Cedula de Identidad" }));
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -134,6 +151,12 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
 
         jLabel7.setForeground(new java.awt.Color(102, 102, 0));
         jLabel7.setText("N°. de Identificación*:");
+
+        txtIdentificacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtIdentificacionKeyReleased(evt);
+            }
+        });
 
         jLabel8.setForeground(new java.awt.Color(102, 102, 0));
         jLabel8.setText("Nombres y Apellidos*: ");
@@ -144,12 +167,26 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 txtDatoNombreActionPerformed(evt);
             }
         });
+        txtDatoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDatoNombreKeyReleased(evt);
+            }
+        });
 
         jLabel9.setForeground(new java.awt.Color(102, 102, 0));
         jLabel9.setText("Sobrenombre:");
 
         jLabel10.setForeground(new java.awt.Color(102, 102, 0));
-        jLabel10.setText("opcional");
+        jLabel10.setText("(opcional)");
+
+        txtSobrenombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSobrenombreKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSobrenombreKeyReleased(evt);
+            }
+        });
 
         jLabel11.setForeground(new java.awt.Color(255, 51, 0));
         jLabel11.setText("CONTACTO");
@@ -157,8 +194,20 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(102, 102, 0));
         jLabel12.setText("Correo Electrónico:");
 
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyReleased(evt);
+            }
+        });
+
         jLabel13.setForeground(new java.awt.Color(102, 102, 0));
         jLabel13.setText("Número de Telefóno*:");
+
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyReleased(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(102, 0, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,6 +229,11 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 txtMontoActionPerformed(evt);
             }
         });
+        txtMonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMontoKeyReleased(evt);
+            }
+        });
 
         btnTransferir.setBackground(new java.awt.Color(51, 153, 0));
         btnTransferir.setText("TRANSFERIR");
@@ -190,6 +244,11 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         });
 
         cmbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una entidad", "Banco Pichincha", "Banco General Ruminahui", "Produbanco", "Banco de Loja", "Banco Guayaquil", "Banco Amazonas", "Banco Bolivariano", "Banco Internacional", "Banco del Austro", "Coop de Ahorro y Credito Occidental", "Banco del Pacifico" }));
+        cmbBanco.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbBancoItemStateChanged(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         jLabel16.setText("Detalle de tu cuenta");
@@ -206,6 +265,12 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
 
         lblBanco2.setForeground(new java.awt.Color(102, 102, 0));
         lblBanco2.setText("Cooperativa//Banco*:");
+
+        txtBanco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBancoKeyReleased(evt);
+            }
+        });
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -239,67 +304,66 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 .addComponent(lblTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblSaldo))
+                            .addComponent(lblNombre)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblCuenta))))
                     .addComponent(lblBanco2)
                     .addComponent(lblBanco1)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(63, 63, 63)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(147, 147, 147)
+                        .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbBanco, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel5)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(147, 147, 147)
-                                .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5))
-                                    .addGap(40, 40, 40)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cmbBanco, 0, 266, Short.MAX_VALUE)
-                                        .addComponent(txtBanco)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel18)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblSaldo))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblNombre)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel17)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(lblCuenta))))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel9)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel11))
-                                        .addComponent(jLabel12)
-                                        .addComponent(jLabel13)
-                                        .addComponent(jLabel14)
-                                        .addComponent(jLabel15)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel6))
-                                    .addGap(28, 28, 28)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtSobrenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtDatoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel10)))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSobrenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDatoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -333,11 +397,11 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBanco2)
                     .addComponent(txtBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -347,29 +411,30 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(txtDatoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
+                        .addGap(6, 6, 6)
+                        .addComponent(txtSobrenombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtDatoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSobrenombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -379,11 +444,11 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnTransferir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -417,7 +482,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMontoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-        int y=(int)(Math.random()*2);
+        int y=(int)(Math.random()*6);
         if(y==0){
         JOptionPane.showInternalMessageDialog(null, "Datos incorrectos\" ¡¡Vuelve a intentarlo!!\"");
         }else{
@@ -463,7 +528,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_menuVolverMouseClicked
 
     private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
-
+        
     }//GEN-LAST:event_menuVolverActionPerformed
 
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
@@ -472,6 +537,55 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
+
+    private void txtBancoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBancoKeyReleased
+        habilitarTrans();
+    }//GEN-LAST:event_txtBancoKeyReleased
+
+    private void txtCuentaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCuentaKeyReleased
+        habilitarTrans();
+    }//GEN-LAST:event_txtCuentaKeyReleased
+
+    private void txtIdentificacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificacionKeyReleased
+        habilitarTrans();
+    }//GEN-LAST:event_txtIdentificacionKeyReleased
+
+    private void txtDatoNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatoNombreKeyReleased
+        habilitarTrans();
+    }//GEN-LAST:event_txtDatoNombreKeyReleased
+
+    private void txtSobrenombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSobrenombreKeyReleased
+        
+    }//GEN-LAST:event_txtSobrenombreKeyReleased
+
+    private void txtCorreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyReleased
+        habilitarTrans();
+    }//GEN-LAST:event_txtCorreoKeyReleased
+
+    private void txtSobrenombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSobrenombreKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSobrenombreKeyPressed
+
+    private void txtTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyReleased
+        habilitarTrans();
+    }//GEN-LAST:event_txtTelefonoKeyReleased
+
+    private void txtMontoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoKeyReleased
+        habilitarTrans();
+    }//GEN-LAST:event_txtMontoKeyReleased
+
+    private void cmbBancoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbBancoItemStateChanged
+        habilitarTrans();
+    }//GEN-LAST:event_cmbBancoItemStateChanged
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        habilitarTrans();
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        habilitarTrans();
+
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
 
     public void mostrarCuentaCompleta(String usuario, String transferencia, int tipo, int cuenta, float saldo, float monto){
     this.usuario=usuario;
@@ -495,41 +609,25 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         cmbBanco.setVisible(false);
         }
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaDatosTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaDatosTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaDatosTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaDatosTransferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    public void habilitarTrans(){
+        if (!cmbBanco.getSelectedItem().equals("Seleccione una entidad") || !txtBanco.getText().isEmpty()) {
+            if(!txtDatoNombre.getText().isEmpty() && !txtCorreo.getText().isEmpty()
+                && !txtCuenta.getText().isEmpty()&& !txtIdentificacion.getText().isEmpty()
+                && !txtMonto.getText().isEmpty()&& !txtTelefono.getText().isEmpty()
+                && !jComboBox1.getSelectedItem().equals("Seleccione el tipo")
+                && !jComboBox2.getSelectedItem().equals("Seleccione el tipo")){
+           
+            btnTransferir.setEnabled(true);
+        } else {
+            btnTransferir.setEnabled(false);
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaDatosTransferencia().setVisible(true);
-            }
-        });
+        }else{
+            btnTransferir.setEnabled(false);
+        }
+        
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
