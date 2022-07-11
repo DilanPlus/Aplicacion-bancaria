@@ -15,6 +15,7 @@ public class Login extends javax.swing.JFrame {
         usua1.aleatorioSaldo();
         usua1.aleatorioNCuenta();
         usua1.aleatorioNombresYApellidos();
+        usua1.aleatorioServicios();
         labelUsuario.requestFocus();
     }
 

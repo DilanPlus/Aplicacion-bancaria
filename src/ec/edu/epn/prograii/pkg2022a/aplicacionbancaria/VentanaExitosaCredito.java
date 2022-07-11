@@ -32,7 +32,6 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
         
         this.setLocation(500, 150);
         
-        
         /*tiempo = new Timer(1, null);
         tiempo.start();
         tiempo.addActionListener(new ActionListener() {

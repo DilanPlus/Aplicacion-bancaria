@@ -10,6 +10,8 @@ public  class Datos {
     private float saldoCorriente;
     private float saldoAhorro;
     private float saldoCredito;
+    private float valoragua;
+    private float valorluz;
     
     /* generación de saldo*/
     public void aleatorioSaldo(){
@@ -31,6 +33,14 @@ public  class Datos {
        String[] apellidosList={"Andrade","Cevallos","Yaqui","Monserati","Rumak","Colon","Pay","Perez","Quiñonez","Urbina"};
        this.nombreUsuario= nombresList[0+(int)(Math.random()*9)];
        this.apellidoUsuario= apellidosList[0+(int)(Math.random()*9)];
+    }
+    /* generar nombre y apellido aleatorio de usuario */
+    
+    public void aleatorioServicios(){
+       float valoragua = (float)(100*Math.random())+1;
+       this.valoragua = (float)(Math.round(valoragua*100)/100d);
+       float valorluz= (float)(100*Math.random())+1;
+       this.valorluz = (float)(Math.round(valorluz*100)/100d);
     }
     
     /* GET*/
@@ -61,6 +71,15 @@ public  class Datos {
         return apellidoUsuario;
     }
 
+    public float getValoragua() {
+        return valoragua;
+    }
+
+    public float getValorluz() {
+        return valorluz;
+    }
+    
+
     /* SET*/
     public void setnCuentaCorriente(int nCuentaCorriente) {
         this.nCuentaCorriente = nCuentaCorriente;
@@ -84,6 +103,14 @@ public  class Datos {
 
     public void setSaldoCredito(float saldoCredito) {
         this.saldoCredito = saldoCredito;
+    }
+
+    public void setValoragua(float valoragua) {
+        this.valoragua = valoragua;
+    }
+
+    public void setValorluz(float valorluz) {
+        this.valorluz = valorluz;
     }
     
 }

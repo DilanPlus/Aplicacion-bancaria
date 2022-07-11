@@ -53,6 +53,7 @@ public class VentanaDetalle extends javax.swing.JFrame {
         btnTransferir = new javax.swing.JButton();
         btnCredito = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        btnServicios = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
@@ -99,6 +100,15 @@ public class VentanaDetalle extends javax.swing.JFrame {
         });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imgdelUsuario.png"))); // NOI18N
+
+        btnServicios.setText("SERVICIOS BASICOS");
+        btnServicios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnServicios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServiciosActionPerformed(evt);
+            }
+        });
 
         jMenuBar1.setName(""); // NOI18N
 
@@ -169,7 +179,8 @@ public class VentanaDetalle extends javax.swing.JFrame {
                         .addGap(95, 95, 95)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(lblSaldo)))
@@ -203,7 +214,9 @@ public class VentanaDetalle extends javax.swing.JFrame {
                 .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
@@ -243,6 +256,13 @@ public class VentanaDetalle extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
+    private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
+        VentanaServiciosBasicos servicios = new VentanaServiciosBasicos();
+        servicios.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        servicios.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnServiciosActionPerformed
+
     private void SetImageLabel(JLabel labelName, String root){
         ImageIcon image=new ImageIcon(root);
         Icon icon = new ImageIcon(
@@ -269,6 +289,7 @@ public class VentanaDetalle extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCredito;
+    private javax.swing.JButton btnServicios;
     private javax.swing.JButton btnTransferir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
