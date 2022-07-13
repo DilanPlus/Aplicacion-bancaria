@@ -36,10 +36,11 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
         restricted.setLimit(15);
         restricted.setOnlyNums(true);
     }
+    
     public void setValor(float valorluz){
     this.valorluz = valorluz;
     lblmontoluz.setText(String.valueOf(valorluz));
-}
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -281,7 +282,7 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
         VentanaServiciosBasicos regres= new VentanaServiciosBasicos();
          regres.mostrarCuentaCompleta(usuario, cuenta, saldo);
        regres.setVisible(true);
-       this.dispose();// TODO add your handling code here:
+       this.dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
     private void PagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PagActionPerformed
@@ -301,11 +302,8 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
         }}
     }//GEN-LAST:event_PagActionPerformed
 
-
-
-
     private void TxtpagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtpagoActionPerformed
-         // TODO add your handling code here:
+         
     }//GEN-LAST:event_TxtpagoActionPerformed
 
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked

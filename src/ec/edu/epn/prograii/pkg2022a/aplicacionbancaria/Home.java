@@ -27,7 +27,6 @@ public class Home extends javax.swing.JFrame {
         
         /* Se asignas nombres aleatorios */
         txtNombreUsuario.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
-        
     }
 
     
@@ -266,6 +265,8 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSaldoCorrienteActionPerformed
 
     private void fondoPantalla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla2MouseClicked
+        /*Se abre la ventana de detalles de la cuenta corriente*/
+        
         String usuario;
         int cuenta;
         float saldo;
@@ -274,8 +275,9 @@ public class Home extends javax.swing.JFrame {
         saldo=usua1.getSaldoCorriente();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         
+        /*Se pasan los datos de la cuenta hacia la proxima ventana*/
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_fondoPantalla2MouseClicked
@@ -285,12 +287,14 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSaldoAhorroActionPerformed
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        /*Se vuelve a la ventana login*/
         Login login=new Login();
         login.setVisible(true);
         this.setVisible(false);
        
     }//GEN-LAST:event_jPanel3MouseClicked
 
+    /*Muestra el tiempo de la ultima sesion*/
     public  void mostrarTiempo(){
     lblFecha.setText(time.fechaCompleta);
     }
@@ -304,6 +308,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblfechaTextActionPerformed
 
     private void lblCuentaCorrienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaCorrienteMouseClicked
+       /*Se abre la ventana de detalles de la cuenta corriente*/
         String usuario;
         int cuenta;
         float saldo;
@@ -312,6 +317,7 @@ public class Home extends javax.swing.JFrame {
         saldo=usua1.getSaldoCorriente();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
+        /*Se pasan los datos de la cuenta hacia la proxima ventana*/
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         
         detalle.setVisible(true);
@@ -319,6 +325,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCuentaCorrienteMouseClicked
 
     private void fondoPantalla3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla3MouseClicked
+        /*Se abre la ventana de detalles de la cuenta ahorro*/
         String usuario;
         int cuenta;
         float saldo;
@@ -327,6 +334,7 @@ public class Home extends javax.swing.JFrame {
         saldo=usua1.getSaldoAhorro();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
+        /*Se pasan los datos de la cuenta hacia la proxima ventana*/
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         
         detalle.setVisible(true);
@@ -334,6 +342,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_fondoPantalla3MouseClicked
 
     private void lblCuentaAhorroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaAhorroMouseClicked
+        /*Se abre la ventana de detalles de la cuenta ahorro*/
         String usuario;
         int cuenta;
         float saldo;
@@ -342,6 +351,7 @@ public class Home extends javax.swing.JFrame {
         saldo=usua1.getSaldoAhorro();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
+        /*Se pasan los datos de la cuenta hacia la proxima ventana*/
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         
         detalle.setVisible(true);
@@ -349,6 +359,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCuentaAhorroMouseClicked
 
     private void fondoPantalla4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla4MouseClicked
+        /*Se abre la ventana de detalles de la cuenta credito*/
         String usuario;
         int cuenta;
         float saldo;
@@ -357,6 +368,7 @@ public class Home extends javax.swing.JFrame {
         saldo=usua1.getSaldoCredito();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
+        /*Se pasan los datos de la cuenta hacia la proxima ventana*/
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         
         detalle.setVisible(true);
@@ -364,6 +376,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_fondoPantalla4MouseClicked
 
     private void lblCuentaCreditoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaCreditoMouseClicked
+        /*Se abre la ventana de detalles de la cuenta credito*/
         String usuario;
         int cuenta;
         float saldo;
@@ -372,6 +385,7 @@ public class Home extends javax.swing.JFrame {
         saldo=usua1.getSaldoCredito();
         usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
+        /*Se pasan los datos de la cuenta hacia la proxima ventana*/
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         
         detalle.setVisible(true);

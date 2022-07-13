@@ -19,20 +19,19 @@ import javax.swing.Timer;
  * @author DilanPlus
  */
 public class VentanaDetalle extends javax.swing.JFrame {
+    /*Variables que recibiran los datos de la cuenta de otras  ventanas*/
     String usuario;
     int cuenta;
     float saldo;
-    
+    /*Instancia para mostrar el tiempo de la ultima sesion*/
     Tiempo time= new Tiempo();
  
     
     public VentanaDetalle() {
         initComponents();
         mostrarTiempo();
-        
-        
+        /*Ubica la ventana en una posicion especifica*/
         this.setLocation(500, 150);
-        //SetImageLabel(lblPersona, "src\\ec\\edu\\epn\\prograii\\pkg2022a\\aplicacionbancaria\\imagenes\\iconPersona.jpg");
         
     }
     
@@ -223,6 +222,7 @@ public class VentanaDetalle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditoActionPerformed
+        /*Se accede a la ventana de credito y se pasan los datos de la cuenta*/
         VentanaCredito credito = new VentanaCredito();
         credito.mostrarCuentaCompleta(usuario, cuenta, saldo);
         credito.setVisible(true);
@@ -230,6 +230,7 @@ public class VentanaDetalle extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreditoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
+        /*Se accede a la ventana de transferencia y se pasan los datos de la cuenta*/
         VentanaTranferencia transferencia = new VentanaTranferencia();
         transferencia.mostrarCuentaCompleta(usuario, cuenta, saldo);
         transferencia.setVisible(true);
@@ -245,37 +246,33 @@ public class VentanaDetalle extends javax.swing.JFrame {
     }//GEN-LAST:event_menuVolverActionPerformed
 
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
+        /*Regresa a la ventana home*/
         Home home= new Home();
         home.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuVolverMouseClicked
 
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
+        /*Regresa a la ventana home*/
         Home home= new Home();
         home.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
     private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
+        /*Se accede a la ventana de servicios basicos y se pasan los datos de la cuenta*/
         VentanaServiciosBasicos servicios = new VentanaServiciosBasicos();
         servicios.mostrarCuentaCompleta(usuario, cuenta, saldo);
         servicios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnServiciosActionPerformed
 
-    private void SetImageLabel(JLabel labelName, String root){
-        ImageIcon image=new ImageIcon(root);
-        Icon icon = new ImageIcon(
-                image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT)
-        );
-        labelName.setIcon(icon);
-        this.repaint();
-    }
-    
+    /*Muestra el tiempo de la ultima sesion*/
     public  void mostrarTiempo(){
     lblFecha.setText(time.fechaCompleta);
     }
     
+    /*Metodo que recibe los datos de la cuenta de otras ventanas y los muestra en pantalla*/
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
     this.usuario=usuario;
     this.cuenta=cuenta;

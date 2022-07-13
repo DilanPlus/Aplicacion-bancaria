@@ -12,6 +12,7 @@ import javax.swing.Timer;
  * @author PC
  */
 public class VentanaExitosaAgua extends javax.swing.JFrame {
+    /*Variables que reciben los datos de la cuenta*/
     float Pago;
     String Sumi;
     String Descri;
@@ -19,12 +20,7 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
     float monto;
     int cuenta;
     float saldo;
-    public Timer tiempo;
    
-  
-    /**
-     * Creates new form VentanaExitosaAgua
-     */
     public VentanaExitosaAgua() {
         initComponents();
         this.setLocation(500, 150);
@@ -142,20 +138,24 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void setValorpago(float Pago){
-    this.Pago = Pago;
-    lblpagoo.setText(String.valueOf(Pago));
-}
+    
+    /*Metodos que reciben los datos necesarios para la transaccion*/
+    public void setValorpago(float Pago){
+        this.Pago = Pago;
+        lblpagoo.setText(String.valueOf(Pago));
+    }
 
-public void setSuministro(String Sumi){
-    this.Sumi= Sumi;
-    lblnumero.setText(Sumi);
-}
+    public void setSuministro(String Sumi){
+        this.Sumi= Sumi;
+        lblnumero.setText(Sumi);
+    }
 
-public void setDescripcion(String Descri){
-    this.Descri = Descri;
-    Descr.setText(Descri);
-}
+    public void setDescripcion(String Descri){
+        this.Descri = Descri;
+        Descr.setText(Descri);
+    }
+    
+    /*Actualiza los valores base de la cuenta y volvemos a la ventana servicios basicos*/
     private void IrSBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IrSBActionPerformed
         actualizarSaldoCuenta();
         VentanaServiciosBasicos regresar = new VentanaServiciosBasicos();
@@ -163,11 +163,15 @@ public void setDescripcion(String Descri){
         regresar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_IrSBActionPerformed
+    
+    /*Recibe los valores de la cuenta usuario*/
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
         this.usuario=usuario;
         this.cuenta=cuenta;
         this.saldo=saldo;
     }
+    
+    /*Metodo que actualiza los valores base de la cuenta que estemos utilizando*/
     public void actualizarSaldoCuenta(){
         if (Home.tipoCuenta==0) {
                 this.saldo=(saldo-(Pago));

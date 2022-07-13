@@ -21,6 +21,7 @@ import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
  * @author DilanPlus
  */
 public class VentanaTranferencia extends javax.swing.JFrame {
+    /*Variables que recibiran los datos de la cuenta de otras  ventanas*/
     String usuario;
     int cuenta;
     float saldo;
@@ -28,14 +29,18 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     
     public VentanaTranferencia() {
         initComponents();
-        
+        /*Ubica la ventana en una posicion especifica*/
         this.setLocation(500, 150);
+        
+        /*Agrega un radio button al group botton*/
         gbtnDestino.add(rbtnDestino);
         
+        /*Pinta los botones de un cierto color*/
         btnTransferenciaN.setBackground(Color.LIGHT_GRAY);
         btnTransferenciaI.setBackground(Color.LIGHT_GRAY);
         btnMismoUsuario.setBackground(Color.LIGHT_GRAY);
         
+        /*Oculta objetos de la ventana al ingresar a esta*/
         lblMonto.setVisible(false);
         lblDestino.setVisible(false);
         txtMonto.setVisible(false);
@@ -43,8 +48,9 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         btnTransferir.setVisible(false);
         lblTipo.setVisible(false);
         
+        /*Restringe el valor del monto*/
         RestrictedTextField restricted = new RestrictedTextField(txtMonto);
-        restricted.setLimit(99999);
+        restricted.setLimit(9999);
        
     }
 
@@ -197,6 +203,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTransferenciaNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaNActionPerformed
+        /*Pinta los botones de otro color y muestrar ciertos objetos de la ventana*/
         btnTransferenciaN.setBackground(Color.CYAN);
         btnTransferenciaI.setBackground(Color.LIGHT_GRAY);
         lblMonto.setVisible(true);
@@ -206,7 +213,9 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         rbtnDestino.setVisible(true);
         btnTransferir.setVisible(true);
         lblTipo.setText("TRANSFERENCIA NACIONAL");
+        /*Deselecciona el group button*/
         gbtnDestino.clearSelection();
+        /*Borra el valor de monto y ubica para escribir en el*/
         txtMonto.setText(null);
         txtMonto.requestFocus();
     }//GEN-LAST:event_btnTransferenciaNActionPerformed
@@ -216,6 +225,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_menuVolverActionPerformed
 
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
+        /*Vuelve a la ventana anterior*/
         VentanaDetalle detalle= new VentanaDetalle();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
@@ -223,6 +233,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_menuVolverMouseClicked
 
     private void btnTransferenciaIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaIActionPerformed
+        /*Pinta los botones de otro color y muestrar ciertos objetos de la ventana*/
         btnTransferenciaI.setBackground(Color.CYAN);
         btnTransferenciaN.setBackground(Color.LIGHT_GRAY);
         lblMonto.setVisible(true);
@@ -232,7 +243,9 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         rbtnDestino.setVisible(true);
         btnTransferir.setVisible(true);
         lblTipo.setText("TRANSFERENCIA INTERNACIONAL");
+        /*Deselecciona el group button*/
         gbtnDestino.clearSelection();
+        /*Borra el valor de monto y ubica para escribir en el*/
         txtMonto.setText(null);
         txtMonto.requestFocus();
     }//GEN-LAST:event_btnTransferenciaIActionPerformed
@@ -242,11 +255,15 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMontoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
+        /*Ponemos restricciones al momento de hacer una transferencia y abrir la nueva ventana*/
+        /*Verifica si la cantidad del monto es menor a la del saldo*/
         if ((Float.parseFloat(txtMonto.getText()))>usua1.getSaldoCorriente() ) {
             javax.swing.JOptionPane.showMessageDialog(null, "No tiene los fondos suficientes para la transferencia");
         }else{
+        /*Comprueba si el radio button nuevo destinatario esta seleccionado*/    
         if(!(rbtnDestino.isSelected())){
             JOptionPane.showInternalMessageDialog(null, "Seleccione la opcion en nuevo destinatario");
+            /*Comprueba si el monto esta vacio*/
             if(txtMonto.getText().isEmpty()){
                 JOptionPane.showInternalMessageDialog(null, "Ingrese una cantidad valida en el monto");
             }
@@ -256,9 +273,12 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 JOptionPane.showInternalMessageDialog(null, "Seleccione la opcion en nuevo destinatario");
             }
         }else{
+            /*Ingresamos a la ventna de datos de la transferencia  comprobando que tipo de transferencia estamos haciendo*/
             String type=lblTipo.getText();
+            /*verifica si es una transferencia nacional*/
             if (type.equals("TRANSFERENCIA NACIONAL")) {
                 int tipo=0;
+                /*Accede a la ventana de datos y pasa los datos de la cuenta y monto y tipo de transferencia que estamos haciendo*/
                 String transferencia="Transferencia Nacional - Cuenta Destino";
                 VentanaDatosTransferencia ventanadatosTransferencia= new VentanaDatosTransferencia();
                 ventanadatosTransferencia.mostrarCuentaCompleta(usuario,transferencia ,tipo,cuenta, saldo,(Float.parseFloat(txtMonto.getText())));
@@ -266,6 +286,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 this.dispose();
                 
             }else if (type.equals("TRANSFERENCIA INTERNACIONAL")) {
+                /*Accede a la ventana de datos y pasa los datos de la cuenta y monto y tipo de transferencia que estamos haciendo*/
                 int tipo=1;
                 String transferencia="Transferencia Internacional - Cuenta Destino";
                 VentanaDatosTransferencia ventanadatosTransferencia= new VentanaDatosTransferencia();
@@ -274,14 +295,12 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 this.dispose();
             }
         }
-            // abrir = new VentanaDetalle();
-            //abrir.setVisible(true);
-            //this.dispose();
         }
         
     }//GEN-LAST:event_btnTransferirActionPerformed
 
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
+        /*Vuelve al detalle de cuenta*/
         VentanaDetalle detalle = new VentanaDetalle();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
@@ -289,6 +308,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_menuInicioMouseClicked
 
     private void btnMismoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMismoUsuarioActionPerformed
+        /*Accede a transferencia entre cuentas del mismo usuario*/
         VentanaTransfereMismoUsuario ventanaTransfereMismoUsuario=new VentanaTransfereMismoUsuario();
         ventanaTransfereMismoUsuario.setVisible(true);
         this.setVisible(false);             
@@ -298,6 +318,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnDestinoActionPerformed
 
+    /*Metodo que recibe los datos de la cuenta y los muestra en pantalla*/
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
     this.usuario=usuario;
     this.cuenta=cuenta;

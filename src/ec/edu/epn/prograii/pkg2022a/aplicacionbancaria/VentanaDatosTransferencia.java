@@ -10,6 +10,7 @@ import javax.swing.*;
  * @author Elizabeth
  */
 public class VentanaDatosTransferencia extends javax.swing.JFrame {
+    /*Variables que reciben los datos de la cuenta y su tipo*/
     String usuario;
     String transferencia;
     int tipo;
@@ -23,8 +24,8 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         initComponents();
         this.setLocation(450, 0);
         btnTransferir.setEnabled(false);
-
         txtMonto.setEditable(false);
+        /*Pone restrincciones en los valores y tipos que podes ingresar*/
         RestrictedTextField restricted = new RestrictedTextField(txtCuenta);
         restricted.setLimit(15);
         restricted.setOnlyNums(true);
@@ -461,18 +462,19 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCuentaActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void txtDatoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDatoNombreActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtDatoNombreActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        /*Vuelve a la ventana detalle*/
         VentanaDetalle detalle = new VentanaDetalle();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
@@ -480,16 +482,20 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtMontoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
+        /*Se genera un numero aleatorio que validara si la cuenta existe*/
         int y=(int)(Math.random()*6);
         if(y==0){
         JOptionPane.showInternalMessageDialog(null, "Datos incorrectos\" ¡¡Vuelve a intentarlo!!\"");
         }else{
+            /*Verifica que tipo de transferencia estamos haciendo con los datos pasados de la ventana anterior*/
+            /*Transferencia nacional*/
             if(tipo==0){
             VentanaExitosaTransferencia transfExito = new VentanaExitosaTransferencia();
+            /*Metodos que envian los datos ingresados de la cuenta destinatario*/
             transfExito.setNombR(txtDatoNombre.getText());
             transfExito.setNcuenta(txtCuenta.getText());
             transfExito.setCorreo(txtCorreo.getText());
@@ -499,10 +505,11 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
             transfExito.setNcomp(Ncompr);
             transfExito.setBanco(cmbBanco.getSelectedItem().toString());
             transfExito.setTipCuent(jComboBox1.getSelectedItem().toString());
+            /*Envia datos de la cuenta del usuario*/
             transfExito.mostrarCuentaCompleta(usuario, transferencia, tipo, cuenta, saldo);
             transfExito.setVisible(true);
             this.dispose();    
-            
+            /*Transferencia internacion*/
             }else if(tipo==1){
             VentanaExitosaTransferencia transfExito = new VentanaExitosaTransferencia();
             transfExito.mostrarCuentaCompleta(usuario, transferencia, tipo, cuenta, saldo);
@@ -523,6 +530,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTransferirActionPerformed
 
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
+        /*Vuelve a la ventana anterior*/
         VentanaTranferencia transf= new VentanaTranferencia();
         transf.mostrarCuentaCompleta(usuario, cuenta, saldo);
         transf.setVisible(true);
@@ -534,12 +542,14 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     }//GEN-LAST:event_menuVolverActionPerformed
 
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
+        /*Vuelve a detalle*/
         VentanaDetalle detalle = new VentanaDetalle();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
+    /*Metodos key released y ItemStateChanged para comprobar si se uso los componente de la ventana*/
     private void txtBancoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBancoKeyReleased
         habilitarTrans();
     }//GEN-LAST:event_txtBancoKeyReleased
@@ -588,7 +598,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         habilitarTrans();
 
     }//GEN-LAST:event_jComboBox2ItemStateChanged
-
+   /*Metodo que recibe los datos de la cuenta y valor ncesario*/
     public void mostrarCuentaCompleta(String usuario, String transferencia, int tipo, int cuenta, float saldo, float monto){
     this.usuario=usuario;
     this.transferencia=transferencia;
@@ -602,6 +612,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     lblCuenta.setText(String.valueOf(cuenta));
     lblSaldo.setText((" $ ")+String.valueOf(saldo));  
     txtMonto.setText((" $ ")+String.valueOf(monto));  
+    /*Comprueba el tipo de de transaccion que estamos haciendo y oculta la opcion de banco que no corresponde*/
     if(tipo==0){
         lblBanco2.setVisible(false);
         txtBanco.setVisible(false);
@@ -611,6 +622,8 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         cmbBanco.setVisible(false);
         }
     }
+    
+    /*Metodo que compruba si se cumple con el ingreso de los datos para poder habilitar el boton y continuar*/
     public void habilitarTrans(){
         if (!cmbBanco.getSelectedItem().equals("Seleccione una entidad") || !txtBanco.getText().isEmpty()) {
             if(!txtDatoNombre.getText().isEmpty() && !txtCorreo.getText().isEmpty()

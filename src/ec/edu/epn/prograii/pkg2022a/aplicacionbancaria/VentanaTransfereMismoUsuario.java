@@ -12,7 +12,6 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
         lblSaldoAhorro.setText(" $ "+usua1.getSaldoAhorro());
         RestrictedTextField telf = new RestrictedTextField(txtMonto);
         telf.setOnlyNums(true);
-        
     }
 
     
