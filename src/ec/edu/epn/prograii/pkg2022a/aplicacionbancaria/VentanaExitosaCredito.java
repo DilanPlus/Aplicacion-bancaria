@@ -80,6 +80,7 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
 
         btnAceptarCredito.setText("ACEPTAR");
         btnAceptarCredito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAceptarCredito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAceptarCredito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarCreditoActionPerformed(evt);

@@ -125,6 +125,7 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
         });
 
         Aceptar2.setText("Aceptar");
+        Aceptar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Aceptar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Aceptar2ActionPerformed(evt);

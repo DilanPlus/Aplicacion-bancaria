@@ -212,6 +212,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         btnCancelar.setBackground(new java.awt.Color(102, 0, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("CANCELAR");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -237,6 +238,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
 
         btnTransferir.setBackground(new java.awt.Color(51, 153, 0));
         btnTransferir.setText("TRANSFERIR");
+        btnTransferir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTransferir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTransferirActionPerformed(evt);

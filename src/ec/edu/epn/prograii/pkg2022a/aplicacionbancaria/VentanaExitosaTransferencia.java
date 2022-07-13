@@ -163,6 +163,7 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
         btnAcept.setBackground(new java.awt.Color(51, 153, 0));
         btnAcept.setForeground(new java.awt.Color(255, 255, 255));
         btnAcept.setText("ACEPTAR");
+        btnAcept.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAcept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptActionPerformed(evt);

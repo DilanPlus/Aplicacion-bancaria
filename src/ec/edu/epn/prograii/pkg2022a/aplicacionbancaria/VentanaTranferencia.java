@@ -45,23 +45,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         
         RestrictedTextField restricted = new RestrictedTextField(txtMonto);
         restricted.setLimit(99999);
-        
-        /*tiempo = new Timer(1, null);
-        tiempo.start();
-        tiempo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Metodo para obtener informacion de una variable publica y estatica
-                //En este caso le cambie el origen de la variable nCuenta
-                lblCuenta.setText(String.valueOf(EcEduEpnPrograII2022AAplicacionBancaria.nCuenta));
-        
-                //Metodo para obtener inforacion de el label publico y estatica
-                //jLabel1.setText(VentanaDetalle.lblCuenta.getText());
-        
-                //Tambien lo podemos usar para enviar informacion
-                //VentanaDetalle.lblCuenta.setText(this.lblCuenta.getText());
-            }
-        });*/
+       
     }
 
     /**

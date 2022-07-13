@@ -77,6 +77,7 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
         Descr.setText("Comentario");
 
         IrSB.setText("Pagar otro servicio");
+        IrSB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         IrSB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IrSBActionPerformed(evt);

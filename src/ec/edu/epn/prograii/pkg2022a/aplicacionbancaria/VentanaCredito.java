@@ -108,6 +108,7 @@ public class VentanaCredito extends javax.swing.JFrame {
 
         btnPagarCredito.setText("CREDITO");
         btnPagarCredito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPagarCredito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPagarCredito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPagarCreditoActionPerformed(evt);
