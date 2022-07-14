@@ -4,7 +4,10 @@ import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
 import Atxy2k.CustomTextField.RestrictedTextField;
 
 public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
-
+    /*Variables que recibiran los datos de la cuenta de otras  ventanas*/
+    String usuario;
+    int cuenta;
+    float saldo;
     public VentanaTransfereMismoUsuario() {
         initComponents();
         this.setLocation(500, 150);
@@ -32,6 +35,9 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
         pntC_A = new javax.swing.JRadioButton();
         pntA_C = new javax.swing.JRadioButton();
         btnTransferir = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuInicio = new javax.swing.JMenu();
+        menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -92,6 +98,29 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
         });
         fondoPantalla.add(btnTransferir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 90, 30));
 
+        menuInicio.setText("Inicio");
+        menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuInicioMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(menuInicio);
+
+        menuVolver.setText("Volver");
+        menuVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuVolverMouseClicked(evt);
+            }
+        });
+        menuVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuVolverActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuVolver);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,7 +129,7 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoPantalla, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+            .addComponent(fondoPantalla, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
         );
 
         pack();
@@ -156,6 +185,32 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnTransferirActionPerformed
 
+    private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
+        VentanaDetalle detalle = new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuInicioMouseClicked
+
+    private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
+        /*Vuelve a la ventana anterior*/
+        VentanaDetalle detalle= new VentanaDetalle();
+        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuVolverMouseClicked
+
+    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
+
+    }//GEN-LAST:event_menuVolverActionPerformed
+
+    /*Metodo que recibe los datos de la cuenta y los muestra en pantalla*/
+    public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
+    this.usuario=usuario;
+    this.cuenta=cuenta;
+    this.saldo=saldo;  
+   
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTransferir;
@@ -163,10 +218,13 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblSaldoAhorro;
     private javax.swing.JLabel lblSaldoCorriente;
+    private javax.swing.JMenu menuInicio;
+    private javax.swing.JMenu menuVolver;
     private javax.swing.JRadioButton pntA_C;
     private javax.swing.JRadioButton pntC_A;
     private javax.swing.ButtonGroup seleccionCuentas;

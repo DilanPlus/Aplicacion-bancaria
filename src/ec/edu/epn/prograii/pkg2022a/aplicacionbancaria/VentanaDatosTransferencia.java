@@ -50,19 +50,31 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        lblTransferencia = new javax.swing.JLabel();
-        lblBanco1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        txtMonto = new javax.swing.JTextField();
         txtCuenta = new javax.swing.JTextField();
+        btnTransferir = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        cmbBanco = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        lblSaldo = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
+        lblNombre = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         txtIdentificacion = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        lblCuenta = new javax.swing.JLabel();
+        lblBanco2 = new javax.swing.JLabel();
         txtDatoNombre = new javax.swing.JTextField();
+        txtBanco = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtSobrenombre = new javax.swing.JTextField();
@@ -72,19 +84,8 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        txtMonto = new javax.swing.JTextField();
-        btnTransferir = new javax.swing.JButton();
-        cmbBanco = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        lblSaldo = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        lblCuenta = new javax.swing.JLabel();
-        lblBanco2 = new javax.swing.JLabel();
-        txtBanco = new javax.swing.JTextField();
+        lblTransferencia = new javax.swing.JLabel();
+        lblBanco1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
@@ -96,15 +97,32 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 153));
 
-        lblTransferencia.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 18)); // NOI18N
-        lblTransferencia.setForeground(new java.awt.Color(204, 102, 0));
-        lblTransferencia.setText("Transferencia Entre Bancos - Cuenta Destino");
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblBanco1.setForeground(new java.awt.Color(102, 102, 0));
-        lblBanco1.setText("Cooperativa//Banco*:");
+        jLabel14.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel14.setText("MONTO");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, -1, -1));
+
+        jLabel15.setForeground(new java.awt.Color(102, 102, 0));
+        jLabel15.setText("Monto a transferir*:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(102, 102, 0));
         jLabel3.setText("N°. Cuenta*:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+
+        txtMonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMontoActionPerformed(evt);
+            }
+        });
+        txtMonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMontoKeyReleased(evt);
+            }
+        });
+        jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 115, -1));
 
         txtCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +134,17 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 txtCuentaKeyReleased(evt);
             }
         });
+        jPanel1.add(txtCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 163, -1));
+
+        btnTransferir.setBackground(new java.awt.Color(51, 153, 0));
+        btnTransferir.setText("TRANSFERIR");
+        btnTransferir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTransferir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTransferirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnTransferir, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, 105, 31));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el tipo", "Cuenta de Ahorros", "Cuenta Corriente" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -128,15 +157,37 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 156, -1));
+
+        cmbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una entidad", "Banco Pichincha", "Banco General Ruminahui", "Produbanco", "Banco de Loja", "Banco Guayaquil", "Banco Amazonas", "Banco Bolivariano", "Banco Internacional", "Banco del Austro", "Coop de Ahorro y Credito Occidental", "Banco del Pacifico" }));
+        cmbBanco.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbBancoItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(cmbBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 266, -1));
 
         jLabel4.setForeground(new java.awt.Color(102, 102, 0));
         jLabel4.setText("Tipo de Cuenta*:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
+        jLabel16.setText("Detalle de tu cuenta");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 326, 47));
 
         jLabel5.setForeground(new java.awt.Color(255, 51, 0));
         jLabel5.setText("DATOS PERSONALES");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+
+        jLabel17.setText("Nº");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(102, 102, 0));
         jLabel6.setText("Tipo de Identificación*:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+
+        lblSaldo.setText("000000");
+        jPanel1.add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el tipo", "Pasaporte", "Cedula de Identidad" }));
         jComboBox2.addItemListener(new java.awt.event.ItemListener() {
@@ -149,18 +200,35 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 156, -1));
+
+        lblNombre.setText("Nombre");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(102, 102, 0));
         jLabel7.setText("N°. de Identificación*:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+
+        jLabel18.setText("Saldo");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
         txtIdentificacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtIdentificacionKeyReleased(evt);
             }
         });
+        jPanel1.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 130, -1));
 
         jLabel8.setForeground(new java.awt.Color(102, 102, 0));
         jLabel8.setText("Nombres y Apellidos*: ");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+
+        lblCuenta.setText("000000");
+        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+
+        lblBanco2.setForeground(new java.awt.Color(102, 102, 0));
+        lblBanco2.setText("Cooperativa//Banco*:");
+        jPanel1.add(lblBanco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         txtDatoNombre.setToolTipText("");
         txtDatoNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -173,12 +241,22 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 txtDatoNombreKeyReleased(evt);
             }
         });
+        jPanel1.add(txtDatoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 322, -1));
+
+        txtBanco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBancoKeyReleased(evt);
+            }
+        });
+        jPanel1.add(txtBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 266, -1));
 
         jLabel9.setForeground(new java.awt.Color(102, 102, 0));
         jLabel9.setText("Sobrenombre:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         jLabel10.setForeground(new java.awt.Color(102, 102, 0));
         jLabel10.setText("(opcional)");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, 22));
 
         txtSobrenombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -188,27 +266,33 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 txtSobrenombreKeyReleased(evt);
             }
         });
+        jPanel1.add(txtSobrenombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 314, -1));
 
         jLabel11.setForeground(new java.awt.Color(255, 51, 0));
         jLabel11.setText("CONTACTO");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
 
         jLabel12.setForeground(new java.awt.Color(102, 102, 0));
         jLabel12.setText("Correo Electrónico:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
         txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCorreoKeyReleased(evt);
             }
         });
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 285, -1));
 
         jLabel13.setForeground(new java.awt.Color(102, 102, 0));
         jLabel13.setText("Número de Telefóno*:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
 
         txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTelefonoKeyReleased(evt);
             }
         });
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, 128, -1));
 
         btnCancelar.setBackground(new java.awt.Color(102, 0, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,61 +303,16 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 610, 103, 31));
 
-        jLabel14.setForeground(new java.awt.Color(255, 51, 0));
-        jLabel14.setText("MONTO");
+        lblTransferencia.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 18)); // NOI18N
+        lblTransferencia.setForeground(new java.awt.Color(204, 102, 0));
+        lblTransferencia.setText("Transferencia Entre Bancos - Cuenta Destino");
+        jPanel1.add(lblTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 387, -1));
 
-        jLabel15.setForeground(new java.awt.Color(102, 102, 0));
-        jLabel15.setText("Monto a transferir*:");
-
-        txtMonto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMontoActionPerformed(evt);
-            }
-        });
-        txtMonto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtMontoKeyReleased(evt);
-            }
-        });
-
-        btnTransferir.setBackground(new java.awt.Color(51, 153, 0));
-        btnTransferir.setText("TRANSFERIR");
-        btnTransferir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnTransferir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransferirActionPerformed(evt);
-            }
-        });
-
-        cmbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una entidad", "Banco Pichincha", "Banco General Ruminahui", "Produbanco", "Banco de Loja", "Banco Guayaquil", "Banco Amazonas", "Banco Bolivariano", "Banco Internacional", "Banco del Austro", "Coop de Ahorro y Credito Occidental", "Banco del Pacifico" }));
-        cmbBanco.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbBancoItemStateChanged(evt);
-            }
-        });
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
-        jLabel16.setText("Detalle de tu cuenta");
-
-        jLabel17.setText("Nº");
-
-        lblSaldo.setText("000000");
-
-        lblNombre.setText("Nombre");
-
-        jLabel18.setText("Saldo");
-
-        lblCuenta.setText("000000");
-
-        lblBanco2.setForeground(new java.awt.Color(102, 102, 0));
-        lblBanco2.setText("Cooperativa//Banco*:");
-
-        txtBanco.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBancoKeyReleased(evt);
-            }
-        });
+        lblBanco1.setForeground(new java.awt.Color(102, 102, 0));
+        lblBanco1.setText("Cooperativa//Banco*:");
+        jPanel1.add(lblBanco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,156 +341,14 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblSaldo))
-                            .addComponent(lblNombre)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblCuenta))))
-                    .addComponent(lblBanco2)
-                    .addComponent(lblBanco1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147)
-                        .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbBanco, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel5)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel10)))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSobrenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDatoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(42, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(lblCuenta))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(lblSaldo))))
-                .addGap(18, 18, 18)
-                .addComponent(lblTransferencia)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(lblBanco1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBanco2)
-                    .addComponent(txtBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(txtDatoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(txtSobrenombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnTransferir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -667,6 +564,7 @@ public class VentanaDatosTransferencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblBanco1;

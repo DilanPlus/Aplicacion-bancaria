@@ -38,6 +38,7 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
     private void initComponents() {
 
         gbtnDestino = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         txtMonto = new javax.swing.JTextField();
         lblMonto = new javax.swing.JLabel();
         btnAceptarCredito = new javax.swing.JButton();
@@ -47,14 +48,20 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
         menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtMonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMontoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 377, -1));
 
         lblMonto.setText("MONTO DEL CREDITO");
+        jPanel1.add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         btnAceptarCredito.setText("ACEPTAR");
         btnAceptarCredito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -64,10 +71,14 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
                 btnAceptarCreditoActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAceptarCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 124, 48));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 0));
         jLabel1.setText("¡¡¡CREDITO EXITOSO!!!");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, 41));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 389, 220));
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,36 +102,6 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
         jMenuBar1.add(menuVolver);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(btnAceptarCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtMonto)
-                    .addComponent(lblMonto, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(lblMonto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAceptarCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -193,6 +174,7 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
     private javax.swing.ButtonGroup gbtnDestino;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMonto;
     private javax.swing.JMenu menuInicio;
     private javax.swing.JMenu menuVolver;

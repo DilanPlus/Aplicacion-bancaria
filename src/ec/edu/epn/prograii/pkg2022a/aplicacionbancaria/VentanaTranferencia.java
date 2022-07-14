@@ -64,6 +64,9 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     private void initComponents() {
 
         gbtnDestino = new javax.swing.ButtonGroup();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         lblSaldo = new javax.swing.JLabel();
         btnTransferenciaN = new javax.swing.JButton();
@@ -78,8 +81,6 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         btnTransferir = new javax.swing.JButton();
         lblTipo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btnMismoUsuario = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
@@ -89,12 +90,17 @@ public class VentanaTranferencia extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setText("Nº");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 36, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
         lblSaldo.setText("000000");
-        getContentPane().add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 59, 90, -1));
+        jPanel1.add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 80, -1));
 
         btnTransferenciaN.setText("Transferencia Nacional");
         btnTransferenciaN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -103,13 +109,13 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 btnTransferenciaNActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTransferenciaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 303, 32));
+        jPanel1.add(btnTransferenciaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 303, 32));
 
         jLabel6.setText("Saldo");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 59, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
 
         lblCuenta.setText("000000");
-        getContentPane().add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 36, 90, -1));
+        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 80, -1));
 
         btnTransferenciaI.setText("Transferencia Internacional");
         btnTransferenciaI.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -118,24 +124,24 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 btnTransferenciaIActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTransferenciaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 303, 31));
+        jPanel1.add(btnTransferenciaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 303, 31));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         jLabel1.setText("Detalle de tu cuenta");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 208, 47));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 208, 47));
 
         txtMonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMontoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 303, -1));
+        jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 303, -1));
 
         lblMonto.setText("Monto");
-        getContentPane().add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        jPanel1.add(lblMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
         lblDestino.setText("Cuenta destino");
-        getContentPane().add(lblDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        jPanel1.add(lblDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
         rbtnDestino.setText("Crear nuevo beneficiario");
         rbtnDestino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -144,7 +150,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 rbtnDestinoActionPerformed(evt);
             }
         });
-        getContentPane().add(rbtnDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        jPanel1.add(rbtnDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
 
         btnTransferir.setText("TRANSFERIR");
         btnTransferir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -154,16 +160,14 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 btnTransferirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTransferir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 124, 48));
+        jPanel1.add(btnTransferir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 124, 48));
 
         lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lblTipo.setText("TIPO DE TRANSFERENCIA");
-        getContentPane().add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
+        jPanel1.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
         lblNombre.setText("Nombre");
-        getContentPane().add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 13, -1, -1));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
         btnMismoUsuario.setText("Transferencia entre tus mismas cuentas");
         btnMismoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -172,7 +176,9 @@ public class VentanaTranferencia extends javax.swing.JFrame {
                 btnMismoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMismoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 300, 30));
+        jPanel1.add(btnMismoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 300, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 420));
 
         menuInicio.setText("Inicio");
         menuInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -310,8 +316,9 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     private void btnMismoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMismoUsuarioActionPerformed
         /*Accede a transferencia entre cuentas del mismo usuario*/
         VentanaTransfereMismoUsuario ventanaTransfereMismoUsuario=new VentanaTransfereMismoUsuario();
+        ventanaTransfereMismoUsuario.mostrarCuentaCompleta(usuario, cuenta, saldo);
         ventanaTransfereMismoUsuario.setVisible(true);
-        this.setVisible(false);             
+        this.dispose();            
     }//GEN-LAST:event_btnMismoUsuarioActionPerformed
 
     private void rbtnDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDestinoActionPerformed
@@ -342,6 +349,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCuenta;
     private javax.swing.JLabel lblDestino;
     private javax.swing.JLabel lblMonto;

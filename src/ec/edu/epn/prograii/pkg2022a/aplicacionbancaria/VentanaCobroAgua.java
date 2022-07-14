@@ -46,14 +46,16 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 32767));
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Lblsumi = new javax.swing.JLabel();
         suministro = new javax.swing.JTextField();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 0), new java.awt.Dimension(2, 32767));
         jLabel2 = new javax.swing.JLabel();
         descripcion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Pagua = new javax.swing.JButton();
+        lblCuenta = new javax.swing.JLabel();
         Valoragua = new javax.swing.JLabel();
         Valorpagoagua = new javax.swing.JLabel();
         Pagaragua = new javax.swing.JLabel();
@@ -64,27 +66,37 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
         lblSaldo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        lblCuenta = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 374, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Completa el formulario para pagar el servicio");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 337, -1));
 
         Lblsumi.setText("*Número de suministro:");
+        jPanel1.add(Lblsumi, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         suministro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 suministroActionPerformed(evt);
             }
         });
+        jPanel1.add(suministro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 402, -1));
 
         jLabel2.setText("*Descripción:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel1.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 402, -1));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel3.setText("Cobro - Agua Potable");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Pagua.setText("Continuar");
         Pagua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -93,8 +105,13 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
                 PaguaActionPerformed(evt);
             }
         });
+        jPanel1.add(Pagua, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
+
+        lblCuenta.setText("000000");
+        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
 
         Valoragua.setText("El valor a pagar es de:");
+        jPanel1.add(Valoragua, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         Valorpagoagua.setText("0");
         Valorpagoagua.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -102,14 +119,17 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
                 ValorpagoaguaPropertyChange(evt);
             }
         });
+        jPanel1.add(Valorpagoagua, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 263, -1));
 
         Pagaragua.setText("Pago:");
+        jPanel1.add(Pagaragua, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
         Txtpago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtpagoActionPerformed(evt);
             }
         });
+        jPanel1.add(Txtpago, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 263, -1));
 
         PagarAgua.setText("Pagar");
         PagarAgua.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +137,7 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
                 PagarAguaActionPerformed(evt);
             }
         });
+        jPanel1.add(PagarAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
         Cance.setText("Cancelar");
         Cance.addActionListener(new java.awt.event.ActionListener() {
@@ -124,16 +145,21 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
                 CanceActionPerformed(evt);
             }
         });
+        jPanel1.add(Cance, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
         jLabel17.setText("Nº");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
         lblSaldo.setText("000000");
+        jPanel1.add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
         lblNombre.setText("Nombre");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         jLabel18.setText("Saldo");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
-        lblCuenta.setText("000000");
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 455, 390));
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -157,107 +183,6 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
         jMenuBar1.add(menuVolver);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Valoragua)
-                                    .addComponent(Pagaragua))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Valorpagoagua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Txtpago, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(descripcion)
-                                .addComponent(suministro)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(Lblsumi)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(65, 65, 65))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblNombre)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel17)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lblCuenta))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel18)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lblSaldo))))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Pagua)
-                .addGap(184, 184, 184))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(Cance)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PagarAgua)
-                .addGap(78, 78, 78))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(lblCuenta))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(lblSaldo))))
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Lblsumi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(suministro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Pagua)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Valoragua)
-                    .addComponent(Valorpagoagua, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Pagaragua)
-                    .addComponent(Txtpago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PagarAgua)
-                    .addComponent(Cance))
-                .addGap(44, 44, 44))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -377,6 +302,7 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCuenta;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblSaldo;

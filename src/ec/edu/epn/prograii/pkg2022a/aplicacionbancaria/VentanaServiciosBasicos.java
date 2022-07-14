@@ -39,29 +39,45 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TituloSB = new javax.swing.JLabel();
-        Aguapotable = new javax.swing.JButton();
         Sumin = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        lblSaldo = new javax.swing.JLabel();
+        TituloSB = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        Aguapotable = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        lblCuenta = new javax.swing.JLabel();
         listaagua = new javax.swing.JComboBox<>();
         listaluz = new javax.swing.JComboBox<>();
         Luz = new javax.swing.JButton();
         Can = new javax.swing.JButton();
         Acep = new javax.swing.JButton();
         Aceptar2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        lblSaldo = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        lblCuenta = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(Sumin, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 317, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Nº");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
+
+        lblSaldo.setText("000000");
+        jPanel1.add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         TituloSB.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         TituloSB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TituloSB.setText("Servicios Básicos");
+        jPanel1.add(TituloSB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        lblNombre.setText("Nombre");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         Aguapotable.setText("Agua Potable");
         Aguapotable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -70,6 +86,13 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
                 AguapotableActionPerformed(evt);
             }
         });
+        jPanel1.add(Aguapotable, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 120, -1));
+
+        jLabel6.setText("Saldo");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        lblCuenta.setText("000000");
+        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 
         listaagua.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoge la empresa", "Agua Potable Cantón Mejía - EPAA", "Quito - EPMAPS", "Agua Potable Esmeraldas EPMAPS", "Pedro Vicente - EPMAPA" }));
         listaagua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -88,6 +111,7 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
                 listaaguaPropertyChange(evt);
             }
         });
+        jPanel1.add(listaagua, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
 
         listaluz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoge la empresa", "Quito - Servicio eléctrico nacional", "Guayaquil - Servicio eléctrico nacional", "Cuenca  - Servicio eléctrico nacional", "CNEL (Excepto Cuenca", "Guayaqil y Quito)" }));
         listaluz.addItemListener(new java.awt.event.ItemListener() {
@@ -95,6 +119,7 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
                 listaluzItemStateChanged(evt);
             }
         });
+        jPanel1.add(listaluz, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 219, -1));
 
         Luz.setText("Electricidad - Luz");
         Luz.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -103,6 +128,7 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
                 LuzActionPerformed(evt);
             }
         });
+        jPanel1.add(Luz, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         Can.setText("Cancelar");
         Can.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -111,6 +137,7 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
                 CanActionPerformed(evt);
             }
         });
+        jPanel1.add(Can, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         Acep.setText("Aceptar");
         Acep.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -119,6 +146,7 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
                 AcepActionPerformed(evt);
             }
         });
+        jPanel1.add(Acep, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
         Aceptar2.setText("Aceptar");
         Aceptar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -127,16 +155,9 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
                 Aceptar2ActionPerformed(evt);
             }
         });
+        jPanel1.add(Aceptar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
 
-        jLabel5.setText("Nº");
-
-        lblSaldo.setText("000000");
-
-        lblNombre.setText("Nombre");
-
-        jLabel6.setText("Saldo");
-
-        lblCuenta.setText("000000");
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 428, 311));
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,82 +181,6 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
         jMenuBar1.add(menuVolver);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Sumin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TituloSB)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Luz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Aguapotable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Can))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Acep)
-                        .addGap(18, 18, 18)
-                        .addComponent(Aceptar2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(listaagua, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(listaluz, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(119, 119, 119)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblNombre)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblCuenta))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblSaldo))))
-                            .addGap(17, 17, 17))))
-                .addGap(27, 27, 27))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(Sumin))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre)
-                            .addComponent(TituloSB))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(lblCuenta))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(lblSaldo))
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Aguapotable)
-                            .addComponent(listaagua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Luz)
-                            .addComponent(listaluz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Can)
-                    .addComponent(Acep)
-                    .addComponent(Aceptar2))
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -369,6 +314,7 @@ public class VentanaServiciosBasicos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCuenta;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblSaldo;

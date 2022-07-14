@@ -51,49 +51,61 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
         Txtcontrato = new javax.swing.JTextField();
+        lblSaldo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         TxtDescrip = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
         Cont = new javax.swing.JButton();
+        lblCuenta = new javax.swing.JLabel();
         lblpagar = new javax.swing.JLabel();
         lblpago = new javax.swing.JLabel();
         lblmontoluz = new javax.swing.JLabel();
         Txtpago = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         Cancel = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         Pag = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        lblSaldo = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        lblCuenta = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLabel1.setText("Cobro - Electrecidad-Luz");
+        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Completa el formulario para pagar el servicio");
-
-        jLabel3.setText("*Cuenta Contrato:");
+        jLabel17.setText("Nº");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
 
         Txtcontrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtcontratoActionPerformed(evt);
             }
         });
+        jPanel1.add(Txtcontrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 388, -1));
+
+        lblSaldo.setText("000000");
+        jPanel1.add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
 
         jLabel4.setText("*Descripción:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        lblNombre.setText("Nombre");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         TxtDescrip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtDescripActionPerformed(evt);
             }
         });
+        jPanel1.add(TxtDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 388, -1));
+
+        jLabel18.setText("Saldo");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
 
         Cont.setText("Continuar");
         Cont.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -102,18 +114,30 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
                 ContActionPerformed(evt);
             }
         });
+        jPanel1.add(Cont, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+
+        lblCuenta.setText("000000");
+        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
         lblpagar.setText("El valor a pagar es de:");
+        jPanel1.add(lblpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         lblpago.setText("Pago:");
+        jPanel1.add(lblpago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         lblmontoluz.setText("0");
+        jPanel1.add(lblmontoluz, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 232, -1));
 
         Txtpago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtpagoActionPerformed(evt);
             }
         });
+        jPanel1.add(Txtpago, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 232, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jLabel1.setText("Cobro - Electrecidad-Luz");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Cancel.setText("Cancelar");
         Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -122,6 +146,10 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
                 CancelActionPerformed(evt);
             }
         });
+        jPanel1.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
+
+        jLabel2.setText("Completa el formulario para pagar el servicio");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         Pag.setText("Pagar");
         Pag.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -130,16 +158,10 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
                 PagActionPerformed(evt);
             }
         });
+        jPanel1.add(Pag, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
 
-        jLabel17.setText("Nº");
-
-        lblSaldo.setText("000000");
-
-        lblNombre.setText("Nombre");
-
-        jLabel18.setText("Saldo");
-
-        lblCuenta.setText("000000");
+        jLabel3.setText("*Cuenta Contrato:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,93 +177,11 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(155, 155, 155)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lblSaldo))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblNombre)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel17)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblCuenta))))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TxtDescrip, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Txtcontrato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(Cancel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Pag)
-                                .addGap(47, 47, 47))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblpagar)
-                                    .addComponent(lblpago))
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Txtpago)
-                                    .addComponent(lblmontoluz, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(Cont)))
-                .addContainerGap(46, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(lblCuenta))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(lblSaldo))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Txtcontrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Cont)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpagar)
-                    .addComponent(lblmontoluz))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpago)
-                    .addComponent(Txtpago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Cancel)
-                    .addComponent(Pag))
-                .addContainerGap(51, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -293,7 +233,9 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
         double doublepago = Double.parseDouble(Txtpago.getText());
         if(doublepago!=doubleValue){
              JOptionPane.showInternalMessageDialog(null, "Por favor, pague la completitud del valor");
-        } else{   VentanaExitosaLuz pagar = new VentanaExitosaLuz();
+        } else{   
+        VentanaExitosaLuz pagar = new VentanaExitosaLuz();
+        pagar.mostrarCuentaCompleta(usuario,cuenta, saldo);
         pagar.setValorpago(Float.parseFloat(Txtpago.getText()));
         pagar.setContrato(Txtcontrato.getText());
         pagar.setDescripcion(TxtDescrip.getText());
@@ -336,6 +278,7 @@ public class VentanaCobroLuz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCuenta;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblSaldo;

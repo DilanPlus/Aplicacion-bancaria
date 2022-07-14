@@ -35,8 +35,7 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TituPago = new javax.swing.JLabel();
-        lblhaspagado = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         lblserv = new javax.swing.JLabel();
         lblNum = new javax.swing.JLabel();
         lblasunto = new javax.swing.JLabel();
@@ -45,32 +44,38 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
         lblnumero = new javax.swing.JLabel();
         Descr = new javax.swing.JLabel();
         IrSB = new javax.swing.JButton();
+        TituPago = new javax.swing.JLabel();
+        lblhaspagado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TituPago.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        TituPago.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TituPago.setText("Pago exitoso");
-
-        lblhaspagado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblhaspagado.setText("Has pagado: ");
+        jPanel2.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblserv.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblserv.setText("Servicio:");
+        jPanel2.add(lblserv, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         lblNum.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblNum.setText("Número de Suministro:");
+        jPanel2.add(lblNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         lblasunto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblasunto.setText("Asunto:");
+        jPanel2.add(lblasunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         lblpagoo.setText("0");
+        jPanel2.add(lblpagoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 127, -1));
 
         lblagua.setText("Agua Potable");
+        jPanel2.add(lblagua, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 127, -1));
 
         lblnumero.setText("0");
+        jPanel2.add(lblnumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 127, -1));
 
         Descr.setText("Comentario");
+        jPanel2.add(Descr, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 127, -1));
 
         IrSB.setText("Pagar otro servicio");
         IrSB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -79,62 +84,18 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
                 IrSBActionPerformed(evt);
             }
         });
+        jPanel2.add(IrSB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, 35));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(95, 95, 95)
-                            .addComponent(TituPago)
-                            .addGap(89, 89, 89))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblNum)
-                                .addComponent(lblasunto)
-                                .addComponent(lblhaspagado)
-                                .addComponent(lblserv))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblnumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblagua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblpagoo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Descr, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(IrSB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TituPago)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblhaspagado)
-                    .addComponent(lblpagoo))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblserv)
-                    .addComponent(lblagua))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNum)
-                    .addComponent(lblnumero))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblasunto)
-                    .addComponent(Descr))
-                .addGap(18, 18, 18)
-                .addComponent(IrSB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
+        TituPago.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        TituPago.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituPago.setText("Pago exitoso");
+        jPanel2.add(TituPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+
+        lblhaspagado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblhaspagado.setText("Has pagado: ");
+        jPanel2.add(lblhaspagado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 254));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,6 +153,7 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
     private javax.swing.JLabel Descr;
     private javax.swing.JButton IrSB;
     private javax.swing.JLabel TituPago;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblNum;
     private javax.swing.JLabel lblagua;
     private javax.swing.JLabel lblasunto;

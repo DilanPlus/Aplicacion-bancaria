@@ -128,38 +128,75 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
     private void initComponents() {
 
         jSpinner1 = new javax.swing.JSpinner();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        btnAcept = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblTransferencia = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        lblBanco = new javax.swing.JLabel();
         lblNomRec = new javax.swing.JLabel();
         lblNcuent = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lblCorreoRec = new javax.swing.JLabel();
+        btnAcept = new javax.swing.JButton();
         lblMontoTrans = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         lblNcomp = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         lblTipCuent = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         txtComision = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        lblTransferencia = new javax.swing.JLabel();
-        lblBanco = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(lblTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 384, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel10.setText("Comision por transferencia:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        jLabel7.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel7.setText("Banco Destino:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+
+        jLabel8.setBackground(new java.awt.Color(102, 0, 0));
+        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel8.setText("N° Comprobante");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        lblBanco.setText("jLabel12");
+        jPanel1.add(lblBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
+
+        lblNomRec.setText("                                                ");
+        jPanel1.add(lblNomRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 327, 21));
+
+        lblNcuent.setText("                                                                  ");
+        jPanel1.add(lblNcuent, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 257, 22));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 0));
         jLabel1.setText("¡¡¡TRANSFERENCIA EXITOSA!!!");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 520, 41));
+
+        jLabel9.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel9.setText("Tipo de cuenta:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setText("Datos de la transferencia: ");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        lblCorreoRec.setText("                                                ");
+        jPanel1.add(lblCorreoRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 327, -1));
 
         btnAcept.setBackground(new java.awt.Color(51, 153, 0));
         btnAcept.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,47 +207,37 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
                 btnAceptActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAcept, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, 42));
+
+        lblMontoTrans.setText("                                              ");
+        jPanel1.add(lblMontoTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(102, 0, 0));
         jLabel3.setText("Monto Transferido:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        lblNcomp.setText("                                       ");
+        jPanel1.add(lblNcomp, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 176, 24));
 
         jLabel4.setForeground(new java.awt.Color(102, 0, 0));
         jLabel4.setText("Nombre del beneficiario:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 30));
+
+        lblTipCuent.setText("                                                         ");
+        jPanel1.add(lblTipCuent, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(102, 0, 0));
         jLabel5.setText("N° de cuenta del beneficiario:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+
+        txtComision.setText("                                              ");
+        jPanel1.add(txtComision, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
         jLabel6.setText("Correo:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        jLabel7.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel7.setText("Banco Destino:");
-
-        jLabel8.setBackground(new java.awt.Color(102, 0, 0));
-        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel8.setText("N° Comprobante");
-
-        lblNomRec.setText("                                                ");
-
-        lblNcuent.setText("                                                                  ");
-
-        jLabel9.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel9.setText("Tipo de cuenta:");
-
-        lblCorreoRec.setText("                                                ");
-
-        lblMontoTrans.setText("                                              ");
-
-        lblNcomp.setText("                                       ");
-
-        lblTipCuent.setText("                                                         ");
-
-        txtComision.setText("                                              ");
-
-        jLabel10.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel10.setText("Comision por transferencia:");
-
-        lblBanco.setText("jLabel12");
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 378));
 
         menuInicio.setText("Inicio");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,88 +261,6 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
         jMenuBar1.add(menuVolver);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel10))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNcuent, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNcomp, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCorreoRec, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTipCuent)
-                            .addComponent(txtComision)
-                            .addComponent(lblTransferencia)
-                            .addComponent(lblNomRec, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMontoTrans)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(btnAcept))
-                            .addComponent(lblBanco))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(lblTransferencia))
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel8))
-                    .addComponent(lblNcomp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(lblNomRec, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(lblNcuent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(lblTipCuent))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(lblCorreoRec))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(lblBanco))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblMontoTrans))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtComision))
-                .addGap(18, 18, 18)
-                .addComponent(btnAcept, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -363,6 +308,7 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblBanco;
     public static javax.swing.JLabel lblCorreoRec;
