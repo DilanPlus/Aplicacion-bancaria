@@ -42,7 +42,6 @@ public class VentanaCredito extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gbtnDestino = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         lblSaldo = new javax.swing.JLabel();
@@ -145,7 +144,6 @@ public class VentanaCredito extends javax.swing.JFrame {
         lblMonto.setVisible(true);
         txtMonto.setVisible(true);
         btnPagarCredito.setVisible(true);
-        gbtnDestino.clearSelection();
         txtMonto.setText(null);
         txtMonto.requestFocus();
     }//GEN-LAST:event_btnCreditoActionPerformed
@@ -204,7 +202,6 @@ public class VentanaCredito extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCredito;
     private javax.swing.JButton btnPagarCredito;
-    private javax.swing.ButtonGroup gbtnDestino;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

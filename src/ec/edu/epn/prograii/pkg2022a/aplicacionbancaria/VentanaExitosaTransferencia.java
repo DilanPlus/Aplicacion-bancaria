@@ -82,8 +82,9 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
         if (Banco.equals("Banco Pichincha")) {
             this.tipo=2;
             txtComision.setText(String.valueOf(0.0));
-        }
+        }else{
             txtComision.setText(String.valueOf(0.5));
+        }
         }else if(tipo==1){
             txtComision.setText(String.valueOf(2));
         }
