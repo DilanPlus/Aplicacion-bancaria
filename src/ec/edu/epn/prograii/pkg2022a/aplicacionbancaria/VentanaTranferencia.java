@@ -263,7 +263,7 @@ public class VentanaTranferencia extends javax.swing.JFrame {
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
         /*Ponemos restricciones al momento de hacer una transferencia y abrir la nueva ventana*/
         /*Verifica si la cantidad del monto es menor a la del saldo*/
-        if ((Float.parseFloat(txtMonto.getText()))>usua1.getSaldoCorriente() ) {
+        if ((Float.parseFloat(txtMonto.getText()))>saldo ) {
             javax.swing.JOptionPane.showMessageDialog(null, "No tiene los fondos suficientes para la transferencia");
         }else{
         /*Comprueba si el radio button nuevo destinatario esta seleccionado*/    

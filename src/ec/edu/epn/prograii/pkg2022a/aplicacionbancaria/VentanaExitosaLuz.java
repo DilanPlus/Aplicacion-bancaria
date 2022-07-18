@@ -121,11 +121,11 @@ public class VentanaExitosaLuz extends javax.swing.JFrame {
         }else if(Home.tipoCuenta==1){
                 this.saldo=(saldo-(Pago));
                 usua1.setValorluz(0);
-                usua1.setSaldoCorriente(this.saldo);
+                usua1.setSaldoAhorro(this.saldo);
         }else if(Home.tipoCuenta==2){
                 this.saldo=(saldo-(Pago));
                 usua1.setValorluz(0);
-                usua1.setSaldoCorriente(this.saldo);
+                usua1.setSaldoCredito(this.saldo);
         }
     }
     /*Recibe los valores de la cuenta usuario*/

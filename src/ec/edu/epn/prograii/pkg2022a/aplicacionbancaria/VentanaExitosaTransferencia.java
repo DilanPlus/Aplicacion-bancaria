@@ -101,26 +101,29 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
                 usua1.setSaldoCorriente(this.saldo);
             }else if(tipo==2){
                 this.saldo= (float)(saldo-(MontoRec+0));
+                usua1.setSaldoCorriente(this.saldo);
             }
         }else if(Home.tipoCuenta==1){
             if (tipo==0) {
                 this.saldo= (float)(saldo-(MontoRec+0.5));
-                usua1.setSaldoCorriente(this.saldo);
+                usua1.setSaldoAhorro(this.saldo);
             }else if(tipo==1){
                 this.saldo= (float)(saldo-(MontoRec+2));
-                usua1.setSaldoCorriente(this.saldo);
+                usua1.setSaldoAhorro(this.saldo);
             }else if(tipo==2){
                 this.saldo= (float)(saldo-(MontoRec+0));
+                usua1.setSaldoAhorro(this.saldo);
             }
         }else if(Home.tipoCuenta==2){
             if (tipo==0) {
                 this.saldo= (float)(saldo-(MontoRec+0.5));
-                usua1.setSaldoCorriente(this.saldo);
+                usua1.setSaldoCredito(this.saldo);
             }else if(tipo==1){
                 this.saldo= (float)(saldo-(MontoRec+2));
-                usua1.setSaldoCorriente(this.saldo);
+                usua1.setSaldoCredito(this.saldo);
             }else if(tipo==2){
                 this.saldo= (float)(saldo-(MontoRec+0));
+                usua1.setSaldoCredito(this.saldo);
             }
         }
     }

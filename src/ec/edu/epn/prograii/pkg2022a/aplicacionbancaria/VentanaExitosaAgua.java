@@ -141,11 +141,11 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
         }else if(Home.tipoCuenta==1){
                 this.saldo=(saldo-(Pago));
                 usua1.setValoragua(0);
-                usua1.setSaldoCorriente(this.saldo);
+                usua1.setSaldoAhorro(this.saldo);
         }else if(Home.tipoCuenta==2){
                 this.saldo=(saldo-(Pago));
                 usua1.setValoragua(0);
-                usua1.setSaldoCorriente(this.saldo);
+                usua1.setSaldoCredito(this.saldo);
         }
     }
 
