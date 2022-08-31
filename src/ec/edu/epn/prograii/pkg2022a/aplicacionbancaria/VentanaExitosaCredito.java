@@ -129,7 +129,7 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
             JOptionPane.showInternalMessageDialog(null, "Lo sentimos no se concreto el credito\" ¡¡Vuelve a intentarlo!!\"");
         }else{
             /*Vuelve a la ventana detalle actualizando los valores base*/
-        actualizarSaldoCuenta();
+        //actualizarSaldoCuenta();
         VentanaDetalle detalle = new VentanaDetalle();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
@@ -155,7 +155,7 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
     txtMonto.setEditable(false);
     txtMonto.setText(String.valueOf(monto));
     }
-    /*Verifica a que tipo de cuenta del usuario se va a actualizar los valores base*/
+    /*Verifica a que tipo de cuenta del usuario se va a actualizar los valores base
     public void actualizarSaldoCuenta(){
         if (Home.tipoCuenta==0) {
                 this.saldo=(saldo-(monto));
@@ -167,7 +167,7 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
                 this.saldo=(saldo-(monto));
                 usua1.setSaldoCredito(this.saldo);
         }
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarCredito;

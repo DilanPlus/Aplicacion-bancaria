@@ -1,0 +1,39 @@
+===================================
+CarlosPerez
+carlos1234
+Carlos Perez
+|Cuenta Corriente|
+1662461844
+560
+|Cuenta Ahorro|
+1955915155
+1010
+|Cuenta Credito|
+1695959226
+2000
+===================================
+PepePai
+pepe1234
+Pepe Pai
+|Cuenta Corriente|
+2081512218
+500
+|Cuenta Ahorro|
+1788522920
+2010
+|Cuenta Credito|
+3098655996
+3600
+===================================
+JuanSuarez
+juan1234
+Juan Suarez
+|Cuenta Corriente|
+2081512218
+600
+|Cuenta Ahorro|
+1788522920
+1000
+|Cuenta Credito|
+3098655996
+4003

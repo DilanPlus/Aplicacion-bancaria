@@ -29,7 +29,7 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
      */
     
     public VentanaExitosaTransferencia() {
-        initComponents();
+        //initComponents();
         this.setLocation(450, 150);
     }
     
@@ -91,7 +91,7 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
     }
     /*Actualiza los valores base de la cuenta del usuario de acuerdo al tipo de transferencia que se realizo*/
     /*Se verifica la cuenta que estamos utilizado para actualizar los valores en dicha cuenta*/
-    public void actualizarSaldoCuenta(){
+    /*public void actualizarSaldoCuenta(){
         if (Home.tipoCuenta==0) {
             if (tipo==0) {
                 this.saldo= (float)(saldo-(MontoRec+0.5));
@@ -271,7 +271,7 @@ public class VentanaExitosaTransferencia extends javax.swing.JFrame {
 
     /*Vuelve a la ventana detalle actualizando los valores base*/
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
-        actualizarSaldoCuenta();
+        //actualizarSaldoCuenta();
         VentanaDetalle detalle = new VentanaDetalle();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);

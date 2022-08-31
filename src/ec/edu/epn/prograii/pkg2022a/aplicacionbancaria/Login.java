@@ -2,21 +2,20 @@
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
 
-import Clases.Datos;/*importa el paquete y la clase Datos */
+import Clases.*;/*importa el paquete y la clase Datos */
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     /*se crea una instancia publica y statica*/
     public static Datos usua1=new Datos();
+    public static ManejosArchivos u1=new ManejosArchivos();
     
     public Login() {
         initComponents();
         this.setLocation(500, 150);
         /*Se acceden a los metodos de la clase Datos usando una instancia*/
-        usua1.aleatorioSaldo();
-        usua1.aleatorioNCuenta();
-        usua1.aleatorioNombresYApellidos();
+        
         usua1.aleatorioServicios();
         labelUsuario.requestFocus();
     }
@@ -76,6 +75,11 @@ public class Login extends javax.swing.JFrame {
         txtcontra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtcontraMousePressed(evt);
+            }
+        });
+        txtcontra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcontraActionPerformed(evt);
             }
         });
         getContentPane().add(txtcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 254, 245, 30));
@@ -155,23 +159,23 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         /*Se comprueba la contraseña y usuario ,ademas genera un numero aleatorio que validara si la cuenta existe*/
-        int x=txtcontra.getText().length();
-        int y=(int)(Math.random()*6);
-        if(y==0){
-        JOptionPane.showInternalMessageDialog(null, "Usuario o Contraseña incorrecta\" ¡¡Vuelve a intentarlo!!\"");
-        }else{
-        if(x<6){
-            javax.swing.JOptionPane.showMessageDialog(null, "Su contraseña debe tener como minimo 6 digitos");
-            // mensaje de que su contraseña debe tener como minimo 6 digitos
-        }else{
-            if(txtUsuario.getText().equals("Ingresar su usuario")){
-                javax.swing.JOptionPane.showMessageDialog(null, "Ingrese un usuario valido");
-            }else{
+        String verificar;
+        
+        verificar=u1.verificarIngreso(txtUsuario.getText(),txtcontra.getText());
+        
+        if(verificar=="Verdadero"){                       
             Home home=new Home();
+            
+            home.recibirUsuario(txtUsuario.getText());
+            
             home.setVisible(true);
-            this.setVisible(false);
-            }
+            this.setVisible(false);           
         }
+        if(verificar=="ContraseñaMala"){
+            JOptionPane.showInternalMessageDialog(null, "Contraseña incorrecta\" ¡¡Vuelve a intentarlo!!\"");        
+        }
+        if(verificar=="Falso"){
+            JOptionPane.showInternalMessageDialog(null, "No existe ese Usuario\" ¡¡Vuelve a intentarlo!!\"");        
         } 
         /* Se asignan los un saldo aleatorio a las cuentas*/
         //usua1.aleatorioSaldo();
@@ -192,17 +196,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        RegistrarNuevoUsuario ventana=new RegistrarNuevoUsuario();
+            ventana.setVisible(true);
+            this.setVisible(false);
         
-        javax.swing.JOptionPane.showMessageDialog(this, "DEBE CREARSE PRIMERO UNA CUENTA CRACK");
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
+    private void txtcontraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcontraActionPerformed
+
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
                 new Login().setVisible(true);
             }

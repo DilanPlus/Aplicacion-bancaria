@@ -14,10 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-/**
- *
- * @author DilanPlus
- */
+
 public class VentanaDetalle extends javax.swing.JFrame {
     /*Variables que recibiran los datos de la cuenta de otras  ventanas*/
     String usuario;

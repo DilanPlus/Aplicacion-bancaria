@@ -11,8 +11,8 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
     public VentanaTransfereMismoUsuario() {
         initComponents();
         this.setLocation(500, 150);
-        lblSaldoCorriente.setText(" $ "+usua1.getSaldoCorriente());
-        lblSaldoAhorro.setText(" $ "+usua1.getSaldoAhorro());
+        //lblSaldoCorriente.setText(" $ "+usua1.getSaldoCorriente());
+        //lblSaldoAhorro.setText(" $ "+usua1.getSaldoAhorro());
         RestrictedTextField telf = new RestrictedTextField(txtMonto);
         telf.setOnlyNums(true);
     }
@@ -146,14 +146,14 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
                /* transformamos el txt a float */
            float monto = Float.parseFloat(txtMonto.getText());            
            
-           /* verificamos que opcion se eligio*/           
+           /* verificamos que opcion se eligio          
                 if(pntC_A.isSelected()){
                     if(monto<=usua1.getSaldoCorriente() ){
-                        /*Se resta el monto del Saldo Corriente */
+                        /*Se resta el monto del Saldo Corriente 
                        usua1.setSaldoCorriente(usua1.getSaldoCorriente()-monto);
-                       /* Se suma el monto al Saldo Ahorro */
+                       /* Se suma el monto al Saldo Ahorro 
                        usua1.setSaldoAhorro(usua1.getSaldoAhorro()+monto);
-                       /* Mensaje de Exito*/ 
+                       /* Mensaje de Exito
                        javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");
                        
                        Home home =new Home();
@@ -167,11 +167,11 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
                 }
                 if(pntA_C.isSelected()){
                     if(monto<=usua1.getSaldoAhorro() ){
-                        /*Se resta el monto del Saldo Ahorro */
+                        /*Se resta el monto del Saldo Ahorro 
                        usua1.setSaldoAhorro(usua1.getSaldoAhorro()-monto);
-                       /* Se suma el monto al Saldo Corriente */
+                       /* Se suma el monto al Saldo Corriente 
                        usua1.setSaldoCorriente(usua1.getSaldoCorriente()+monto);
-                      /* Mensaje de Exito*/ 
+                      /* Mensaje de Exito
                       javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");
                       
                       Home home =new Home();
@@ -181,7 +181,7 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
                      }else{
                         javax.swing.JOptionPane.showMessageDialog(this, "No tiene los fondos suficientes para la transferencia");
                     }
-                }                     
+                }    */                 
        }
     }//GEN-LAST:event_btnTransferirActionPerformed
 

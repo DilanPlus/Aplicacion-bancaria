@@ -106,14 +106,14 @@ public class VentanaExitosaLuz extends javax.swing.JFrame {
         des.setText(Descri);
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       actualizarSaldoCuenta();
+       //actualizarSaldoCuenta();
        VentanaServiciosBasicos regresa = new VentanaServiciosBasicos();
        regresa.mostrarCuentaCompleta(usuario, cuenta, saldo);
        regresa.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    public void actualizarSaldoCuenta(){
+    /*public void actualizarSaldoCuenta(){
         if (Home.tipoCuenta==0) {
                 this.saldo=(saldo-(Pago));
                 usua1.setValorluz(0);

@@ -1,13 +1,14 @@
 
 package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
-import Clases.Tiempo;
+import Clases.*;
 import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
 
 
 public class Home extends javax.swing.JFrame {
     public static int tipoCuenta;
     Tiempo time=new Tiempo();
+     public static ManejosArchivos u1=new ManejosArchivos();
        
     public Home() {
         initComponents();
@@ -15,18 +16,7 @@ public class Home extends javax.swing.JFrame {
         
         this.setLocation(500, 150);
         
-        /* Se asignan los un saldo aleatorio a las cuentas*/
-        txtSaldoCorriente.setText((" $ ")+String.valueOf(usua1.getSaldoCorriente()));
-        txtSaldoAhorro.setText((" $ ")+String.valueOf(usua1.getSaldoAhorro()));
-        txtSaldoCredito.setText((" $ ")+String.valueOf(usua1.getSaldoCredito()));
         
-        /*Se asignas numeros aleatorios a los numeros de cuenta*/
-        txtnCuentaCorriente.setText(String.valueOf(usua1.getnCuentaCorriente()));
-        txtnCuentaAhorro.setText(String.valueOf(usua1.getnCuentaAhorro()));
-        txtnCuentaCredito.setText(String.valueOf(usua1.getnCuentaCredito()));
-        
-        /* Se asignas nombres aleatorios */
-        txtNombreUsuario.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
     }
 
     
@@ -265,21 +255,14 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSaldoCorrienteActionPerformed
 
     private void fondoPantalla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla2MouseClicked
-        /*Se abre la ventana de detalles de la cuenta corriente*/
-        
-        String usuario;
-        int cuenta;
-        float saldo;
-        tipoCuenta=0;
-        cuenta=usua1.getnCuentaCorriente();
-        saldo=usua1.getSaldoCorriente();
-        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
+        /*Se abre la ventana de detalles de la cuenta corriente*/   
+        tipoCuenta=0;   
         VentanaDetalle detalle= new VentanaDetalle();
-        
         /*Se pasan los datos de la cuenta hacia la proxima ventana*/
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaCorriente.getText()), Float.parseFloat(txtSaldoCorriente.getText()));
         detalle.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_fondoPantalla2MouseClicked
 
     private void txtSaldoAhorroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaldoAhorroActionPerformed
@@ -299,6 +282,25 @@ public class Home extends javax.swing.JFrame {
     lblFecha.setText(time.fechaCompleta);
     }
     
+    
+    
+   public void recibirUsuario(String usuario){        
+        /*Nombre Completo*/
+       txtNombreUsuario.setText( u1.obtenerNombreUsuario(usuario));
+       
+       /*Info de Cuenta Corriente*/
+       txtnCuentaCorriente.setText( u1.obtenerNumCorrienteUsuario(usuario));
+       txtSaldoCorriente.setText(u1.obtenerSaldoCorrienteUsuario(usuario));
+       
+       /*Info de Cuenta Ahorro*/
+       txtnCuentaAhorro.setText( u1.obtenerNumAhorroUsuario(usuario));
+       txtSaldoAhorro.setText(u1.obtenerSaldoAhorroUsuario(usuario));
+       
+       /*Info de Cuenta Credito*/
+       txtnCuentaCredito.setText( u1.obtenerNumCreditoUsuario(usuario));
+       txtSaldoCredito.setText(u1.obtenerSaldoCreditoUsuario(usuario));     
+   }
+    
     private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreUsuarioActionPerformed
@@ -308,34 +310,21 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblfechaTextActionPerformed
 
     private void lblCuentaCorrienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaCorrienteMouseClicked
-       /*Se abre la ventana de detalles de la cuenta corriente*/
-        String usuario;
-        int cuenta;
-        float saldo;
+        /*Se abre la ventana de detalles de la cuenta corriente*/
         tipoCuenta=0;
-        cuenta=usua1.getnCuentaCorriente();
-        saldo=usua1.getSaldoCorriente();
-        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
         /*Se pasan los datos de la cuenta hacia la proxima ventana*/
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        
+        detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaCorriente.getText()), Float.parseFloat(txtSaldoCorriente.getText()));
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblCuentaCorrienteMouseClicked
 
     private void fondoPantalla3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla3MouseClicked
         /*Se abre la ventana de detalles de la cuenta ahorro*/
-        String usuario;
-        int cuenta;
-        float saldo;
         tipoCuenta=1;
-        cuenta=usua1.getnCuentaAhorro();
-        saldo=usua1.getSaldoAhorro();
-        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
         /*Se pasan los datos de la cuenta hacia la proxima ventana*/
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaAhorro.getText()), Float.parseFloat(txtSaldoAhorro.getText()));
         
         detalle.setVisible(true);
         this.dispose();
@@ -343,16 +332,11 @@ public class Home extends javax.swing.JFrame {
 
     private void lblCuentaAhorroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaAhorroMouseClicked
         /*Se abre la ventana de detalles de la cuenta ahorro*/
-        String usuario;
-        int cuenta;
-        float saldo;
         tipoCuenta=1;
-        cuenta=usua1.getnCuentaAhorro();
-        saldo=usua1.getSaldoAhorro();
-        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
+        
         VentanaDetalle detalle= new VentanaDetalle();
         /*Se pasan los datos de la cuenta hacia la proxima ventana*/
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaAhorro.getText()), Float.parseFloat(txtSaldoAhorro.getText()));
         
         detalle.setVisible(true);
         this.dispose();
@@ -360,34 +344,20 @@ public class Home extends javax.swing.JFrame {
 
     private void fondoPantalla4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla4MouseClicked
         /*Se abre la ventana de detalles de la cuenta credito*/
-        String usuario;
-        int cuenta;
-        float saldo;
         tipoCuenta=2;
-        cuenta=usua1.getnCuentaCredito();
-        saldo=usua1.getSaldoCredito();
-        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
         /*Se pasan los datos de la cuenta hacia la proxima ventana*/
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        
+        detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaCredito.getText()), Float.parseFloat(txtSaldoCredito.getText()));
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_fondoPantalla4MouseClicked
 
     private void lblCuentaCreditoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaCreditoMouseClicked
         /*Se abre la ventana de detalles de la cuenta credito*/
-        String usuario;
-        int cuenta;
-        float saldo;
         tipoCuenta=2;
-        cuenta=usua1.getnCuentaCredito();
-        saldo=usua1.getSaldoCredito();
-        usuario=usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario();
         VentanaDetalle detalle= new VentanaDetalle();
         /*Se pasan los datos de la cuenta hacia la proxima ventana*/
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        
+        detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaCredito.getText()), Float.parseFloat(txtSaldoCredito.getText()));
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblCuentaCreditoMouseClicked

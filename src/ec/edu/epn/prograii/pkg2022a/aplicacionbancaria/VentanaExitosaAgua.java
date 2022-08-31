@@ -118,7 +118,7 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
     
     /*Actualiza los valores base de la cuenta y volvemos a la ventana servicios basicos*/
     private void IrSBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IrSBActionPerformed
-        actualizarSaldoCuenta();
+        //actualizarSaldoCuenta();
         VentanaServiciosBasicos regresar = new VentanaServiciosBasicos();
         regresar.mostrarCuentaCompleta(usuario, cuenta, saldo);
         regresar.setVisible(true);
@@ -132,7 +132,7 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
         this.saldo=saldo;
     }
     
-    /*Metodo que actualiza los valores base de la cuenta que estemos utilizando*/
+    /*Metodo que actualiza los valores base de la cuenta que estemos utilizando
     public void actualizarSaldoCuenta(){
         if (Home.tipoCuenta==0) {
                 this.saldo=(saldo-(Pago));
@@ -147,7 +147,7 @@ public class VentanaExitosaAgua extends javax.swing.JFrame {
                 usua1.setValoragua(0);
                 usua1.setSaldoCredito(this.saldo);
         }
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Descr;
