@@ -62,10 +62,11 @@ public class CobroLuz extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
+        menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setText("Nº");
@@ -161,6 +162,19 @@ public class CobroLuz extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuInicio);
 
+        menuVolver.setText("Volver");
+        menuVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuVolverMouseClicked(evt);
+            }
+        });
+        menuVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuVolverActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuVolver);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,10 +234,11 @@ public class CobroLuz extends javax.swing.JFrame {
         if(Txtpago.getText().isEmpty()){
             JOptionPane.showInternalMessageDialog(null, "Por favor, pague la completitud del valor");
         }else{   
-            int montoLuzA_Pagar = Integer.parseInt(lblmontoluz.getText());
+          
+            int montoLuzA_Pagar = (int)valorluz;
             int pagarLuz = Integer.parseInt(Txtpago.getText());
             /*Verificamos si se paga la cantidad completa*/
-            if(pagarLuz!=montoLuzA_Pagar){
+            if(pagarLuz != montoLuzA_Pagar){
                  JOptionPane.showInternalMessageDialog(null, "Por favor, pague la completitud del valor");
             } else{  
                 /*Abrimos la ventana de de exito y pasamos los datos necesarios*/
@@ -250,6 +265,17 @@ public class CobroLuz extends javax.swing.JFrame {
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
+
+    private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
+        ServiciosBasicos servicios= new ServiciosBasicos();
+        servicios.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
+        servicios.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuVolverMouseClicked
+
+    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
+
+    }//GEN-LAST:event_menuVolverActionPerformed
  public void mostrarCuentaCompleta(String nomComple, int numCuenta, float saldo){
     this.nomComple=nomComple;
     this.numCuenta=numCuenta;
@@ -288,5 +314,6 @@ public class CobroLuz extends javax.swing.JFrame {
     private javax.swing.JLabel lblpagar;
     private javax.swing.JLabel lblpago;
     private javax.swing.JMenu menuInicio;
+    private javax.swing.JMenu menuVolver;
     // End of variables declaration//GEN-END:variables
 }

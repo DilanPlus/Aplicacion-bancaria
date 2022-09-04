@@ -163,7 +163,8 @@ public class Login extends javax.swing.JFrame {
         String verificar;        
         verificar=u1.verificarIngreso(txtUsuario.getText(),txtcontra.getText());        
         if(verificar=="Verdadero"){ 
-            this.usuario=txtUsuario.getText();            
+            this.usuario=txtUsuario.getText();
+            usua1.aleatorioServicios();
             Home home=new Home();            
             home.setVisible(true);
             this.setVisible(false);           

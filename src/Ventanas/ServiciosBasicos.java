@@ -17,8 +17,6 @@ public class ServiciosBasicos extends javax.swing.JFrame {
         initComponents();
         /*Oculta ciertos componentes de la ventana*/
         this.setLocation(500, 150);
-             
-        usua1.aleatorioServicios();
         
         Acep.setEnabled(false);
         Aceptar2.setEnabled(false);
@@ -74,7 +72,7 @@ public class ServiciosBasicos extends javax.swing.JFrame {
         lblNombre.setText("Nombre");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
-        Aguapotable.setBackground(new java.awt.Color(153, 255, 255));
+        Aguapotable.setBackground(new java.awt.Color(102, 255, 255));
         Aguapotable.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         Aguapotable.setText("Agua Potable");
         Aguapotable.setBorder(null);
@@ -121,7 +119,7 @@ public class ServiciosBasicos extends javax.swing.JFrame {
         });
         jPanel1.add(listaluz, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 200, -1));
 
-        Luz.setBackground(new java.awt.Color(153, 255, 153));
+        Luz.setBackground(new java.awt.Color(102, 255, 102));
         Luz.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         Luz.setText("Electricidad - Luz");
         Luz.setBorder(null);
@@ -145,7 +143,7 @@ public class ServiciosBasicos extends javax.swing.JFrame {
         });
         jPanel1.add(Can, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 70, 30));
 
-        Acep.setBackground(new java.awt.Color(51, 255, 255));
+        Acep.setBackground(new java.awt.Color(102, 255, 255));
         Acep.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         Acep.setText("Aceptar");
         Acep.setBorder(null);
@@ -243,9 +241,6 @@ public class ServiciosBasicos extends javax.swing.JFrame {
         newpago.usuario(this.usuario,this.tipoCuenta);
         newpago.setVisible(true);
         this.dispose();
-       
-          
-      
     }//GEN-LAST:event_AcepActionPerformed
 
     /*Muestra la centana de cobro de luz y pasa los datos de numCuenta*/

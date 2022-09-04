@@ -12,7 +12,7 @@ public class CobroAgua extends javax.swing.JFrame {
     /*Variables que reciben los datos de la numCuenta*/
     String usuario;
     int tipoCuenta;
-    float valoragua;
+    float valorAgua;
     String nomComple;
     int numCuenta;
     float saldo;
@@ -33,7 +33,7 @@ public class CobroAgua extends javax.swing.JFrame {
     }
      /*Metodo que recibe los datos de la ventana anterior de el valor de agua*/
     public void setValor(float valoragua){
-        this.valoragua = valoragua;
+        this.valorAgua = valoragua;
         Valorpagoagua.setText(String.valueOf(valoragua));
     }
     
@@ -224,7 +224,7 @@ public class CobroAgua extends javax.swing.JFrame {
         if(Txtpago.getText().isEmpty()){
             JOptionPane.showInternalMessageDialog(null, "Por favor, pague la completitud del valor");
         }else{  
-            int montoAguaA_pagar = Integer.parseInt(Valorpagoagua.getText());
+            int montoAguaA_pagar = (int)valorAgua;
             int pagarAgua = Integer.parseInt(Txtpago.getText());
             /*Verificamos si se paga la cantidad completa*/
             if(pagarAgua!=montoAguaA_pagar){
@@ -260,6 +260,10 @@ public class CobroAgua extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
+    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
+
+    }//GEN-LAST:event_menuVolverActionPerformed
+
     /*Volvemos a la ventana anterior*/
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
         ServiciosBasicos servicios= new ServiciosBasicos();
@@ -267,10 +271,6 @@ public class CobroAgua extends javax.swing.JFrame {
         servicios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuVolverMouseClicked
-
-    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
-
-    }//GEN-LAST:event_menuVolverActionPerformed
     
     /*Metodo que recibe y muestra los valores de la numCuenta*/
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){

@@ -1,6 +1,7 @@
 
 package Ventanas;
-
+import Clases.ManejosArchivos;
+import static Ventanas.Login.usua1;
 
 public class ExitosaAgua extends javax.swing.JFrame {
     /*Variables que reciben los datos de la numCuenta*/
@@ -10,16 +11,13 @@ public class ExitosaAgua extends javax.swing.JFrame {
     String Sumi;
     String Descri;
     String nomComple;
-    float monto;
     int numCuenta;
-    float saldo;
+    int saldo;
    
     public ExitosaAgua() {
         initComponents();
         this.setLocation(500, 150);
-    }
-
-   
+    }   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,14 +64,17 @@ public class ExitosaAgua extends javax.swing.JFrame {
         Descr.setText("Comentario");
         jPanel2.add(Descr, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 127, -1));
 
+        IrSB.setBackground(new java.awt.Color(255, 153, 153));
+        IrSB.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         IrSB.setText("Pagar otro servicio");
+        IrSB.setBorder(null);
         IrSB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         IrSB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IrSBActionPerformed(evt);
             }
         });
-        jPanel2.add(IrSB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, 35));
+        jPanel2.add(IrSB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 205, 140, 40));
 
         TituPago.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         TituPago.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -107,26 +108,31 @@ public class ExitosaAgua extends javax.swing.JFrame {
     
     /*Actualiza los valores base de la numCuenta y volvemos a la ventana servicios basicos*/
     private void IrSBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IrSBActionPerformed
-        //actualizarSaldoCuenta();
-        ServiciosBasicos regresar = new ServiciosBasicos();
-        regresar.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
-        regresar.setVisible(true);
-        this.dispose();
+       //actualizarSaldoCuenta();
+       actualizarSaldoCuenta();
+       ServiciosBasicos regresa = new ServiciosBasicos();
+       regresa.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
+       regresa.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_IrSBActionPerformed
     
     /*Recibe los valores de la numCuenta nomComple*/
     public void mostrarCuentaCompleta(String nomComple, int numCuenta, float saldo){
         this.nomComple=nomComple;
         this.numCuenta=numCuenta;
-        this.saldo=saldo;
+        this.saldo=(int)saldo;
     }
     
     public void usuario(String usuario,int tipoCuenta){
     this.usuario=usuario;
     this.tipoCuenta=tipoCuenta;
     }
-    
-    /*Metodo que actualiza los valores base de la numCuenta que estemos utilizando
+     public void actualizarSaldoCuenta(){        
+        this.saldo=this.saldo-Pago;
+        ManejosArchivos u1=new ManejosArchivos();
+        u1.pagar(this.usuario, this.tipoCuenta, this.saldo);
+        usua1.setValorluz(0);        
+       /*Metodo que actualiza los valores base de la numCuenta que estemos utilizando
     public void actualizarSaldoCuenta(){
         if (Home.tipoCuenta==0) {
                 this.saldo=(saldo-(Pago));
@@ -142,6 +148,8 @@ public class ExitosaAgua extends javax.swing.JFrame {
                 usua1.setSaldoCredito(this.saldo);
         }
     }*/
+    }   
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Descr;

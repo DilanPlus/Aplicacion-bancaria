@@ -7,9 +7,8 @@ import static Ventanas.Login.usua1;
 public class ExitosaLuz extends javax.swing.JFrame {
     String usuario;
     int tipoCuenta;
-    String nombComple;
-    
     int Pago;
+    String nomComple;    
     String Contra;
     String Descri;
     int numCuenta;
@@ -18,7 +17,7 @@ public class ExitosaLuz extends javax.swing.JFrame {
     public ExitosaLuz() {
         initComponents();
         this.setLocation(500, 150);
-        actualizarSaldoCuenta();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -40,7 +39,7 @@ public class ExitosaLuz extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         valorpagado.setText("0");
@@ -55,14 +54,17 @@ public class ExitosaLuz extends javax.swing.JFrame {
         des.setText("Comentario");
         jPanel1.add(des, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
 
+        jButton2.setBackground(new java.awt.Color(255, 153, 153));
+        jButton2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jButton2.setText("Pagar otro servicio");
+        jButton2.setBorder(null);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, 32));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 140, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel1.setText("Pago exitoso");
@@ -97,23 +99,23 @@ public class ExitosaLuz extends javax.swing.JFrame {
         this.Contra = Contra;
         Contrato.setText(Contra);
     }
-
     public void setDescripcion(String Descri){
         this.Descri = Descri;
         des.setText(Descri);
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        //actualizarSaldoCuenta();
+       actualizarSaldoCuenta();
        ServiciosBasicos regresa = new ServiciosBasicos();
-       regresa.mostrarCuentaCompleta(nombComple, numCuenta, saldo);
+       regresa.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
        regresa.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     
-    /*Recibe los valores de la numCuenta nombComple*/
+    /*Recibe los valores de la numCuenta nomComple*/
     public void mostrarCuentaCompleta(String nomComple, int numCuenta, float saldo){
-        this.nombComple=nomComple;
+        this.nomComple=nomComple;
         this.numCuenta=numCuenta;
         this.saldo=(int)saldo;
     }
@@ -122,13 +124,11 @@ public class ExitosaLuz extends javax.swing.JFrame {
     this.tipoCuenta=tipoCuenta;
     }
     
-    public void actualizarSaldoCuenta(){
-        
-        this.saldo=(saldo-(Pago));
+    public void actualizarSaldoCuenta(){        
+        this.saldo=this.saldo-Pago;
         ManejosArchivos u1=new ManejosArchivos();
         u1.pagar(this.usuario, this.tipoCuenta, this.saldo);
-        usua1.setValorluz(0);
-        
+        usua1.setValorluz(0);        
        /* 
         if (Home.tipoCuenta==0) {
                 this.saldo=(saldo-(Pago));

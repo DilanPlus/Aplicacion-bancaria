@@ -343,18 +343,15 @@ public class ManejosArchivos {
             x=lector.readLine();
             
             FileWriter escribir=new FileWriter(archivo,true);    
-                                                                                System.out.println(x);
-            
+           
              /*Cambio de valor de Corriente*/            
             if(tipoCuenta==0){
                 while(x!=null){
                     if(x.equalsIgnoreCase(usuario)){
                         for(int i=1;i<=5;i++){
-                                                                    System.out.println(x);
                         escribir.write(x+"\n");
                         x=lector.readLine();
                         }
-                                                                 System.out.println(x);
                         escribir.write(valor+"\n");
                         x=lector.readLine();
                     }else{

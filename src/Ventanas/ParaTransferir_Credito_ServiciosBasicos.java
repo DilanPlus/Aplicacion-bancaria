@@ -115,7 +115,9 @@ public class ParaTransferir_Credito_ServiciosBasicos extends javax.swing.JFrame 
 
         jMenuBar1.setName(""); // NOI18N
 
-        menuInicio.setText("Inicio");
+        menuInicio.setBackground(new java.awt.Color(255, 255, 51));
+        menuInicio.setBorder(null);
+        menuInicio.setText("HOME");
         menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuInicioMouseClicked(evt);
