@@ -112,7 +112,6 @@ public class ExitosaLuz extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    
     /*Recibe los valores de la numCuenta nomComple*/
     public void mostrarCuentaCompleta(String nomComple, int numCuenta, float saldo){
         this.nomComple=nomComple;
@@ -123,26 +122,11 @@ public class ExitosaLuz extends javax.swing.JFrame {
     this.usuario=usuario;
     this.tipoCuenta=tipoCuenta;
     }
-    
     public void actualizarSaldoCuenta(){        
         this.saldo=this.saldo-Pago;
         ManejosArchivos u1=new ManejosArchivos();
         u1.pagar(this.usuario, this.tipoCuenta, this.saldo);
         usua1.setValorluz(0);        
-       /* 
-        if (Home.tipoCuenta==0) {
-                this.saldo=(saldo-(Pago));
-                usua1.setValorluz(0);
-                usua1.setSaldoCorriente(this.saldo);
-        }else if(Home.tipoCuenta==1){
-                this.saldo=(saldo-(Pago));
-                usua1.setValorluz(0);
-                usua1.setSaldoAhorro(this.saldo);
-        }else if(Home.tipoCuenta==2){
-                this.saldo=(saldo-(Pago));
-                usua1.setValorluz(0);
-                usua1.setSaldoCredito(this.saldo);
-        }*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -144,10 +144,9 @@ public class TransferenciaMismoUsuario extends javax.swing.JFrame {
             }else{
             /* transformamos el txt a int */
                int monto = Integer.parseInt(txtMonto.getText());
-               System.out.println("Su monto es: "+monto);
-           //Obtenemos los saldos CORRIENTE saldoAhorro AHORRO del usuario
-           int saldoCorriente=Integer.parseInt(u1.obtenerSaldoCorrienteUsuario(usuario));
-           int saldoAhorro=Integer.parseInt(u1.obtenerSaldoAhorroUsuario(usuario));
+            //Obtenemos los saldos CORRIENTE saldoAhorro AHORRO del usuario
+            float saldoCorriente=Float.parseFloat(u1.obtenerSaldoCorrienteUsuario(usuario));
+            float    saldoAhorro=Float.parseFloat(u1.obtenerSaldoAhorroUsuario(usuario));
            
             //verificamos que opcion se eligio          
                 if(pntC_A.isSelected()){ 
@@ -155,36 +154,33 @@ public class TransferenciaMismoUsuario extends javax.swing.JFrame {
                         //Se resta el monto del Saldo Corriente 
                         saldoCorriente=saldoCorriente-monto;                        
                         u1.pagar(usuario,0,saldoCorriente);   
-                        
-                       // Se suma el monto al Saldo Ahorro 
-                       saldoAhorro=saldoAhorro+monto;
-                       u1.pagar(usuario,1,saldoAhorro);
-                       
-                       //Mensaje de Exito//
-                       javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");                       
+
+                        // Se suma el monto al Saldo Ahorro 
+                        saldoAhorro=saldoAhorro+monto;
+                        u1.pagar(usuario,1,saldoAhorro);
+
+                        //Mensaje de Exito//
+                        javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");                       
                         Home home =new Home();
                         home.setVisible(true);
                         this.setVisible(false);
-                     }else{
+                    }else{
                         javax.swing.JOptionPane.showMessageDialog(this, "No tiene los fondos suficientes para la transferencia");
                     }
 
                 }
-                if(pntA_C.isSelected()){
-                    
-                    System.out.println("Se selecciono A _  C");
-                            
+                if(pntA_C.isSelected()){                    
                     if(monto<=saldoAhorro){
                         //Se resta el monto del Saldo Ahorro 
-                       saldoAhorro=saldoAhorro-monto;
-                       u1.pagar(usuario,1,saldoAhorro);
+                        saldoAhorro=saldoAhorro-monto;
+                        u1.pagar(usuario,1,saldoAhorro);
                        
-                       // Se suma el monto al Saldo Corriente
-                       saldoCorriente=saldoCorriente+monto;
-                       u1.pagar(usuario,0,saldoCorriente);
+                        // Se suma el monto al Saldo Corriente
+                        saldoCorriente=saldoCorriente+monto;
+                        u1.pagar(usuario,0,saldoCorriente);
                        
-                      // Mensaje de Exito
-                      javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");
+                        // Mensaje de Exito
+                        javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");
                         Home home =new Home();
                         home.setVisible(true);
                         this.setVisible(false);

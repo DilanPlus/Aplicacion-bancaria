@@ -1,19 +1,18 @@
 
 package Ventanas;
 
-
 import Atxy2k.CustomTextField.RestrictedTextField;
 import javax.swing.*;
 
-
 public class DetallesDeTransferencia extends javax.swing.JFrame {
-    /*Variables que reciben los datos de la numCuenta y su tipo*/
+    /*Variables que reciben los datos de la numCuenta y su tipoTransfe*/
     String nombreCompleto;
-    String transferencia;
-    int tipo;
+    String tituloTransfe;
+    int tipoTransfe;
     int numCuenta;
     float saldoDisponible;
     float monto;
+  
   
     
     public DetallesDeTransferencia() {
@@ -232,7 +231,7 @@ public class DetallesDeTransferencia extends javax.swing.JFrame {
                 txtDatoNombreKeyReleased(evt);
             }
         });
-        jPanel1.add(txtDatoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 322, -1));
+        jPanel1.add(txtDatoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 310, -1));
 
         txtBanco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -257,7 +256,7 @@ public class DetallesDeTransferencia extends javax.swing.JFrame {
                 txtSobrenombreKeyReleased(evt);
             }
         });
-        jPanel1.add(txtSobrenombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 314, -1));
+        jPanel1.add(txtSobrenombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 310, -1));
 
         jLabel11.setForeground(new java.awt.Color(255, 51, 0));
         jLabel11.setText("CONTACTO");
@@ -376,44 +375,44 @@ public class DetallesDeTransferencia extends javax.swing.JFrame {
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
         /*Se genera un numero aleatorio que validara si la numCuenta existe*/
         int y=(int)(Math.random()*6);
+        
         if(y==0){
-        JOptionPane.showInternalMessageDialog(null, "Datos incorrectos\" ¡¡Vuelve a intentarlo!!\"");
+            JOptionPane.showInternalMessageDialog(null, "Se ha producido un error, vuelva a intentar");
         }else{            
-            /*Verifica que tipo de transferencia estamos haciendo con los datos pasados de la ventana anterior*/
-            
-            /*Transferencia nacional*/
-            if(tipo==0){
-            ExitosaTransferencia transfExito = new ExitosaTransferencia();
-            /*Metodos que envian los datos ingresados de la numCuenta destinatario*/
-            transfExito.setNombR(txtDatoNombre.getText());
-            transfExito.setNcuenta(txtCuenta.getText());
-            transfExito.setCorreo(txtCorreo.getText());
-            transfExito.setMonto(this.monto);
-            int x=(int)(1000000 * Math.random())+1;
-            String Ncompr=String.valueOf(x);
-            transfExito.setNcomp(Ncompr);
-            transfExito.setBanco(cmbBanco.getSelectedItem().toString());
-            transfExito.setTipCuent(jComboBox1.getSelectedItem().toString());
-            /*Envia datos de la numCuenta del nombreCompleto*/
-            transfExito.mostrarCuentaCompleta(nombreCompleto, transferencia, tipo, numCuenta, saldoDisponible);
-            transfExito.setVisible(true);
-            this.dispose(); 
-            
-            /*Transferencia internacion*/
-            }else if(tipo==1){
-            ExitosaTransferencia transfExito = new ExitosaTransferencia();
-            transfExito.mostrarCuentaCompleta(nombreCompleto, transferencia, tipo, numCuenta, saldoDisponible);
-            transfExito.setNombR(txtDatoNombre.getText());
-            transfExito.setNcuenta(txtCuenta.getText());
-            transfExito.setCorreo(txtCorreo.getText());
-            transfExito.setMonto(this.monto);
-            int x=(int)(1000000 * Math.random())+1;
-            String Ncompr=String.valueOf(x);
-            transfExito.setNcomp(Ncompr);
-            transfExito.setBanco(txtBanco.getText());
-            transfExito.setTipCuent(jComboBox1.getSelectedItem().toString());
-            transfExito.setVisible(true);
-            this.dispose();    
+            //Transferencia nacional
+            if(tipoTransfe==0){
+                ExitosaTransferencia pantalla = new ExitosaTransferencia();
+                //Metodos que envian los datos ingresados de la numCuenta destinatario
+                pantalla.setNombR(txtDatoNombre.getText());
+                pantalla.setNcuenta(txtCuenta.getText());
+                pantalla.setCorreo(txtCorreo.getText());
+                pantalla.setMonto(this.monto);
+                int x=(int)(1000 * Math.random())+1;
+                String Ncompr=String.valueOf(x);
+                pantalla.setNcomp(Ncompr);
+                pantalla.setBanco(cmbBanco.getSelectedItem().toString());
+                pantalla.setTipCuent(jComboBox1.getSelectedItem().toString());
+                //Envia datos de la numCuenta del nombreCompleto
+                pantalla.mostrarCuentaCompleta(nombreCompleto, tituloTransfe, tipoTransfe, numCuenta, saldoDisponible);
+                pantalla.setVisible(true);
+                this.dispose(); 
+                
+            //Transferencia internacion
+            }else if(tipoTransfe==1){
+                ExitosaTransferencia pantalla = new ExitosaTransferencia();
+                pantalla.setNombR(txtDatoNombre.getText());
+                pantalla.setNcuenta(txtCuenta.getText());
+                pantalla.setCorreo(txtCorreo.getText());
+                pantalla.setMonto(this.monto);
+                int x=(int)(1000 * Math.random())+1;
+                String Ncompr=String.valueOf(x);
+                pantalla.setNcomp(Ncompr);
+                pantalla.setBanco(txtBanco.getText());
+                pantalla.setTipCuent(jComboBox1.getSelectedItem().toString());
+                //Envia datos de la numCuenta del nombreCompleto
+                pantalla.mostrarCuentaCompleta(nombreCompleto, tituloTransfe, tipoTransfe, numCuenta, saldoDisponible);
+                pantalla.setVisible(true);
+                this.dispose();    
             }
         }
         
@@ -488,44 +487,44 @@ public class DetallesDeTransferencia extends javax.swing.JFrame {
         habilitarTrans();
 
     }//GEN-LAST:event_jComboBox2ItemStateChanged
-   /*Metodo que recibe los datos de la numCuenta y valor ncesario*/
-    public void mostrarCuentaCompleta(String nomComple, String transferencia, int tipo, int numCuenta, float saldoDisponible, float monto){
-    this.nombreCompleto=nomComple;
-    this.transferencia=transferencia;
-    this.tipo=tipo;
-    this.numCuenta=numCuenta;
-    this.saldoDisponible=saldoDisponible;
-    this.monto=monto;
-    
-    lblNombre.setText(String.valueOf(nomComple));
-    lblTransferencia.setText(String.valueOf(transferencia));    
-    lblCuenta.setText(String.valueOf(numCuenta));
-    lblSaldo.setText((" $ ")+String.valueOf(saldoDisponible));  
-    txtMonto.setText((" $ ")+String.valueOf(monto));  
-    /*Comprueba el tipo de de transaccion que estamos haciendo y oculta la opcion de banco que no corresponde*/
-    if(tipo==0){
-        lblBanco2.setVisible(false);
-        txtBanco.setVisible(false);
-        }
-        if(tipo==1){
-        lblBanco1.setVisible(false);
-        cmbBanco.setVisible(false);
-        }
+/*Metodo que recibe los datos de la numCuenta y valor ncesario*/
+    public void mostrarCuentaCompleta(String nomComple, String tituloTransfe, int tipoTransfe, int numCuenta, float saldoDisponible, float monto){
+            this.nombreCompleto=nomComple;
+            this.tituloTransfe=tituloTransfe;
+            this.tipoTransfe=tipoTransfe;
+            this.numCuenta=numCuenta;
+            this.saldoDisponible=saldoDisponible;
+            this.monto=monto;
+
+            lblNombre.setText(String.valueOf(nomComple));
+            lblTransferencia.setText(String.valueOf(tituloTransfe));    
+            lblCuenta.setText(String.valueOf(numCuenta));
+            lblSaldo.setText((" $ ")+String.valueOf(saldoDisponible));  
+            txtMonto.setText((" $ ")+String.valueOf(monto));  
+            /*Comprueba el tipoTransfe de de transaccion que estamos haciendo y oculta la opcion de banco que no corresponde*/
+            if(this.tipoTransfe==0){
+                    lblBanco2.setVisible(false);
+                    txtBanco.setVisible(false);
+            }
+            if(this.tipoTransfe==1){
+                    lblBanco1.setVisible(false);
+                    cmbBanco.setVisible(false);
+            }
     }
     
-    /*Metodo que compruba si se cumple con el ingreso de los datos para poder habilitar el boton y continuar*/
+/*Metodo que compruba si se cumple con el ingreso de los datos para poder habilitar el boton y continuar*/
     public void habilitarTrans(){
         if (!cmbBanco.getSelectedItem().equals("Seleccione una entidad") || !txtBanco.getText().isEmpty()) {
             if(!txtDatoNombre.getText().isEmpty() && !txtCorreo.getText().isEmpty()
                 && !txtCuenta.getText().isEmpty()&& !txtIdentificacion.getText().isEmpty()
                 && !txtMonto.getText().isEmpty()&& !txtTelefono.getText().isEmpty()
                 && !jComboBox1.getSelectedItem().equals("Seleccione el tipo")
-                && !jComboBox2.getSelectedItem().equals("Seleccione el tipo")){
-           
-            btnTransferir.setEnabled(true);
-        } else {
-            btnTransferir.setEnabled(false);
-        }
+                && !jComboBox2.getSelectedItem().equals("Seleccione el tipo"))
+            {
+                btnTransferir.setEnabled(true);
+            } else {
+                btnTransferir.setEnabled(false);
+            }
         }else{
             btnTransferir.setEnabled(false);
         }

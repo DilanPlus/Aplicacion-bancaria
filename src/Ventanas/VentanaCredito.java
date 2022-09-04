@@ -1,28 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Ventanas;
 
 import java.awt.Color;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import Atxy2k.CustomTextField.RestrictedTextField;
 
-/**
- *
- * @author DilanPlus
- */
 public class VentanaCredito extends javax.swing.JFrame {
     /*Variables que reciben los valores de la ventana anterior*/
-    String usuario;
-    int cuenta;
+    String nomComple;
+    int numCuenta;
     float saldo;
     public Timer tiempo;
     
@@ -155,7 +142,7 @@ public class VentanaCredito extends javax.swing.JFrame {
     /*Vuelve a la ventan anterior, pasando los datos*/
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
         ParaTransferir_Credito_ServiciosBasicos detalle= new ParaTransferir_Credito_ServiciosBasicos();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuVolverMouseClicked
@@ -171,7 +158,7 @@ public class VentanaCredito extends javax.swing.JFrame {
         }else{
             /*Muestra la ventana de credito exitoso*/
             VentanaExitosaCredito extCredito= new VentanaExitosaCredito();
-            extCredito.mostrarCuentaCompleta(usuario,cuenta, saldo,(Float.parseFloat(txtMonto.getText())));
+            extCredito.mostrarCuentaCompleta(nomComple,numCuenta, saldo,(Float.parseFloat(txtMonto.getText())));
             extCredito.setVisible(true);
             this.dispose();
         }
@@ -180,15 +167,15 @@ public class VentanaCredito extends javax.swing.JFrame {
     /*Vuelve a la ventana detalle*/
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
         ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
-    /*Metodo que recibe y muestra los datos de la cuenta*/
+    /*Metodo que recibe y muestra los datos de la numCuenta*/
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
-    this.usuario=usuario;
-    this.cuenta=cuenta;
+    this.nomComple=usuario;
+    this.numCuenta=cuenta;
     this.saldo=saldo;
     
     lblNombre.setText(String.valueOf(usuario));

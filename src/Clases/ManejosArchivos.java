@@ -315,7 +315,7 @@ public class ManejosArchivos {
     }  
     
     
-    public void pagar(String usuario,int tipoCuenta,int valor){
+    public void pagar(String usuario,int tipoCuenta,float valor){
         
          // Se copia contenido en el auxiliar
         try {

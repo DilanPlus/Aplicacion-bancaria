@@ -13,9 +13,10 @@ import javax.swing.Timer;
 import Atxy2k.CustomTextField.RestrictedTextField;
 
 public class TiposDeTransferencias extends javax.swing.JFrame {
-    /*Variables que recibiran los datos de la cuenta de otras  ventanas*/
-    String usuario;
-    int cuenta;
+    /*Variables que recibiran los datos de la numCuenta de otras  ventanas*/
+    String nomComple;
+    int tipoTransfe;
+    int numCuenta;
     float saldo;
     public Timer tiempo;
     
@@ -198,6 +199,7 @@ public class TiposDeTransferencias extends javax.swing.JFrame {
 
     private void btnTransferenciaNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaNActionPerformed
         /*Pinta los botones de otro color y muestrar ciertos objetos de la ventana*/
+        this.tipoTransfe=0;        
         btnTransferenciaN.setBackground(Color.CYAN);
         btnTransferenciaI.setBackground(Color.LIGHT_GRAY);
         lblMonto.setVisible(true);
@@ -221,13 +223,14 @@ public class TiposDeTransferencias extends javax.swing.JFrame {
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
         /*Vuelve a la ventana anterior*/
         ParaTransferir_Credito_ServiciosBasicos detalle= new ParaTransferir_Credito_ServiciosBasicos();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuVolverMouseClicked
 
     private void btnTransferenciaIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaIActionPerformed
         /*Pinta los botones de otro color y muestrar ciertos objetos de la ventana*/
+        this.tipoTransfe=1;
         btnTransferenciaI.setBackground(Color.CYAN);
         btnTransferenciaN.setBackground(Color.LIGHT_GRAY);
         lblMonto.setVisible(true);
@@ -249,60 +252,56 @@ public class TiposDeTransferencias extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMontoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-        /*Ponemos restricciones al momento de hacer una transferencia y abrir la nueva ventana*/
+        /*Ponemos restricciones al momento de hacer una tituloTransfe y abrir la nueva ventana*/
         /*Verifica si la cantidad del monto es menor a la del saldo*/
         if ((Float.parseFloat(txtMonto.getText()))>saldo ) {
             javax.swing.JOptionPane.showMessageDialog(null, "No tiene los fondos suficientes para la transferencia");
         }else{
-        /*Comprueba si el radio button nuevo destinatario esta seleccionado*/    
-        if(!(rbtnDestino.isSelected())){
-            JOptionPane.showInternalMessageDialog(null, "Seleccione la opcion en nuevo destinatario");
-            /*Comprueba si el monto esta vacio*/
-            if(txtMonto.getText().isEmpty()){
-                JOptionPane.showInternalMessageDialog(null, "Ingrese una cantidad valida en el monto");
-            }
-        }else if(txtMonto.getText().isEmpty()){
-            JOptionPane.showInternalMessageDialog(null, "Ingrese una cantidad valida en el monto");
+            /*Comprueba si el radio button nuevo destinatario esta seleccionado*/    
             if(!(rbtnDestino.isSelected())){
                 JOptionPane.showInternalMessageDialog(null, "Seleccione la opcion en nuevo destinatario");
+                /*Comprueba si el monto esta vacio*/
+                if(txtMonto.getText().isEmpty()){
+                    JOptionPane.showInternalMessageDialog(null, "Ingrese una cantidad valida en el monto");
+                }
+            }else if(txtMonto.getText().isEmpty()){
+                JOptionPane.showInternalMessageDialog(null, "Ingrese una cantidad valida en el monto");
+                if(!(rbtnDestino.isSelected())){
+                    JOptionPane.showInternalMessageDialog(null, "Seleccione la opcion en nuevo destinatario");
+                }
+            }else{
+                /*Ingresamos a la ventna de datos de la tituloTransfe  comprobando que tipoTransfe de tituloTransfe estamos haciendo*/
+                /*verifica si es una tituloTransfe nacional*/
+                if (tipoTransfe==0) {                
+                    /*Accede a la ventana de datos y pasa los datos de la numCuenta y monto y tipoTransfe de tituloTransfe que estamos haciendo*/
+                    String tituloTransfe="Transferencia Nacional - Cuenta Destino";                
+                    DetallesDeTransferencia pantalla= new DetallesDeTransferencia();
+                    pantalla.mostrarCuentaCompleta(nomComple,tituloTransfe ,tipoTransfe,numCuenta, saldo,(Float.parseFloat(txtMonto.getText())));
+                    pantalla.setVisible(true);
+                    this.dispose();                
+                }else if (tipoTransfe==1){
+                    /*Accede a la ventana de datos y pasa los datos de la numCuenta y monto y tipoTransfe de tituloTransfe que estamos haciendo*/              
+                    String tituloTransfe="Transferencia Internacional - Cuenta Destino";
+                    DetallesDeTransferencia pantalla= new DetallesDeTransferencia();
+                    pantalla.mostrarCuentaCompleta(nomComple,tituloTransfe ,tipoTransfe,numCuenta, saldo,(Float.parseFloat(txtMonto.getText())));
+                    pantalla.setVisible(true);
+                    this.dispose();
+                }
             }
-        }else{
-            /*Ingresamos a la ventna de datos de la transferencia  comprobando que tipo de transferencia estamos haciendo*/
-            String type=lblTipo.getText();
-            /*verifica si es una transferencia nacional*/
-            if (type.equals("TRANSFERENCIA NACIONAL")) {
-                int tipo=0;
-                /*Accede a la ventana de datos y pasa los datos de la cuenta y monto y tipo de transferencia que estamos haciendo*/
-                String transferencia="Transferencia Nacional - Cuenta Destino";
-                DetallesDeTransferencia ventanadatosTransferencia= new DetallesDeTransferencia();
-                ventanadatosTransferencia.mostrarCuentaCompleta(usuario,transferencia ,tipo,cuenta, saldo,(Float.parseFloat(txtMonto.getText())));
-                ventanadatosTransferencia.setVisible(true);
-                this.dispose();
-                
-            }else if (type.equals("TRANSFERENCIA INTERNACIONAL")) {
-                /*Accede a la ventana de datos y pasa los datos de la cuenta y monto y tipo de transferencia que estamos haciendo*/
-                int tipo=1;
-                String transferencia="Transferencia Internacional - Cuenta Destino";
-                DetallesDeTransferencia ventanadatosTransferencia= new DetallesDeTransferencia();
-                ventanadatosTransferencia.mostrarCuentaCompleta(usuario,transferencia ,tipo,cuenta, saldo,(Float.parseFloat(txtMonto.getText())));
-                ventanadatosTransferencia.setVisible(true);
-                this.dispose();
-            }
-        }
         }
         
     }//GEN-LAST:event_btnTransferirActionPerformed
 
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
-        /*Vuelve al detalle de cuenta*/
+        /*Vuelve al detalle de numCuenta*/
         ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
     private void btnMismoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMismoUsuarioActionPerformed
-        /*Accede a transferencia entre cuentas del mismo usuario*/
+        /*Accede a tituloTransfe entre cuentas del mismo nomComple*/
         TransferenciaMismoUsuario pantalla=new TransferenciaMismoUsuario();
         pantalla.setVisible(true);
         this.dispose();            
@@ -312,10 +311,10 @@ public class TiposDeTransferencias extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnDestinoActionPerformed
 
-    /*Metodo que recibe los datos de la cuenta y los muestra en pantalla*/
+    /*Metodo que recibe los datos de la numCuenta y los muestra en pantalla*/
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
-    this.usuario=usuario;
-    this.cuenta=cuenta;
+    this.nomComple=usuario;
+    this.numCuenta=cuenta;
     this.saldo=saldo;
     
     lblNombre.setText(String.valueOf(usuario));

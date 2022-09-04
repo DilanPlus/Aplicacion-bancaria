@@ -121,33 +121,16 @@ public class ExitosaAgua extends javax.swing.JFrame {
         this.nomComple=nomComple;
         this.numCuenta=numCuenta;
         this.saldo=(int)saldo;
-    }
-    
+    }    
     public void usuario(String usuario,int tipoCuenta){
     this.usuario=usuario;
     this.tipoCuenta=tipoCuenta;
     }
      public void actualizarSaldoCuenta(){        
         this.saldo=this.saldo-Pago;
-        ManejosArchivos u1=new ManejosArchivos();
-        u1.pagar(this.usuario, this.tipoCuenta, this.saldo);
-        usua1.setValorluz(0);        
-       /*Metodo que actualiza los valores base de la numCuenta que estemos utilizando
-    public void actualizarSaldoCuenta(){
-        if (Home.tipoCuenta==0) {
-                this.saldo=(saldo-(Pago));
-                usua1.setValoragua(0);
-                usua1.setSaldoCorriente(this.saldo);
-        }else if(Home.tipoCuenta==1){
-                this.saldo=(saldo-(Pago));
-                usua1.setValoragua(0);
-                usua1.setSaldoAhorro(this.saldo);
-        }else if(Home.tipoCuenta==2){
-                this.saldo=(saldo-(Pago));
-                usua1.setValoragua(0);
-                usua1.setSaldoCredito(this.saldo);
-        }
-    }*/
+        ManejosArchivos u2=new ManejosArchivos();
+        u2.pagar(this.usuario, this.tipoCuenta, this.saldo);
+        usua1.setValoragua(0);        
     }   
     
 

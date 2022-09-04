@@ -7,7 +7,7 @@ import static Ventanas.Login.usuario;
 
 public class Home extends javax.swing.JFrame {    
    
-    public static int tipoCuenta;
+    static int tipoCuenta;
     
     Tiempo time=new Tiempo();
     
@@ -19,8 +19,6 @@ public class Home extends javax.swing.JFrame {
         mostrarDatos(usuario);        
         this.setLocation(500, 150);       
     }
-
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -240,9 +238,6 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-   
-    
     private void lblFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblFechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lblFechaActionPerformed
@@ -256,7 +251,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSaldoCorrienteActionPerformed
 
     private void fondoPantalla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla2MouseClicked
-        /*Se abre la ventana de detalles de la cuenta corriente*/   
+        /*Se abre la ventana de detalles de la cuenta CORRIENTE*/   
         pasarDetallesCuentaCorriente();        
     }//GEN-LAST:event_fondoPantalla2MouseClicked
 
@@ -274,8 +269,7 @@ public class Home extends javax.swing.JFrame {
     /*Muestra el tiempo de la ultima sesion*/
     public  void mostrarTiempo(){
     lblFecha.setText(time.fechaCompleta);
-    }
-    
+    }    
     public void mostrarDatos(String usuario){    
         /*Nombre Completo*/
        txtNombreUsuario.setText(u1.obtenerNombreUsuario(usuario));
@@ -301,9 +295,8 @@ public class Home extends javax.swing.JFrame {
         detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaCorriente.getText()), Float.parseFloat(txtSaldoCorriente.getText()));
         detalle.usuario(usuario,tipoCuenta);
         detalle.setVisible(true);
-        this.dispose();    
-    }
-    
+        this.dispose();   
+    }    
     public void pasarDetallesCuentaAhorro(){
         /*Se abre la ventana de detalles de la cuenta ahorro*/
         tipoCuenta=1;
@@ -313,14 +306,13 @@ public class Home extends javax.swing.JFrame {
         detalle.usuario(usuario,tipoCuenta);
         detalle.setVisible(true);
         this.dispose();    
-    }
-    
+    }    
     public void pasarDetallesCuentaCredito(){
         /*Se abre la ventana de detalles de la cuenta credito*/
         tipoCuenta=2;
         ParaTransferir_Credito_ServiciosBasicos detalle= new ParaTransferir_Credito_ServiciosBasicos();
         /*Se pasan los datos de la cuenta hacia la proxima ventana*/
-        detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaCredito.getText()), Float.parseFloat(txtSaldoCredito.getText()));
+        detalle.mostrarCuentaCompleta(txtNombreUsuario.getText(), Integer.parseInt(txtnCuentaCredito.getText())  , Float.parseFloat(txtSaldoCredito.getText()));
         detalle.usuario(usuario,tipoCuenta);
         detalle.setVisible(true);
         this.dispose();
@@ -339,20 +331,22 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCuentaCorrienteMouseClicked
 
     private void fondoPantalla3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla3MouseClicked
-        /*Se abre la ventana de detalles de la cuenta ahorro*/
+         /*Se abre la ventana de detalles de la cuenta AHORRO*/
         pasarDetallesCuentaAhorro();
     }//GEN-LAST:event_fondoPantalla3MouseClicked
 
     private void lblCuentaAhorroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaAhorroMouseClicked
-        /*Se abre la ventana de detalles de la cuenta ahorro*/
+        /*Se abre la ventana de detalles de la cuenta AHORRO*/
         pasarDetallesCuentaAhorro();
     }//GEN-LAST:event_lblCuentaAhorroMouseClicked
 
     private void fondoPantalla4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fondoPantalla4MouseClicked
-       pasarDetallesCuentaCredito();
+        /*Se abre la ventana de detalles de la cuenta CREDITO*/
+        pasarDetallesCuentaCredito();
     }//GEN-LAST:event_fondoPantalla4MouseClicked
 
     private void lblCuentaCreditoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCuentaCreditoMouseClicked
+         /*Se abre la ventana de detalles de la cuenta CREDITO*/
         pasarDetallesCuentaCredito();
     }//GEN-LAST:event_lblCuentaCreditoMouseClicked
 

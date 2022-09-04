@@ -2,10 +2,14 @@
 package Ventanas;
 
 import Clases.*;
+import static Ventanas.Home.tipoCuenta;
+import static Ventanas.Login.usuario;
+
 
 
 public class ExitosaTransferencia extends javax.swing.JFrame {
     /*Variables que reciben los valores de la ventan anterior*/
+    String usuarioA;
     String NombRec;
     String Ncuenta;
     String CorreoRec;
@@ -14,18 +18,18 @@ public class ExitosaTransferencia extends javax.swing.JFrame {
     String Banco;
     String TipCuent;
 
-    String usuario;
-    String transferencia;
-    int tipo;
-    int cuenta;
-    int saldo;
+    String nomComple;
+    String tituloTransfe;
+    int tipoTransfe;
+    int numCuenta;
+    float saldo;
 
     public ExitosaTransferencia() {
-        //initComponents();
+        initComponents();
         this.setLocation(450, 150);
     }
     
-    /*Metodos que reciben los datos de la cuenta destinatario*/
+    /*Metodos que reciben los datos de la numCuenta destinatario*/
     public void setNombR(String NombRec){
         this.NombRec=NombRec;
         lblNomRec.setText(NombRec);
@@ -58,79 +62,78 @@ public class ExitosaTransferencia extends javax.swing.JFrame {
         lblTipCuent.setText(TipCuent);
     }
     
-    /*Metodo que recibe los datos de la cuenta usuario*/  
-    public void mostrarCuentaCompleta(String usuario, String transferencia, int tipo, int cuenta, float saldo){
-    this.usuario=usuario;
-    this.transferencia=transferencia;
-    this.tipo=tipo;
-    this.cuenta=cuenta;
-    this.saldo=(int)saldo;
-    
-    lblTransferencia.setText(transferencia);
-    
-    /*Metodo que compruba que tipo de transferencia se realizo y de acuerdo a eso pone una comision*/
-    if (tipo==0) {
-        /*Verifica si el banco del destinario es el mismo que la del usuario*/
-        if (Banco.equals("Banco Pichincha")) {
-            this.tipo=2;
-            txtComision.setText(String.valueOf(0.0));
-        }else{
-            txtComision.setText(String.valueOf(0.5));
-        }
-        }else if(tipo==1){
-            txtComision.setText(String.valueOf(2));
+    /*Metodo que recibe los datos de la numCuenta nomComple*/  
+    public void mostrarCuentaCompleta(String usuario, String tituloTransfe, int tipoTransfe, int numCuenta, float saldo){
+        this.nomComple=usuario;
+        this.tituloTransfe=tituloTransfe;
+        this.tipoTransfe=tipoTransfe;
+        this.numCuenta=numCuenta;
+        this.saldo=saldo;
+
+        lblTransferencia.setText(tituloTransfe);    
+        /*Metodo que compruba que tipoTransfe de tituloTransfe se realizo y de acuerdo a eso pone una comision*/
+        if (this.tipoTransfe==0) {
+            /*Verifica si el banco del destinario es el mismo que la del nomComple*/
+            if (Banco.equals("Banco Pichincha")) {
+                this.tipoTransfe=3;
+                txtComision.setText("0 %");
+            }else{
+                this.tipoTransfe=4;
+                txtComision.setText("15 %");
+            }
+        }else if(this.tipoTransfe==1){
+                this.tipoTransfe=5;
+                txtComision.setText("20 %");
         }
     }
-    /*Actualiza los valores base de la cuenta del usuario de acuerdo al tipo de transferencia que se realizo*/
-    /*Se verifica la cuenta que estamos utilizado para actualizar los valores en dicha cuenta*/
-    public void actualizarSaldoCuenta(){
-        
-        ManejosArchivos u1=new ManejosArchivos();
-        
-        /*Pagar con la cuenta Corriente*/
-        if (Home.tipoCuenta==0) {
-            if (tipo==0) {
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*0.5)));
-                u1.pagar(usuario, 0, this.saldo);              
+    /*Actualiza los valores base de la numCuenta del nomComple de acuerdo al tipoTransfe de tituloTransfe que se realizo*/
+    /*Se verifica la numCuenta que estamos utilizado para actualizar los valores en dicha numCuenta*/
+    
+    public void actualizarSaldoCuenta(){        
+        ManejosArchivos u1=new ManejosArchivos();        
+        /*Pagar con la numCuenta Corriente*/
+        if (tipoCuenta==0) {
+            if (this.tipoTransfe==3) {
+                this.saldo= (float)saldo-(MontoRec+(MontoRec*0));
+                u1.pagar(usuario, 0, this.saldo);            
                 
-            }else if(tipo==1){
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*2)));
-                u1.pagar(usuario, 0, this.saldo);
+            }else if(this.tipoTransfe==4){
+                this.saldo= (float) (saldo-(MontoRec+(MontoRec*0.15)));
+                u1.pagar(usuario, 0,this.saldo);
                 
-            }else if(tipo==2){
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*0)));
+            }else if(this.tipoTransfe==5){
+                this.saldo= (float)(saldo-(MontoRec+(MontoRec*0.2)));
                 u1.pagar(usuario, 0, this.saldo);
             }
             
-         /*Pagar con la cuenta ahorro*/
-        }else if(Home.tipoCuenta==1){
-            if (tipo==0) {
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*0.5)));
+         /*Pagar con la numCuenta ahorro*/
+        }else if(tipoCuenta==1){
+            
+            if (this.tipoTransfe==3) {
+                this.saldo= (float)saldo-(MontoRec+(MontoRec*0));
+                u1.pagar(usuario, 1, this.saldo);              
+                
+            }else if(this.tipoTransfe==4){
+                this.saldo= (float) (saldo-(MontoRec+(MontoRec*0.15)));
                 u1.pagar(usuario, 1, this.saldo);
                 
-            }else if(tipo==1){
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*2)));
-                u1.pagar(usuario, 1, this.saldo);
-                
-            }else if(tipo==2){
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*0)));
+            }else if(this.tipoTransfe==5){
+                this.saldo= (float)(saldo-(MontoRec+(MontoRec*0.2)));
                 u1.pagar(usuario, 1, this.saldo);
             }
-            
-        /*Pagar con la cuenta Credito*/
-        }else if(Home.tipoCuenta==2){
-            if (tipo==0) {
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*0.5)));
+        /*Pagar con la numCuenta Credito*/
+        }else if(tipoCuenta==2){            
+            if (this.tipoTransfe==3) {
+                this.saldo= (float)saldo-(MontoRec+(MontoRec*0));
+                u1.pagar(usuario, 2, this.saldo);              
+                
+            }else if(this.tipoTransfe==4){
+                this.saldo= (float) (saldo-(MontoRec+(MontoRec*0.15)));
                 u1.pagar(usuario, 2, this.saldo);
                 
-            }else if(tipo==1){
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*2)));
+            }else if(this.tipoTransfe==5){
+                this.saldo= (float)(saldo-(MontoRec+(MontoRec*0.2)));
                 u1.pagar(usuario, 2, this.saldo);
-                
-            }else if(tipo==2){
-                this.saldo= (int)(saldo-(MontoRec+(MontoRec*0)));
-                u1.pagar(usuario, 2, this.saldo);
-                
             }
         }
         
@@ -163,13 +166,12 @@ public class ExitosaTransferencia extends javax.swing.JFrame {
         txtComision = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuInicio = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(lblTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 384, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setForeground(new java.awt.Color(102, 0, 0));
@@ -194,8 +196,8 @@ public class ExitosaTransferencia extends javax.swing.JFrame {
         lblNcuent.setText("                                                                  ");
         jPanel1.add(lblNcuent, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 257, 22));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 204, 0));
         jLabel1.setText("¡¡¡TRANSFERENCIA EXITOSA!!!");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 520, 41));
 
@@ -211,15 +213,17 @@ public class ExitosaTransferencia extends javax.swing.JFrame {
         jPanel1.add(lblCorreoRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 327, -1));
 
         btnAcept.setBackground(new java.awt.Color(51, 153, 0));
+        btnAcept.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnAcept.setForeground(new java.awt.Color(255, 255, 255));
         btnAcept.setText("ACEPTAR");
+        btnAcept.setBorder(null);
         btnAcept.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAcept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAcept, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, 42));
+        jPanel1.add(btnAcept, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 110, 40));
 
         lblMontoTrans.setText("                                              ");
         jPanel1.add(lblMontoTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
@@ -250,15 +254,6 @@ public class ExitosaTransferencia extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 378));
-
-        menuInicio.setText("Inicio");
-        menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuInicioMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(menuInicio);
-
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -266,20 +261,12 @@ public class ExitosaTransferencia extends javax.swing.JFrame {
 
     /*Vuelve a la ventana detalle actualizando los valores base*/
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
-        //actualizarSaldoCuenta();
+        actualizarSaldoCuenta();
         ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAceptActionPerformed
-
-    /*Vuelve a la vetana detalle*/
-    private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
-        ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        detalle.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_menuInicioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -305,7 +292,6 @@ public class ExitosaTransferencia extends javax.swing.JFrame {
     public static javax.swing.JLabel lblNomRec;
     public static javax.swing.JLabel lblTipCuent;
     private javax.swing.JLabel lblTransferencia;
-    private javax.swing.JMenu menuInicio;
     public static javax.swing.JLabel txtComision;
     // End of variables declaration//GEN-END:variables
 }

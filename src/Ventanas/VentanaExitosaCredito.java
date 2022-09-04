@@ -1,28 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Ventanas;
 
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
-import Atxy2k.CustomTextField.RestrictedTextField;
-import static Ventanas.Login.usua1;
 
-/**
- *
- * @author DilanPlus
- */
+import static Ventanas.Login.usuario;
+import Clases.ManejosArchivos;
+import static Ventanas.Home.tipoCuenta;
+import javax.swing.Timer;
+
 public class VentanaExitosaCredito extends javax.swing.JFrame {
-    String usuario;
-    int cuenta;
+    String nomComple;
+    int numCuenta;
     float saldo;
     float monto;
     public Timer tiempo;
@@ -44,7 +31,6 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
         btnAceptarCredito = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuInicio = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,15 +64,6 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, 41));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 389, 220));
-
-        menuInicio.setText("Inicio");
-        menuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuInicioMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(menuInicio);
-
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -98,52 +75,33 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
 
     
     private void btnAceptarCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarCreditoActionPerformed
-        /*Genera un numero aleatior para validar el credito*/
-        int y=(int)(Math.random()*6);
-        if (y==0) {
-            JOptionPane.showInternalMessageDialog(null, "Lo sentimos no se concreto el credito\" ¡¡Vuelve a intentarlo!!\"");
-        }else{
-            /*Vuelve a la ventana detalle actualizando los valores base*/
-        //actualizarSaldoCuenta();
+        /*Vuelve a la ventana detalle actualizando los valores base*/
+        actualizarSaldoCuenta();
         ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        detalle.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
-        }
+        
     }//GEN-LAST:event_btnAceptarCreditoActionPerformed
 
-    /*Vuelve a la ventana detalle*/
-    private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
-        ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        detalle.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_menuInicioMouseClicked
-
-    /*Metodo que recibe los datos de la cuenta usuario*/
+    /*Metodo que recibe los datos de la numCuenta nomComple*/
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo, float monto){
-    this.usuario=usuario;
-    this.cuenta=cuenta;
+    this.nomComple=usuario;
+    this.numCuenta=cuenta;
     this.saldo=saldo;
     this.monto=monto;
     
     txtMonto.setEditable(false);
     txtMonto.setText(String.valueOf(monto));
     }
-    /*Verifica a que tipo de cuenta del usuario se va a actualizar los valores base
+    
     public void actualizarSaldoCuenta(){
-        if (Home.tipoCuenta==0) {
-                this.saldo=(saldo-(monto));
-                usua1.setSaldoCorriente(this.saldo);
-        }else if(Home.tipoCuenta==1){
-                this.saldo=(saldo-(monto));
-                usua1.setSaldoAhorro(this.saldo);
-        }else if(Home.tipoCuenta==2){
-                this.saldo=(saldo-(monto));
-                usua1.setSaldoCredito(this.saldo);
-        }
-    }*/
-
+     ManejosArchivos u1=new  ManejosArchivos();
+     this.saldo=this.saldo-monto;
+     u1.pagar(usuario, tipoCuenta, saldo);
+    
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarCredito;
     private javax.swing.ButtonGroup gbtnDestino;
@@ -151,7 +109,6 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMonto;
-    private javax.swing.JMenu menuInicio;
     private javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
 }
