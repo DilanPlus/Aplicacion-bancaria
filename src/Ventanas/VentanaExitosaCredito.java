@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
+package Ventanas;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import Atxy2k.CustomTextField.RestrictedTextField;
-import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
+import static Ventanas.Login.usua1;
 
 /**
  *
@@ -45,7 +45,6 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
-        menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,34 +87,10 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuInicio);
 
-        menuVolver.setText("Volver");
-        menuVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuVolverMouseClicked(evt);
-            }
-        });
-        menuVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuVolverActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(menuVolver);
-
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
-        
-    }//GEN-LAST:event_menuVolverActionPerformed
-/*Vuelve a la ventana anterior*/
-    private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
-        VentanaDetalle detalle= new VentanaDetalle();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        detalle.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_menuVolverMouseClicked
 
     private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
         
@@ -130,7 +105,7 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
         }else{
             /*Vuelve a la ventana detalle actualizando los valores base*/
         //actualizarSaldoCuenta();
-        VentanaDetalle detalle = new VentanaDetalle();
+        ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
@@ -139,7 +114,7 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
 
     /*Vuelve a la ventana detalle*/
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
-        VentanaDetalle detalle = new VentanaDetalle();
+        ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
@@ -177,7 +152,6 @@ public class VentanaExitosaCredito extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMonto;
     private javax.swing.JMenu menuInicio;
-    private javax.swing.JMenu menuVolver;
     private javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
 }

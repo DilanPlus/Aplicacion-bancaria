@@ -1,20 +1,26 @@
 
-package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
-import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
-import Atxy2k.CustomTextField.RestrictedTextField;
+package Ventanas;
 
-public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
-    /*Variables que recibiran los datos de la cuenta de otras  ventanas*/
-    String usuario;
-    int cuenta;
+import Atxy2k.CustomTextField.RestrictedTextField;
+import static Ventanas.Login.usuario;
+import Clases.*;
+import javax.swing.JOptionPane;
+
+public class TransferenciaMismoUsuario extends javax.swing.JFrame {
+    
+    ManejosArchivos u1=new ManejosArchivos();
+    /*Variables que recibiran los datos de la numCuenta de otras  ventanas*/
+    String nomComple;
+    int numCuenta;
     float saldo;
-    public VentanaTransfereMismoUsuario() {
+    
+    public TransferenciaMismoUsuario() {
         initComponents();
-        this.setLocation(500, 150);
-        //lblSaldoCorriente.setText(" $ "+usua1.getSaldoCorriente());
-        //lblSaldoAhorro.setText(" $ "+usua1.getSaldoAhorro());
-        RestrictedTextField telf = new RestrictedTextField(txtMonto);
-        telf.setOnlyNums(true);
+        this.setLocation(500, 150); 
+        mostrarCuentaCompleta();
+        RestrictedTextField num = new RestrictedTextField(txtMonto);
+        num.setOnlyNums(true);
+      
     }
 
     
@@ -37,7 +43,6 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
         btnTransferir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
-        menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -52,6 +57,8 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
 
         jLabel2.setText("Saldo disponible en cuenta corriente   : ");
         fondoPantalla.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 230, -1));
+
+        lblSaldoCorriente.setText("g");
         fondoPantalla.add(lblSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 130, 20));
 
         jLabel4.setText("Saldo disponible en cuenta ahorro       : ");
@@ -64,6 +71,7 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
 
         txtMonto.setBackground(new java.awt.Color(204, 255, 255));
         txtMonto.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
+        txtMonto.setText("10");
         fondoPantalla.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 150, 30));
 
         pntC_A.setBackground(new java.awt.Color(255, 255, 255));
@@ -106,19 +114,6 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuInicio);
 
-        menuVolver.setText("Volver");
-        menuVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuVolverMouseClicked(evt);
-            }
-        });
-        menuVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuVolverActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(menuVolver);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,75 +135,81 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_pntC_AActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-       if(!(pntC_A.isSelected()) && !(pntA_C.isSelected())){
+
+        if(!(pntC_A.isSelected()) && !(pntA_C.isSelected())){
            javax.swing.JOptionPane.showMessageDialog(this, "Seleccione alguna opción de transferencia");
        }else{
-               /* transformamos el txt a float */
-           float monto = Float.parseFloat(txtMonto.getText());            
+            if(txtMonto.getText().isEmpty()){
+                JOptionPane.showInternalMessageDialog(null, "Debe ingresar un valor");
+            }else{
+            /* transformamos el txt a int */
+               int monto = Integer.parseInt(txtMonto.getText());
+               System.out.println("Su monto es: "+monto);
+           //Obtenemos los saldos CORRIENTE saldoAhorro AHORRO del usuario
+           int saldoCorriente=Integer.parseInt(u1.obtenerSaldoCorrienteUsuario(usuario));
+           int saldoAhorro=Integer.parseInt(u1.obtenerSaldoAhorroUsuario(usuario));
            
-           /* verificamos que opcion se eligio          
-                if(pntC_A.isSelected()){
-                    if(monto<=usua1.getSaldoCorriente() ){
-                        /*Se resta el monto del Saldo Corriente 
-                       usua1.setSaldoCorriente(usua1.getSaldoCorriente()-monto);
-                       /* Se suma el monto al Saldo Ahorro 
-                       usua1.setSaldoAhorro(usua1.getSaldoAhorro()+monto);
-                       /* Mensaje de Exito
-                       javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");
+            //verificamos que opcion se eligio          
+                if(pntC_A.isSelected()){ 
+                    if(monto<=saldoCorriente) {
+                        //Se resta el monto del Saldo Corriente 
+                        saldoCorriente=saldoCorriente-monto;                        
+                        u1.pagar(usuario,0,saldoCorriente);   
+                        
+                       // Se suma el monto al Saldo Ahorro 
+                       saldoAhorro=saldoAhorro+monto;
+                       u1.pagar(usuario,1,saldoAhorro);
                        
-                       Home home =new Home();
-                       home.setVisible(true);
-                       this.setVisible(false);
-                       
+                       //Mensaje de Exito//
+                       javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");                       
+                        Home home =new Home();
+                        home.setVisible(true);
+                        this.setVisible(false);
                      }else{
                         javax.swing.JOptionPane.showMessageDialog(this, "No tiene los fondos suficientes para la transferencia");
                     }
 
                 }
                 if(pntA_C.isSelected()){
-                    if(monto<=usua1.getSaldoAhorro() ){
-                        /*Se resta el monto del Saldo Ahorro 
-                       usua1.setSaldoAhorro(usua1.getSaldoAhorro()-monto);
-                       /* Se suma el monto al Saldo Corriente 
-                       usua1.setSaldoCorriente(usua1.getSaldoCorriente()+monto);
-                      /* Mensaje de Exito
+                    
+                    System.out.println("Se selecciono A _  C");
+                            
+                    if(monto<=saldoAhorro){
+                        //Se resta el monto del Saldo Ahorro 
+                       saldoAhorro=saldoAhorro-monto;
+                       u1.pagar(usuario,1,saldoAhorro);
+                       
+                       // Se suma el monto al Saldo Corriente
+                       saldoCorriente=saldoCorriente+monto;
+                       u1.pagar(usuario,0,saldoCorriente);
+                       
+                      // Mensaje de Exito
                       javax.swing.JOptionPane.showMessageDialog(this, "Transferencia Exitosa");
-                      
-                      Home home =new Home();
-                       home.setVisible(true);
-                       this.setVisible(false);
-
+                        Home home =new Home();
+                        home.setVisible(true);
+                        this.setVisible(false);
                      }else{
                         javax.swing.JOptionPane.showMessageDialog(this, "No tiene los fondos suficientes para la transferencia");
                     }
-                }    */                 
-       }
+           
+                } 
+                
+            }
+          
+        }
     }//GEN-LAST:event_btnTransferirActionPerformed
 
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
-        VentanaDetalle detalle = new VentanaDetalle();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        detalle.setVisible(true);
-        this.dispose();
+                        Home home =new Home();
+                        home.setVisible(true);
+                        this.setVisible(false);
     }//GEN-LAST:event_menuInicioMouseClicked
 
-    private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
-        /*Vuelve a la ventana anterior*/
-        VentanaDetalle detalle= new VentanaDetalle();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
-        detalle.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_menuVolverMouseClicked
-
-    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
-
-    }//GEN-LAST:event_menuVolverActionPerformed
-
-    /*Metodo que recibe los datos de la cuenta y los muestra en pantalla*/
-    public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
-    this.usuario=usuario;
-    this.cuenta=cuenta;
-    this.saldo=saldo;  
+    /*Metodo que recibe los datos de la numCuenta saldoAhorro los muestra en pantalla*/
+    public void mostrarCuentaCompleta(){        
+        lblSaldoCorriente.setText(" $ "+u1.obtenerSaldoCorrienteUsuario(usuario));
+        lblSaldoAhorro.setText(" $ "+u1.obtenerSaldoAhorroUsuario(usuario));
+        System.out.println(u1.obtenerSaldoCorrienteUsuario(usuario));
    
     }
 
@@ -224,7 +225,6 @@ public class VentanaTransfereMismoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblSaldoAhorro;
     private javax.swing.JLabel lblSaldoCorriente;
     private javax.swing.JMenu menuInicio;
-    private javax.swing.JMenu menuVolver;
     private javax.swing.JRadioButton pntA_C;
     private javax.swing.JRadioButton pntC_A;
     private javax.swing.ButtonGroup seleccionCuentas;

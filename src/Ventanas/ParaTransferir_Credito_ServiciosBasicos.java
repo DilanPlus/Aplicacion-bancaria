@@ -1,30 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
-import Clases.Tiempo;
-import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.Timer;
+package Ventanas;
+
+import Clases.*;
 
 
-public class VentanaDetalle extends javax.swing.JFrame {
-    /*Variables que recibiran los datos de la cuenta de otras  ventanas*/
+public class ParaTransferir_Credito_ServiciosBasicos extends javax.swing.JFrame {
+    /*Variables que recibiran los datos de la numCuenta de otras  ventanas*/
     String usuario;
-    int cuenta;
+    int tipoCuenta;
+    String nombreCompleto;
+    int numCuenta;
     float saldo;
     /*Instancia para mostrar el tiempo de la ultima sesion*/
     Tiempo time= new Tiempo();
  
     
-    public VentanaDetalle() {
+    public ParaTransferir_Credito_ServiciosBasicos() {
         initComponents();
         mostrarTiempo();
         /*Ubica la ventana en una posicion especifica*/
@@ -53,7 +44,6 @@ public class VentanaDetalle extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
-        menuVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,19 +128,6 @@ public class VentanaDetalle extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuInicio);
 
-        menuVolver.setText("Volver");
-        menuVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuVolverMouseClicked(evt);
-            }
-        });
-        menuVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuVolverActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(menuVolver);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,17 +145,17 @@ public class VentanaDetalle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditoActionPerformed
-        /*Se accede a la ventana de credito y se pasan los datos de la cuenta*/
+        /*Se accede a la ventana de credito y se pasan los datos de la numCuenta*/
         VentanaCredito credito = new VentanaCredito();
-        credito.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        credito.mostrarCuentaCompleta(nombreCompleto, numCuenta, saldo);
         credito.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCreditoActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-        /*Se accede a la ventana de transferencia y se pasan los datos de la cuenta*/
-        VentanaTranferencia transferencia = new VentanaTranferencia();
-        transferencia.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        /*Se accede a la ventana de transferencia y se pasan los datos de la numCuenta*/
+        TiposDeTransferencias transferencia = new TiposDeTransferencias();
+        transferencia.mostrarCuentaCompleta(nombreCompleto, numCuenta, saldo);
         transferencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnTransferirActionPerformed
@@ -187,28 +164,18 @@ public class VentanaDetalle extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menuInicioActionPerformed
 
-    private void menuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVolverActionPerformed
-        
-    }//GEN-LAST:event_menuVolverActionPerformed
-
-    private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
-        /*Regresa a la ventana home*/
-        Home home= new Home();
-        home.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_menuVolverMouseClicked
-
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
         /*Regresa a la ventana home*/
         Home home= new Home();
-        home.setVisible(true);
+        home.setVisible(true);      
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
     private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
-        /*Se accede a la ventana de servicios basicos y se pasan los datos de la cuenta*/
-        VentanaServiciosBasicos servicios = new VentanaServiciosBasicos();
-        servicios.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        /*Se accede a la ventana de servicios basicos y se pasan los datos de la numCuenta*/
+        ServiciosBasicos servicios = new ServiciosBasicos();
+        servicios.mostrarCuentaCompleta(nombreCompleto, numCuenta, saldo);
+        servicios.usuario(this.usuario,this.tipoCuenta);
         servicios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnServiciosActionPerformed
@@ -218,15 +185,20 @@ public class VentanaDetalle extends javax.swing.JFrame {
     lblFecha.setText(time.fechaCompleta);
     }
     
-    /*Metodo que recibe los datos de la cuenta de otras ventanas y los muestra en pantalla*/
-    public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
-    this.usuario=usuario;
-    this.cuenta=cuenta;
+    /*Metodo que recibe los datos de la numCuenta de otras ventanas y los muestra en pantalla*/
+    public void mostrarCuentaCompleta(String nombreCompleto, int numCuenta, float saldo){
+    this.nombreCompleto=nombreCompleto;
+    this.numCuenta=numCuenta;
     this.saldo=saldo;
     
-    lblNombre.setText(String.valueOf(usuario));
-    lblCuenta.setText(String.valueOf(cuenta));
+    lblNombre.setText(String.valueOf(nombreCompleto));
+    lblCuenta.setText(String.valueOf(numCuenta));
     lblSaldo.setText((" $ ")+String.valueOf(saldo));  
+    }
+    
+    public void usuario(String usuario,int tipoCuenta){
+        this.usuario=usuario;
+        this.tipoCuenta=tipoCuenta;
     }
 
 
@@ -247,6 +219,5 @@ public class VentanaDetalle extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JMenu menuInicio;
-    private javax.swing.JMenu menuVolver;
     // End of variables declaration//GEN-END:variables
 }

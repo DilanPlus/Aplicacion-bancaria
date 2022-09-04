@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
+package Ventanas;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -154,7 +154,7 @@ public class VentanaCredito extends javax.swing.JFrame {
 
     /*Vuelve a la ventan anterior, pasando los datos*/
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
-        VentanaDetalle detalle= new VentanaDetalle();
+        ParaTransferir_Credito_ServiciosBasicos detalle= new ParaTransferir_Credito_ServiciosBasicos();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
@@ -179,7 +179,7 @@ public class VentanaCredito extends javax.swing.JFrame {
 
     /*Vuelve a la ventana detalle*/
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
-        VentanaDetalle detalle = new VentanaDetalle();
+        ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
         detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
         detalle.setVisible(true);
         this.dispose();

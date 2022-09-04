@@ -1,27 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
-import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
-import javax.swing.Timer;
+package Ventanas;
 
-/**
- *
- * @author PC
- */
-public class VentanaExitosaLuz extends javax.swing.JFrame {
+import Clases.ManejosArchivos;
+import static Ventanas.Login.usua1;
+
+public class ExitosaLuz extends javax.swing.JFrame {
     String usuario;
-    float Pago;
+    int tipoCuenta;
+    String nombComple;
+    
+    int Pago;
     String Contra;
     String Descri;
-    int cuenta;
-    float saldo;
+    int numCuenta;
+    int saldo;
     
-    public VentanaExitosaLuz() {
+    public ExitosaLuz() {
         initComponents();
         this.setLocation(500, 150);
+        actualizarSaldoCuenta();
     }
 
     @SuppressWarnings("unchecked")
@@ -91,7 +88,7 @@ public class VentanaExitosaLuz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void setValorpago(float Pago){
+    public void setValorpago(int Pago){
         this.Pago = Pago;
         valorpagado.setText(String.valueOf(Pago));
     }
@@ -107,13 +104,32 @@ public class VentanaExitosaLuz extends javax.swing.JFrame {
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        //actualizarSaldoCuenta();
-       VentanaServiciosBasicos regresa = new VentanaServiciosBasicos();
-       regresa.mostrarCuentaCompleta(usuario, cuenta, saldo);
+       ServiciosBasicos regresa = new ServiciosBasicos();
+       regresa.mostrarCuentaCompleta(nombComple, numCuenta, saldo);
        regresa.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /*public void actualizarSaldoCuenta(){
+    
+    /*Recibe los valores de la numCuenta nombComple*/
+    public void mostrarCuentaCompleta(String nomComple, int numCuenta, float saldo){
+        this.nombComple=nomComple;
+        this.numCuenta=numCuenta;
+        this.saldo=(int)saldo;
+    }
+    public void usuario(String usuario,int tipoCuenta){
+    this.usuario=usuario;
+    this.tipoCuenta=tipoCuenta;
+    }
+    
+    public void actualizarSaldoCuenta(){
+        
+        this.saldo=(saldo-(Pago));
+        ManejosArchivos u1=new ManejosArchivos();
+        u1.pagar(this.usuario, this.tipoCuenta, this.saldo);
+        usua1.setValorluz(0);
+        
+       /* 
         if (Home.tipoCuenta==0) {
                 this.saldo=(saldo-(Pago));
                 usua1.setValorluz(0);
@@ -126,13 +142,7 @@ public class VentanaExitosaLuz extends javax.swing.JFrame {
                 this.saldo=(saldo-(Pago));
                 usua1.setValorluz(0);
                 usua1.setSaldoCredito(this.saldo);
-        }
-    }
-    /*Recibe los valores de la cuenta usuario*/
-    public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
-        this.usuario=usuario;
-        this.cuenta=cuenta;
-        this.saldo=saldo;
+        }*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

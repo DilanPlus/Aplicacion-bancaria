@@ -17,10 +17,10 @@ pepe1234
 Pepe Pai
 |Cuenta Corriente|
 2081512218
-500
+400
 |Cuenta Ahorro|
 1788522920
-2010
+300
 |Cuenta Credito|
 3098655996
 3600
@@ -37,3 +37,16 @@ Juan Suarez
 |Cuenta Credito|
 3098655996
 4003
+===================================
+a
+anthony19
+Anthony España
+|Cuenta Corriente|
+1596062137
+56
+|Cuenta Ahorro|
+1961040795
+100
+|Cuenta Credito|
+1648515113
+200

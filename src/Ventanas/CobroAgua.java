@@ -1,30 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
 
+package Ventanas;
+
+import static Ventanas.Login.usua1;
 import javax.swing.JOptionPane;
 import Atxy2k.CustomTextField.RestrictedTextField;
-import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.VentanaDetalle.lblCuenta;
-import static ec.edu.epn.prograii.pkg2022a.aplicacionbancaria.Login.usua1;
-import javax.swing.Timer;
 
-/**
- *
- * @author PC
- */
-public class VentanaCobroAgua extends javax.swing.JFrame {
-    /*Variables que reciben los datos de la cuenta*/
-    float valoragua;
+
+
+
+public class CobroAgua extends javax.swing.JFrame {
+    /*Variables que reciben los datos de la numCuenta*/
     String usuario;
-    int cuenta;
+    int tipoCuenta;
+    float valoragua;
+    String nomComple;
+    int numCuenta;
     float saldo;
 
-    public VentanaCobroAgua() {
+    public CobroAgua() {
         initComponents();
-        this.setLocation(450, 0);
-        
+        this.setLocation(450, 0);       
         /*Oculta ciertos componentes de la ventana y restringe el valores*/
         Valoragua.setVisible(false);
         Valorpagoagua.setVisible(false);
@@ -193,8 +188,8 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
 
      /*Metodo que vuelve a la ventana servicios basicos*/
     private void CanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanceActionPerformed
-       VentanaServiciosBasicos regresar = new VentanaServiciosBasicos();
-       regresar.mostrarCuentaCompleta(usuario, cuenta, saldo);
+       ServiciosBasicos regresar = new ServiciosBasicos();
+       regresar.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
        regresar.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_CanceActionPerformed
@@ -203,12 +198,12 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
         /*Verifica si el valor de agua es cero (pagado) por lo tanto se regresara a la anterior ventana*/
         if (usua1.getValoragua()==0) {
             JOptionPane.showInternalMessageDialog(null, "El servicio de agua potable ya esta pagado, GRACIAS");
-            VentanaServiciosBasicos regresar = new VentanaServiciosBasicos();
-            regresar.mostrarCuentaCompleta(usuario, cuenta, saldo);
+            ServiciosBasicos regresar = new ServiciosBasicos();
+            regresar.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
             regresar.setVisible(true);
             this.dispose();
         }else{
-            /*Verifica si se lleno todos los datos necesarios muestra ciertos componentes*/
+            //Verifica si se lleno todos los datos necesarios muestra ciertos componentes
             if(suministro.getText().isEmpty()){
                 JOptionPane.showInternalMessageDialog(null, "Ingrese el número de suministro");
             }if(descripcion.getText().isEmpty()){
@@ -228,21 +223,24 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
         /*Verifica si el valor s pagar se ingreso*/
         if(Txtpago.getText().isEmpty()){
             JOptionPane.showInternalMessageDialog(null, "Por favor, pague la completitud del valor");
-         }else{  
-            double doubleValue = Double.parseDouble(Valorpagoagua.getText());
-            double doublepago = Double.parseDouble(Txtpago.getText());
-        /*Verificamos si se paga la cantidad completa*/
-        if(doublepago!=doubleValue){
-            JOptionPane.showInternalMessageDialog(null, "Por favor, pague la completitud del valor");
-        }else {   
-            /*Abrimos la ventana de de exito y pasamos los datos necesarios*/
-            VentanaExitosaAgua pagar = new VentanaExitosaAgua();
-            pagar.mostrarCuentaCompleta(usuario,cuenta, saldo);
-            pagar.setValorpago(Float.parseFloat(Txtpago.getText()));
-            pagar.setSuministro(suministro.getText());
-            pagar.setDescripcion(descripcion.getText());
-            pagar.setVisible(true);
-            this.dispose();}
+        }else{  
+            int montoAguaA_pagar = Integer.parseInt(Valorpagoagua.getText());
+            int pagarAgua = Integer.parseInt(Txtpago.getText());
+            /*Verificamos si se paga la cantidad completa*/
+            if(pagarAgua!=montoAguaA_pagar){
+                JOptionPane.showInternalMessageDialog(null, "Por favor, pague la completitud del valor");
+            }else {   
+                /*Abrimos la ventana de de exito y pasamos los datos necesarios*/
+                ExitosaAgua pagar = new ExitosaAgua();
+                pagar.mostrarCuentaCompleta(nomComple,numCuenta, saldo);
+                pagar.setValorpago(pagarAgua);
+                pagar.setSuministro(suministro.getText());
+                pagar.setDescripcion(descripcion.getText());
+                
+                pagar.usuario(this.usuario,this.tipoCuenta);
+                pagar.setVisible(true);
+                this.dispose();
+                }
         }
     }//GEN-LAST:event_PagarAguaActionPerformed
 
@@ -256,16 +254,16 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
 
     /*Volvemos a la ventana detalle*/
     private void menuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuInicioMouseClicked
-        VentanaDetalle detalle = new VentanaDetalle();
-        detalle.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        ParaTransferir_Credito_ServiciosBasicos detalle = new ParaTransferir_Credito_ServiciosBasicos();
+        detalle.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
         detalle.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuInicioMouseClicked
 
     /*Volvemos a la ventana anterior*/
     private void menuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuVolverMouseClicked
-        VentanaServiciosBasicos servicios= new VentanaServiciosBasicos();
-        servicios.mostrarCuentaCompleta(usuario, cuenta, saldo);
+        ServiciosBasicos servicios= new ServiciosBasicos();
+        servicios.mostrarCuentaCompleta(nomComple, numCuenta, saldo);
         servicios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuVolverMouseClicked
@@ -274,16 +272,24 @@ public class VentanaCobroAgua extends javax.swing.JFrame {
 
     }//GEN-LAST:event_menuVolverActionPerformed
     
-    /*Metodo que recibe y muestra los valores de la cuenta*/
+    /*Metodo que recibe y muestra los valores de la numCuenta*/
     public void mostrarCuentaCompleta(String usuario, int cuenta, float saldo){
-    this.usuario=usuario;
-    this.cuenta=cuenta;
+    this.nomComple=usuario;
+    this.numCuenta=cuenta;
     this.saldo=saldo;
     
     lblNombre.setText(String.valueOf(usuario));
     lblCuenta.setText(String.valueOf(cuenta));
     lblSaldo.setText((" $ ")+String.valueOf(saldo));  
     }
+    
+    //
+    public void usuario(String usuario,int tipoCuenta){
+    this.usuario=usuario;
+    this.tipoCuenta=tipoCuenta;
+    }
+    //
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cance;

@@ -1,5 +1,5 @@
 
-package ec.edu.epn.prograii.pkg2022a.aplicacionbancaria;
+package Ventanas;
 
 
 import Clases.*;/*importa el paquete y la clase Datos */
@@ -7,16 +7,17 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
+    
+    static String usuario;
+    
     /*se crea una instancia publica y statica*/
-    public static Datos usua1=new Datos();
-    public static ManejosArchivos u1=new ManejosArchivos();
+    static Datos usua1=new Datos();
+    ManejosArchivos u1=new ManejosArchivos();
     
     public Login() {
         initComponents();
         this.setLocation(500, 150);
-        /*Se acceden a los metodos de la clase Datos usando una instancia*/
-        
-        usua1.aleatorioServicios();
+        /*Se acceden a los metodos de la clase Datos usando una instancia*/      
         labelUsuario.requestFocus();
     }
 
@@ -159,15 +160,11 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         /*Se comprueba la contraseña y usuario ,ademas genera un numero aleatorio que validara si la cuenta existe*/
-        String verificar;
-        
-        verificar=u1.verificarIngreso(txtUsuario.getText(),txtcontra.getText());
-        
-        if(verificar=="Verdadero"){                       
-            Home home=new Home();
-            
-            home.recibirUsuario(txtUsuario.getText());
-            
+        String verificar;        
+        verificar=u1.verificarIngreso(txtUsuario.getText(),txtcontra.getText());        
+        if(verificar=="Verdadero"){ 
+            this.usuario=txtUsuario.getText();            
+            Home home=new Home();            
             home.setVisible(true);
             this.setVisible(false);           
         }
@@ -177,28 +174,13 @@ public class Login extends javax.swing.JFrame {
         if(verificar=="Falso"){
             JOptionPane.showInternalMessageDialog(null, "No existe ese Usuario\" ¡¡Vuelve a intentarlo!!\"");        
         } 
-        /* Se asignan los un saldo aleatorio a las cuentas*/
-        //usua1.aleatorioSaldo();
-        //Home.txtSaldoCorriente.setText((" $ ")+String.valueOf(usua1.getSaldoCorriente()));
-        //Home.txtSaldoAhorro.setText((" $ ")+String.valueOf(usua1.getSaldoAhorro()));
-        //Home.txtSaldoCredito.setText((" $ ")+String.valueOf(usua1.getSaldoCredito()));
-        
-        /*Se asignas numeros aleatorios a los numeros de cuenta*/
-        //usua1.aleatorioNCuenta();
-        //Home.txtnCuentaCorriente.setText(String.valueOf(usua1.getnCuentaCorriente()));
-        //Home.txtnCuentaAhorro.setText(String.valueOf(usua1.getnCuentaAhorro()));
-        //Home.txtnCuentaCredito.setText(String.valueOf(usua1.getnCuentaCredito()));
-        
-        /* Se asignas nombres aleatorios */
-        //usua1.aleatorioNombresYApellidos();
-        //Home.txtNombreUsuario.setText(usua1.getNombreUsuario()+" "+usua1.getApellidoUsuario());
-        
+       
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         RegistrarNuevoUsuario ventana=new RegistrarNuevoUsuario();
-            ventana.setVisible(true);
-            this.setVisible(false);
+        ventana.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jPanel1MouseClicked
 

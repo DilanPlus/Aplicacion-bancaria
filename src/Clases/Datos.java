@@ -1,4 +1,3 @@
-
 package Clases;
 
 public  class Datos {
@@ -6,8 +5,8 @@ public  class Datos {
     private int nCuentaCorriente;
     private int nCuentaAhorro;
     private int nCuentaCredito;
-    private float valoragua;
-    private float valorluz;
+    private int valoragua;
+    private int valorluz;
     
   
     /* generacion de numeros de cuenta Corriente*/
@@ -30,13 +29,10 @@ public  class Datos {
       return nCuenta;
     }
    
-    /* generar nombre y apellido aleatorio de usuario */
     
     public void aleatorioServicios(){
-       float valoragua = (float)(100*Math.random())+1;
-       this.valoragua = (float)(Math.round(valoragua*100)/100d);
-       float valorluz= (float)(100*Math.random())+1;
-       this.valorluz = (float)(Math.round(valorluz*100)/100d);
+       this.valoragua = (int)(20*Math.random())+1;
+       this.valorluz = (int)(20*Math.random())+1;
     }
     
     /* GET*/
@@ -75,14 +71,13 @@ public  class Datos {
         this.nCuentaCredito = nCuentaCredito;
     }
 
-    
-
-    public void setValoragua(float valoragua) {
+    public void setValoragua(int valoragua) {
         this.valoragua = valoragua;
     }
 
-    public void setValorluz(float valorluz) {
+    public void setValorluz(int valorluz) {
         this.valorluz = valorluz;
     }
+
     
 }

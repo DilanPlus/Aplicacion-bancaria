@@ -2,6 +2,8 @@
 package Clases;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 public class ManejosArchivos {
     
@@ -9,6 +11,11 @@ public class ManejosArchivos {
     String a1=null;    
   
     File archivo=new File ("BaseDeDatos\\infoCuentas.txt");
+    File auxArchivo =new File("BaseDeDatos\\auxArchivo.txt");
+    
+    private static void copyFile(File src, File dest) throws IOException {
+        Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+    }
     
     /* Verificar si su ingreso es Correcto*/
     public String verificarIngreso(String usuario,String contra){
@@ -46,7 +53,7 @@ public class ManejosArchivos {
         return a1;
     }    
        
-    /*Se agregar Usuarios nuevos en este Banco*/
+    /*Se AGREGAR USUARIOS NUEVOS en este Banco*/
     public boolean agregarDatos(String usuario,String contra, String nombre, String apellido, String depositoCorriente,String depositoAhorro){
           
         //Se busca si existe ese usuario
@@ -71,10 +78,8 @@ public class ManejosArchivos {
               ex.printStackTrace(System.out);
           } catch (IOException ex) {
               ex.printStackTrace(System.out);
-          }          
-        
-        
-       //Se agg usuario
+          }                 
+        //Se agg usuario
         if(a){
             return a;         
         }else{            
@@ -83,7 +88,7 @@ public class ManejosArchivos {
             try {
                 FileWriter escribir =new FileWriter(archivo,true);
                 // escritura de usuario y contraseña
-                escribir.write("===================================\n");
+                escribir.write("\n===================================\n");
                 escribir.write(usuario+"\n");
                 escribir.write(contra+"\n");
                 //escritura de Nombre y Apellido
@@ -109,12 +114,11 @@ public class ManejosArchivos {
                ex.printStackTrace(System.out);
             }            
             return a;
-        }   
-        
-        
+        }          
+
     }
     
-    /* Obtener el nombre completo de su usuario*/    
+    /* Obtener el NOMBRE COMPLETO de su usuario*/    
     public String obtenerNombreUsuario(String usuario){
         String nombre = null;
         try {
@@ -141,7 +145,7 @@ public class ManejosArchivos {
         return nombre;
     }
     
-    /* Obtener el Numero cuenta Corriente de su usuario*/   
+    /* Obtener el NUMERO cuenta CORRIENTE de su usuario*/   
     public String obtenerNumCorrienteUsuario(String usuario){
         String numCorriente = null;
         try {
@@ -170,7 +174,7 @@ public class ManejosArchivos {
     }  
     
     
-    /* Obtener el saldo cuenta Corriente de su usuario*/   
+    /* Obtener el SALDO cuenta CORRIENTE de su usuario*/   
     public String obtenerSaldoCorrienteUsuario(String usuario){
         String saldoCorriente = null;
         try {
@@ -198,7 +202,7 @@ public class ManejosArchivos {
         return saldoCorriente;
     }
     
-    /* Obtener el Numero cuenta ahorro de su usuario*/   
+    /* Obtener el NUMERO cuenta AHORRO de su usuario*/   
     public String obtenerNumAhorroUsuario(String usuario){
         String numAhorro = null;
         try {
@@ -226,7 +230,7 @@ public class ManejosArchivos {
         return numAhorro;
     }
     
-    /* Obtener el saldo cuenta Ahorro de su usuario*/   
+    /* Obtener el SALDO cuenta AHORRO de su usuario*/   
     public String obtenerSaldoAhorroUsuario(String usuario){
         String saldoAhorro = null;
         try {
@@ -254,7 +258,7 @@ public class ManejosArchivos {
         return saldoAhorro;
     }
     
-    /* Obtener el Numero cuenta Credito de su usuario*/   
+    /* Obtener el NUMERO cuenta CREDITO de su usuario*/   
     public String obtenerNumCreditoUsuario(String usuario){
         String numCredito = null;
         try {
@@ -282,7 +286,7 @@ public class ManejosArchivos {
         return numCredito;
     }
     
-    /* Obtener el saldo cuenta Ahorro de su usuario*/   
+    /* Obtener el SALDO cuenta CREDITO de su usuario*/   
     public String obtenerSaldoCreditoUsuario(String usuario){
         String saldoCredito = null;
         try {
@@ -310,6 +314,98 @@ public class ManejosArchivos {
         return saldoCredito;
     }  
     
+    
+    public void pagar(String usuario,int tipoCuenta,int valor){
+        
+         // Se copia contenido en el auxiliar
+        try {
+            copyFile(archivo,auxArchivo);            
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        //borrar contenido del archivo original
+        try {
+            FileWriter escribir=new FileWriter(archivo);
+            escribir.write("");
+            escribir.close();                    
+        } catch (IOException ex) {
+          ex.printStackTrace(System.out);
+        }
+        
+         // se agg contenido linea por linea + mas modificacion + agg linea por linea
+        try {
+                        
+            FileReader lectura= new FileReader(auxArchivo);
+            BufferedReader lector=new BufferedReader(lectura);
+            
+            String x=null;
+            x=lector.readLine();
+            
+            FileWriter escribir=new FileWriter(archivo,true);    
+                                                                                System.out.println(x);
+            
+             /*Cambio de valor de Corriente*/            
+            if(tipoCuenta==0){
+                while(x!=null){
+                    if(x.equalsIgnoreCase(usuario)){
+                        for(int i=1;i<=5;i++){
+                                                                    System.out.println(x);
+                        escribir.write(x+"\n");
+                        x=lector.readLine();
+                        }
+                                                                 System.out.println(x);
+                        escribir.write(valor+"\n");
+                        x=lector.readLine();
+                    }else{
+                    escribir.write(x+"\n");
+                                    System.out.println(x);                   
+                    x=lector.readLine();
+                    }                 
+                }            
+            }
+             /*Cambio de valor de Ahorro*/
+            if(tipoCuenta==1){
+                while(x!=null){
+                        if(x.equalsIgnoreCase(usuario)){
+                            for(int i=1;i<=8;i++){
+                            escribir.write(x+"\n");
+                            x=lector.readLine();
+                            }
+                            escribir.write(valor+"\n");
+                            x=lector.readLine();
+                        }else{
+                            escribir.write(x+"\n");
+                            x=lector.readLine();
+                        }                 
+                 }
+
+            }
+             /*Cambio de valor de Credito*/
+            if(tipoCuenta==2){
+                while(x!=null){
+                        if(x.equalsIgnoreCase(usuario)){
+                            for(int i=1;i<=11;i++){
+                            escribir.write(x+"\n");
+                            x=lector.readLine();
+                            }
+                            escribir.write(valor+"\n");
+                            x=lector.readLine();
+                        }else{
+                            escribir.write(x+"\n");
+                            x=lector.readLine();
+                        }                 
+                 }
+            }
+            //////////////////////////////////////////
+            lector.close();            
+            escribir.close();            
+            auxArchivo.delete();
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
+        
+    }
     
     
 }
